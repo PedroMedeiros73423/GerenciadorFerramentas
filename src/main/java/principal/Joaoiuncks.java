@@ -2,7 +2,7 @@ package principal;
 
 public class Joaoiuncks {
    // ATRIBUTOS
-   private final String nome = "Elias Bernabé Turchiéllo";
+   private final String nome = "João Vitor Iuncks";
    private String curso;
    private String fase;
    
