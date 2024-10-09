@@ -1,15 +1,18 @@
 package model;
 
+import javax.swing.JOptionPane;
+
 public class Amigos {
-    
+
     private int amigoId;
     private String amigoNome;
     private String amigoEmail;
     private String amigoEndereco;
- 
+
     public Amigos() {
-     
-     this(0, "","","");
+
+        this(0, "", "", "");
+
     }
 
     public Amigos(int amigoId, String amigoNome, String amigoEmail, String amigoEndereco) {
@@ -36,7 +39,11 @@ public class Amigos {
     }
 
     public void setAmigoId(int amigoId) {
-        this.amigoId = amigoId;
+        if (amigoId < 0) {
+            JOptionPane.showMessageDialog(null, "ID do amigo não pode ser negativo. Por favor, insira um valor válido.");
+        } else {
+            this.amigoId = amigoId;
+        }
     }
 
     public void setAmigoNome(String amigoNome) {
@@ -50,6 +57,23 @@ public class Amigos {
     public void setAmigoEndereco(String amigoEndereco) {
         this.amigoEndereco = amigoEndereco;
     }
- 
-}
 
+    public void leituraAmigos() {
+        int id;
+        do {
+            id = Integer.parseInt(JOptionPane.showInputDialog("Digite o id do amigo (não pode ser negativo)"));
+            if (id < 0) {
+                JOptionPane.showMessageDialog(null, "ID inválido. Tente novamente.");
+            }
+        } while (id < 0);
+
+        setAmigoId(id);
+        setAmigoNome(JOptionPane.showInputDialog("Digite o nome do amigo"));
+        setAmigoEmail(JOptionPane.showInputDialog("Digite o e-mail do amigo"));
+        setAmigoEndereco(JOptionPane.showInputDialog("Digite o endereço do amigo"));
+    }
+
+    public String mostrarAmigos() {
+        return "ID: " + getAmigoId() + ", " + "NOME: " + getAmigoNome() + ", " + "EMAIL: " + getAmigoEmail() + ", " + "ENDERECO: " + getAmigoEndereco() + ".";
+    }
+}
