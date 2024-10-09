@@ -16,7 +16,7 @@ public class Amigos {
 
     }
 
-    public Amigos(int amigoId, String amigoNome, String amigoEmail, String amigoEndereco, String telefone) {
+    public Amigos(int amigoId, String amigoNome, String amigoEmail, String amigoEndereco, String amigoTelefone) {
         this.amigoId = amigoId;
         this.amigoNome = amigoNome;
         this.amigoEmail = amigoEmail;
