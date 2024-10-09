@@ -8,18 +8,20 @@ public class Amigos {
     private String amigoNome;
     private String amigoEmail;
     private String amigoEndereco;
+    private String amigoTelefone;
 
     public Amigos() {
 
-        this(0, "", "", "");
+        this(0, "", "", "", "");
 
     }
 
-    public Amigos(int amigoId, String amigoNome, String amigoEmail, String amigoEndereco) {
+    public Amigos(int amigoId, String amigoNome, String amigoEmail, String amigoEndereco, String telefone) {
         this.amigoId = amigoId;
         this.amigoNome = amigoNome;
         this.amigoEmail = amigoEmail;
         this.amigoEndereco = amigoEndereco;
+        this.amigoTelefone = amigoTelefone;
     }
 
     public int getAmigoId() {
@@ -36,6 +38,9 @@ public class Amigos {
 
     public String getAmigoEndereco() {
         return amigoEndereco;
+    }
+    public String getAmigoTelefone() {
+        return amigoTelefone;
     }
 
     public void setAmigoId(int amigoId) {
@@ -57,6 +62,9 @@ public class Amigos {
     public void setAmigoEndereco(String amigoEndereco) {
         this.amigoEndereco = amigoEndereco;
     }
+    public void setAmigoTelefone(String amigoTelefone) {
+        this.amigoTelefone = amigoTelefone;
+    }
 
     public void leituraAmigos() {
         int id;
@@ -71,9 +79,10 @@ public class Amigos {
         setAmigoNome(JOptionPane.showInputDialog("Digite o nome do amigo"));
         setAmigoEmail(JOptionPane.showInputDialog("Digite o e-mail do amigo"));
         setAmigoEndereco(JOptionPane.showInputDialog("Digite o endereço do amigo"));
+        setAmigoTelefone(JOptionPane.showInputDialog("Digite o telefone do amigo"));
     }
 
     public String mostrarAmigos() {
-        return "ID: " + getAmigoId() + ", " + "NOME: " + getAmigoNome() + ", " + "EMAIL: " + getAmigoEmail() + ", " + "ENDERECO: " + getAmigoEndereco() + ".";
+        return "ID: " + getAmigoId() + ", " + "NOME: " + getAmigoNome() + ", " + "EMAIL: " + getAmigoEmail() + ", " + "ENDERECO: " + getAmigoEndereco() + ", " + "Telefone: " + getAmigoTelefone() + ".";
     }
 }
