@@ -9,7 +9,7 @@ public class NewAmigos {
     private String amigoEndereco;
     private String amigoTelefone;
     
-    //CONSTUTORES
+    //CONSTRUTORES
     public NewAmigos() {
 
         this("", "", "", "");
