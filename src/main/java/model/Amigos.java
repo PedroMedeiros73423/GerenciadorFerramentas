@@ -3,13 +3,14 @@ package model;
 import javax.swing.JOptionPane;
 
 public class Amigos {
-
+    //VARIÁVEIS DE AMIGOS
     private int amigoId;
     private String amigoNome;
     private String amigoEmail;
     private String amigoEndereco;
     private String amigoTelefone;
-
+    
+    //CONSTUTORES
     public Amigos() {
 
         this(0, "", "", "", "");
@@ -23,7 +24,8 @@ public class Amigos {
         this.amigoEndereco = amigoEndereco;
         this.amigoTelefone = amigoTelefone;
     }
-
+    
+    //GETERS
     public int getAmigoId() {
         return amigoId;
     }
@@ -42,7 +44,8 @@ public class Amigos {
     public String getAmigoTelefone() {
         return amigoTelefone;
     }
-
+    
+    //SETTERS
     public void setAmigoId(int amigoId) {
         if (amigoId < 0) {
             JOptionPane.showMessageDialog(null, "ID do amigo não pode ser negativo. Por favor, insira um valor válido.");
@@ -50,7 +53,7 @@ public class Amigos {
             this.amigoId = amigoId;
         }
     }
-
+    
     public void setAmigoNome(String amigoNome) {
         this.amigoNome = amigoNome;
     }
@@ -65,7 +68,8 @@ public class Amigos {
     public void setAmigoTelefone(String amigoTelefone) {
         this.amigoTelefone = amigoTelefone;
     }
-
+    
+    //INSTANCIAR
     public void leituraAmigos() {
         int id;
         do {

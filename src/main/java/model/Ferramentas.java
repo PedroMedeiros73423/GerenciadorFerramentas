@@ -3,12 +3,13 @@ package model;
 import javax.swing.JOptionPane;
 
 public class Ferramentas {
-
+    //VARIÁVEIS DA FERRAMENTAS
     private int ferramentaId;
     private String ferramentaNome;
     private String ferramentaMarca;
     private int ferramentaValor;
-
+    
+    //CONSTRUTORES
     public Ferramentas() {
 
         this(0, "", "", 0);
@@ -21,7 +22,8 @@ public class Ferramentas {
         this.ferramentaMarca = ferramentaMarca;
         this.ferramentaValor = ferramentaValor;
     }
-
+    
+    //GETERS
     public int getFerramentaId() {
         return ferramentaId;
     }
@@ -37,7 +39,8 @@ public class Ferramentas {
     public int getFerramentaValor() {
         return ferramentaValor;
     }
-
+    
+    //SETTERS
     public void setFerramentaId(int ferramentaId) {
         if (ferramentaId < 0) {
             JOptionPane.showMessageDialog(null, "ID do amigo não pode ser negativo. Por favor, insira um valor válido.");
@@ -61,6 +64,8 @@ public class Ferramentas {
             this.ferramentaValor = ferramentaValor;
         }
     }
+    
+    //INSTANCIAR
     public void leituraFerramenta() {
         int id;
         do {
