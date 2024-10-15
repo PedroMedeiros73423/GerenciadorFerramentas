@@ -22,6 +22,12 @@ public class Ferramentas {
         this.ferramentaMarca = ferramentaMarca;
         this.ferramentaValor = ferramentaValor;
     }
+
+    public Ferramentas(String ferramentaNome, String ferramentaMarca, int ferramentaValor) {
+        this.ferramentaNome = ferramentaNome;
+        this.ferramentaMarca = ferramentaMarca;
+        this.ferramentaValor = ferramentaValor;
+    }
     
     //GETERS
     public int getFerramentaId() {

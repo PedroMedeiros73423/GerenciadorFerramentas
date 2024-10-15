@@ -3,13 +3,14 @@ package model;
 import javax.swing.JOptionPane;
 
 public class Amigos {
+
     //VARIÁVEIS DE AMIGOS
     private int amigoId;
     private String amigoNome;
     private String amigoEmail;
     private String amigoEndereco;
     private String amigoTelefone;
-    
+
     //CONSTRUTORES
     public Amigos() {
 
@@ -24,6 +25,16 @@ public class Amigos {
         this.amigoEndereco = amigoEndereco;
         this.amigoTelefone = amigoTelefone;
     }
+
+    public Amigos(String amigoNome, String amigoEmail, String amigoEndereco, String amigoTelefone) {
+        this.amigoNome = amigoNome;
+        this.amigoEmail = amigoEmail;
+        this.amigoEndereco = amigoEndereco;
+        this.amigoTelefone = amigoTelefone;
+    }
+
+
+
     
     //GETERS
     public int getAmigoId() {
@@ -41,10 +52,11 @@ public class Amigos {
     public String getAmigoEndereco() {
         return amigoEndereco;
     }
+
     public String getAmigoTelefone() {
         return amigoTelefone;
     }
-    
+
     //SETTERS
     public void setAmigoId(int amigoId) {
         if (amigoId < 0) {
@@ -53,7 +65,7 @@ public class Amigos {
             this.amigoId = amigoId;
         }
     }
-    
+
     public void setAmigoNome(String amigoNome) {
         this.amigoNome = amigoNome;
     }
@@ -65,10 +77,11 @@ public class Amigos {
     public void setAmigoEndereco(String amigoEndereco) {
         this.amigoEndereco = amigoEndereco;
     }
+
     public void setAmigoTelefone(String amigoTelefone) {
         this.amigoTelefone = amigoTelefone;
     }
-    
+
     //INSTANCIAR
     public void leituraAmigos() {
         int id;
