@@ -15,7 +15,7 @@ public class AmigosDAO extends ServidorDAO {
    private final ArrayList<Amigos> listaDeAmigos = new ArrayList<>();
 
    // LISTAR TODOS =============================================================
-   public ArrayList<Amigos> listarTodas() {
+   public ArrayList<Amigos> listarTodos() {
       // LIMPAR A LISTA ANTES DE INSERIR ALGO NELA
       listaDeAmigos.clear();
 
@@ -101,7 +101,7 @@ public class AmigosDAO extends ServidorDAO {
    }
 
    // CADASTRA NOVO AMIGO ======================================================
-   public boolean inserirFerramenta(Amigos novoAmigo) {
+   public boolean inserirAmigo(Amigos novoAmigo) {
       // CRIANDO A QUERY
       String sql = "INSERT INTO amigos(amigoId, amigoNome, amigoEmail, amigoEndereco, amigoTelefone) VALUES(?,?,?,?,?)";
 
@@ -115,7 +115,7 @@ public class AmigosDAO extends ServidorDAO {
             stmt.setString(2, novoAmigo.getAmigoNome());
             stmt.setString(3, novoAmigo.getAmigoEmail());
             stmt.setString(4, novoAmigo.getAmigoEndereco());
-            stmt.setString(4, novoAmigo.getAmigoTelefone());
+            stmt.setString(5, novoAmigo.getAmigoTelefone());
 
             stmt.execute();
             stmt.cancel();
@@ -129,7 +129,7 @@ public class AmigosDAO extends ServidorDAO {
    }
 
    // MODIFICAR UM AMIGO =======================================================
-   public boolean modificarFerramenta(Amigos esteAmigo) {
+   public boolean modificarAmigo(Amigos esteAmigo) {
       // CRIANDO A QUERY
       String sql = "UPDATE amigos SET amigoNome = ?, amigoEmail = ?, amigoEndereco = ?, amigoTelefone = ? WHERE amigoId = ?";
 
