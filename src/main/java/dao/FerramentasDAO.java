@@ -72,6 +72,9 @@ public class FerramentasDAO extends ServidorDAO {
    }
 
    public ArrayList<Ferramentas> listarUmaLista(int id) {
+      // LIMPAR A LISTA ANTES DE INSERIR ALGO NELA
+      listaDeFerramentas.clear();
+
       // CRIANDO UM OBJETO
       Ferramentas ferramenta = new Ferramentas();
 
@@ -178,4 +181,64 @@ public class FerramentasDAO extends ServidorDAO {
 
       }
    }
+
+   // RESUMO ===================================================================
+   // RELATÓRIO DE QUANTAS FERRAMENTAS TEM E DE QUANTO GASTOU
+   public Double[] fazerResumo() {
+      // Talvez agrupar por nome e somar os grupos /////////////////////////////
+
+      // CRIANDO O ARRAY DE RETORNO
+      Double[] resumoFerramentas = new Double[2];
+
+      try {
+         // FAZENDO A BUSCA NO BANCO DE DADOS
+         Statement stmt = super.getConexao().createStatement();
+         ResultSet res = stmt.executeQuery("SELECT COUNT(*) AS quantidade, sum(ferramentaValor) As investimento FROM ferramentas");
+         res.next();
+
+         // PEGANDO DOS DADOS DO RESUMO
+         resumoFerramentas[0] = Double.valueOf(res.getInt("quantidade"));
+         resumoFerramentas[1] = Double.valueOf(res.getInt("investimento"));
+
+         stmt.close();
+      } catch (SQLException erro) {
+         System.out.println("Erro:" + erro);
+      }
+      return resumoFerramentas;
+   }
+
+   // LISTAR TODAS DISPONÍVEIS =================================================
+   // RELATÓRIO LISTAR TODAS AS FERRAMENTAS DISPONÍVEIS PARA EMPRÉSTIMO
+   public ArrayList<Ferramentas> listarDisponiveis() {
+      // LIMPAR A LISTA ANTES DE INSERIR ALGO NELA
+      listaDeFerramentas.clear();
+
+      try {
+         // FAZENDO A BUSCA NO BANCO DE DADOS
+         Statement stmt = super.getConexao().createStatement();
+         ResultSet res = stmt.executeQuery("SELECT * FROM ferramentas LEFT JOIN negocios ON ferramentas.ferramentaId = negocios.negocioFerramentaId AND negocios.negocioFinal != '0000-00-00 00:00:00'");
+
+         // PROCESSANDO CADA LINHA RETORNADA DO BANCO
+         while (res.next()) {
+            // PEGANDO DOS DADOS DA FERRAMENTA
+            int id = res.getInt("ferramentaId");
+            String nome = res.getString("ferramentaNome");
+            String marca = res.getString("ferramentaMarca");
+            double valor = res.getDouble("ferramentaValor");
+
+            Ferramentas esta = new Ferramentas(id, nome, marca, valor);
+
+            // ADICIONAR A FERRAMENTA NA LISTA
+            listaDeFerramentas.add(esta);
+         }
+         stmt.close();
+
+      } catch (SQLException ex) {
+         System.out.println("Erro:" + ex);
+      }
+
+      // RETORNAR A LISTA
+      return listaDeFerramentas;
+   }
+
 }

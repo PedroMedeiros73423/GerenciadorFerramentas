@@ -74,6 +74,9 @@ public class AmigosDAO extends ServidorDAO {
    }
 
    public ArrayList<Amigos> listarUmLista(int id) {
+      // LIMPAR A LISTA ANTES DE INSERIR ALGO NELA
+      listaDeAmigos.clear();
+
       // CRIANDO UM OBJETO
       Amigos amigo = new Amigos();
 
