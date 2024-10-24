@@ -12,7 +12,6 @@ public class Principal {
       Amigos amigos = new Amigos();
       //amigos.leituraAmigos();
       System.out.println("As informações do amigo são => " + amigos.mostrarAmigos());
-      
       Ferramentas ferramentas = new Ferramentas();
       //ferramentas.leituraFerramenta();
       System.out.println("As informações da ferramenta são => " + ferramentas.mostrarFerramenta());
