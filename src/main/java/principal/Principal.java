@@ -10,11 +10,11 @@ public class Principal {
    public static void main(String[] args) {
       // INSTANCIAR
       Amigos amigos = new Amigos();
-      amigos.leituraAmigos();
+      //amigos.leituraAmigos();
       System.out.println("As informações do amigo são => " + amigos.mostrarAmigos());
       
       Ferramentas ferramentas = new Ferramentas();
-      ferramentas.leituraFerramenta();
+      //ferramentas.leituraFerramenta();
       System.out.println("As informações da ferramenta são => " + ferramentas.mostrarFerramenta());
       
       

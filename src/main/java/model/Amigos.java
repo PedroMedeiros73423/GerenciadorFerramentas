@@ -14,7 +14,7 @@ public class Amigos {
     //CONSTRUTORES
     public Amigos() {
 
-        this(0, "", "", "", "");
+        this(1, "Eduardo", "eduardo@gmail.com", "Rua teste 534", "48 999854357");
 
     }
 
@@ -83,23 +83,23 @@ public class Amigos {
     }
 
     //INSTANCIAR
-    public void leituraAmigos() {
-        int id;
-        do {
-            id = Integer.parseInt(JOptionPane.showInputDialog("Digite o id do amigo (não pode ser negativo)"));
-            if (id < 0) {
-                JOptionPane.showMessageDialog(null, "ID inválido. Tente novamente.");
-            }
-        } while (id < 0);
-
-        setAmigoId(id);
-        setAmigoNome(JOptionPane.showInputDialog("Digite o nome do amigo"));
-        setAmigoEmail(JOptionPane.showInputDialog("Digite o e-mail do amigo"));
-        setAmigoEndereco(JOptionPane.showInputDialog("Digite o endereço do amigo"));
-        setAmigoTelefone(JOptionPane.showInputDialog("Digite o telefone do amigo"));
-    }
+//    public void leituraAmigos() {
+//        int id;
+//        do {
+//            id = Integer.parseInt(JOptionPane.showInputDialog("Digite o id do amigo (não pode ser negativo)"));
+//            if (id < 0) {
+//                JOptionPane.showMessageDialog(null, "ID inválido. Tente novamente.");
+//            }
+//        } while (id < 0);
+//
+//        setAmigoId(id);
+//        setAmigoNome(JOptionPane.showInputDialog("Digite o nome do amigo"));
+//        setAmigoEmail(JOptionPane.showInputDialog("Digite o e-mail do amigo"));
+//        setAmigoEndereco(JOptionPane.showInputDialog("Digite o endereço do amigo"));
+//        setAmigoTelefone(JOptionPane.showInputDialog("Digite o telefone do amigo"));
+//    }
 
     public String mostrarAmigos() {
-        return "ID: " + getAmigoId() + ", " + "NOME: " + getAmigoNome() + ", " + "EMAIL: " + getAmigoEmail() + ", " + "ENDERECO: " + getAmigoEndereco() + ", " + "Telefone: " + getAmigoTelefone() + ".";
+        return "ID: " + getAmigoId() + ", " + "NOME: " + getAmigoNome() + ", " + "EMAIL: " + getAmigoEmail() + ", " + "ENDEREÇO: " + getAmigoEndereco() + ", " + "Telefone: " + getAmigoTelefone() + ".";
     }
 }
