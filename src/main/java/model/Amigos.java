@@ -14,7 +14,7 @@ public class Amigos {
     //CONSTRUTORES
     public Amigos() {
 
-        this(0, "", "", "", "");
+        this(1, "Eduardo", "eduardo@gmail.com", "Rua teste 534", "48 999854357");
 
     }
 
