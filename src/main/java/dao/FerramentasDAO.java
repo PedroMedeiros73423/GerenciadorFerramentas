@@ -216,7 +216,41 @@ public class FerramentasDAO extends ServidorDAO {
       try {
          // FAZENDO A BUSCA NO BANCO DE DADOS
          Statement stmt = super.getConexao().createStatement();
-         ResultSet res = stmt.executeQuery("SELECT * FROM ferramentas LEFT JOIN negocios ON ferramentas.ferramentaId = negocios.negocioFerramentaId AND negocios.negocioFinal != '0000-00-00 00:00:00'");
+         ResultSet res = stmt.executeQuery("SELECT * FROM ferramentas LEFT JOIN negocios ON ferramentas.ferramentaId = negocios.negocioFerramentaId WHERE negocios.negocioId IS NULL OR negocios.negocioFim <= now() AND negocios.negocioFinal <= now()");
+
+         // PROCESSANDO CADA LINHA RETORNADA DO BANCO
+         while (res.next()) {
+            // PEGANDO DOS DADOS DA FERRAMENTA
+            int id = res.getInt("ferramentaId");
+            String nome = res.getString("ferramentaNome");
+            String marca = res.getString("ferramentaMarca");
+            double valor = res.getDouble("ferramentaValor");
+
+            Ferramentas esta = new Ferramentas(id, nome, marca, valor);
+
+            // ADICIONAR A FERRAMENTA NA LISTA
+            listaDeFerramentas.add(esta);
+         }
+         stmt.close();
+
+      } catch (SQLException ex) {
+         System.out.println("Erro:" + ex);
+      }
+
+      // RETORNAR A LISTA
+      return listaDeFerramentas;
+   }
+
+   // LISTAR TODAS EMPRESTADAS =================================================
+   // RELATÓRIO LISTAR TODAS AS FERRAMENTAS EMPRESTADAS
+   public ArrayList<Ferramentas> listarEmprestadas() {
+      // LIMPAR A LISTA ANTES DE INSERIR ALGO NELA
+      listaDeFerramentas.clear();
+
+      try {
+         // FAZENDO A BUSCA NO BANCO DE DADOS
+         Statement stmt = super.getConexao().createStatement();
+         ResultSet res = stmt.executeQuery("SELECT * FROM ferramentas INNER JOIN negocios ON ferramentas.ferramentaId = negocios.negocioFerramentaId WHERE negocios.negocioFinal = '0000-00-00 00:00:00'");
 
          // PROCESSANDO CADA LINHA RETORNADA DO BANCO
          while (res.next()) {

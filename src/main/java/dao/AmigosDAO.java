@@ -187,4 +187,99 @@ public class AmigosDAO extends ServidorDAO {
       }
    }
 
+   // RESUMO ===================================================================
+   // RELATÓRIO DE QUANTO AMIGOS ESTÃO CADASTRADOS
+   public int fazerResumo() {
+      // Talvez contar quantos tem empréstimos e quantos não tem
+
+      // CRIANDO A VARIÁVEL DE RETORNO
+      int resumoAmigos = 0;
+
+      try {
+         // FAZENDO A BUSCA NO BANCO DE DADOS
+         Statement stmt = super.getConexao().createStatement();
+         ResultSet res = stmt.executeQuery("SELECT COUNT(*) AS quantidade FROM amigos");
+         res.next();
+
+         // PEGANDO DOS DADOS DO RESUMO
+         resumoAmigos = res.getInt("quantidade");
+
+         stmt.close();
+      } catch (SQLException erro) {
+         System.out.println("Erro:" + erro);
+      }
+      return resumoAmigos;
+   }
+
+   // EMPRESTADOS ==============================================================
+   // RELATÓRIO DE QUANTO AMIGOS POSSUEM FERRAMENTAS EMPRESTADAS
+   public ArrayList<Amigos> listarEmpmrestados() {
+      // LIMPAR A LISTA ANTES DE INSERIR ALGO NELA
+      listaDeAmigos.clear();
+
+      try {
+         // FAZENDO A BUSCA NO BANCO DE DADOS
+         Statement stmt = super.getConexao().createStatement();
+         ResultSet res = stmt.executeQuery("SELECT * FROM amigos INNER JOIN negocios ON amigos.amigoId = negocios.negocioAmigoId WHERE negocios.negocioFim > now() GROUP BY amigos.amigoNome");
+
+         // PROCESSANDO CADA LINHA RETORNADA DO BANCO
+         while (res.next()) {
+            // PEGANDO DOS DADOS DO AMIGO
+            int id = res.getInt("amigoId");
+            String nome = res.getString("amigoNome");
+            String email = res.getString("amigoEmail");
+            String endereco = res.getString("amigoEndereco");
+            String telefone = res.getString("amigoTelefone");
+
+            Amigos este = new Amigos(id, nome, email, endereco, telefone);
+
+            // ADICIONAR O AMIGO NA LISTA
+            listaDeAmigos.add(este);
+         }
+         stmt.close();
+
+      } catch (SQLException ex) {
+         System.out.println("Erro:" + ex);
+      }
+
+      // RETORNAR A LISTA
+      return listaDeAmigos;
+   }
+   
+   
+   // DEVEDORES ==============================================================
+   // RELATÓRIO DE QUANTO AMIGOS POSSUEM FERRAMENTAS NÃO DEVOLVIDAS
+   public ArrayList<Amigos> listarDevedores() {
+      // LIMPAR A LISTA ANTES DE INSERIR ALGO NELA
+      listaDeAmigos.clear();
+
+      try {
+         // FAZENDO A BUSCA NO BANCO DE DADOS
+         Statement stmt = super.getConexao().createStatement();
+         ResultSet res = stmt.executeQuery("SELECT * FROM amigos INNER JOIN negocios ON amigos.amigoId = negocios.negocioAmigoId WHERE now() > negocios.negocioFim AND negocios.negocioFinal = '0000-00-00 00:00:00' GROUP BY amigos.amigoNome");
+
+         // PROCESSANDO CADA LINHA RETORNADA DO BANCO
+         while (res.next()) {
+            // PEGANDO DOS DADOS DO AMIGO
+            int id = res.getInt("amigoId");
+            String nome = res.getString("amigoNome");
+            String email = res.getString("amigoEmail");
+            String endereco = res.getString("amigoEndereco");
+            String telefone = res.getString("amigoTelefone");
+
+            Amigos este = new Amigos(id, nome, email, endereco, telefone);
+
+            // ADICIONAR O AMIGO NA LISTA
+            listaDeAmigos.add(este);
+         }
+         stmt.close();
+
+      } catch (SQLException ex) {
+         System.out.println("Erro:" + ex);
+      }
+
+      // RETORNAR A LISTA
+      return listaDeAmigos;
+   }
+
 }
