@@ -15,6 +15,15 @@ public class ControleFerramenta {
             return false;
         }
     }
+    
+    public boolean retirar(Ferramentas F){
+        if (F != null){
+            ferramentas.remove(F);
+            return true;
+        } else{
+            return false;
+        }
+    }
 
     public ArrayList<Ferramentas> retornarTodos() {
         return ferramentas;
