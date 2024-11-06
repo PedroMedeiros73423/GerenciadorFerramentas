@@ -41,7 +41,7 @@ public class TelaDevolverFerramenta extends javax.swing.JPanel {
         jButton2 = new javax.swing.JButton();
 
         jLabel2.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
-        jLabel2.setText("DEVOLVER FERRAMENTA");
+        jLabel2.setText("DEVOLUÇÃO DE FERRAMENTA");
 
         jLabel1.setText("Nome:");
 

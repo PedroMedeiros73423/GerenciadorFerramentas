@@ -126,9 +126,19 @@ public class Index extends javax.swing.JFrame {
         jMenu3.setText("Negócios");
 
         negociosEmprestar.setText("Emprestar");
+        negociosEmprestar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                negociosEmprestarActionPerformed(evt);
+            }
+        });
         jMenu3.add(negociosEmprestar);
 
         amigosDevolver.setText("Devolver");
+        amigosDevolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                amigosDevolverActionPerformed(evt);
+            }
+        });
         jMenu3.add(amigosDevolver);
 
         jMenuBar1.add(jMenu3);
@@ -164,6 +174,18 @@ public class Index extends javax.swing.JFrame {
         jTelaDesktop.add(telaCadastroAmigo);
         telaCadastroAmigo.setVisible(true);
     }//GEN-LAST:event_amigosCadastrarActionPerformed
+
+    private void negociosEmprestarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_negociosEmprestarActionPerformed
+        // TODO add your handling code here:
+        TelaEmprestarFerramenta objeto = new TelaEmprestarFerramenta();
+        objeto.setVisible(true);
+    }//GEN-LAST:event_negociosEmprestarActionPerformed
+
+    private void amigosDevolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_amigosDevolverActionPerformed
+        // TODO add your handling code here:
+        TelaDevolverFerramenta objeto = new TelaDevolverFerramenta();
+        objeto.setVisible(true);
+    }//GEN-LAST:event_amigosDevolverActionPerformed
 
     /**
      * @param args the command line arguments

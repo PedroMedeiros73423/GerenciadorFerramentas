@@ -40,7 +40,7 @@ public class TelaEmprestarFerramenta extends javax.swing.JPanel {
         jButton2 = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
-        jLabel1.setText("EMPRESTIMO DE FERRAMENTA");
+        jLabel1.setText("EMPRÉSTIMO DE FERRAMENTA");
 
         jLabel2.setText("Nome:");
 
