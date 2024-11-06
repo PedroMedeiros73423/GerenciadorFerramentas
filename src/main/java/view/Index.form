@@ -97,20 +97,20 @@
             <Property name="text" type="java.lang.String" value="Neg&#xf3;cios"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="negociosEmprestar">
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuEmprestar">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Emprestar"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="negociosEmprestarActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuEmprestarActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="amigosDevolver">
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuDevolver">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Devolver"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="amigosDevolverActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuDevolverActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>

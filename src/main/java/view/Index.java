@@ -43,8 +43,8 @@ public class Index extends javax.swing.JFrame {
         amigosEditar = new javax.swing.JMenuItem();
         amigosExcluir = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
-        negociosEmprestar = new javax.swing.JMenuItem();
-        amigosDevolver = new javax.swing.JMenuItem();
+        jMenuEmprestar = new javax.swing.JMenuItem();
+        jMenuDevolver = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Gerenciador de ferramentas");
@@ -125,21 +125,21 @@ public class Index extends javax.swing.JFrame {
 
         jMenu3.setText("Negócios");
 
-        negociosEmprestar.setText("Emprestar");
-        negociosEmprestar.addActionListener(new java.awt.event.ActionListener() {
+        jMenuEmprestar.setText("Emprestar");
+        jMenuEmprestar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                negociosEmprestarActionPerformed(evt);
+                jMenuEmprestarActionPerformed(evt);
             }
         });
-        jMenu3.add(negociosEmprestar);
+        jMenu3.add(jMenuEmprestar);
 
-        amigosDevolver.setText("Devolver");
-        amigosDevolver.addActionListener(new java.awt.event.ActionListener() {
+        jMenuDevolver.setText("Devolver");
+        jMenuDevolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                amigosDevolverActionPerformed(evt);
+                jMenuDevolverActionPerformed(evt);
             }
         });
-        jMenu3.add(amigosDevolver);
+        jMenu3.add(jMenuDevolver);
 
         jMenuBar1.add(jMenu3);
 
@@ -175,17 +175,17 @@ public class Index extends javax.swing.JFrame {
         telaCadastroAmigo.setVisible(true);
     }//GEN-LAST:event_amigosCadastrarActionPerformed
 
-    private void negociosEmprestarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_negociosEmprestarActionPerformed
+    private void jMenuEmprestarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuEmprestarActionPerformed
         // TODO add your handling code here:
-        TelaEmprestarFerramenta objeto = new TelaEmprestarFerramenta();
+        FrmEmprestarFerramenta objeto = new FrmEmprestarFerramenta();
         objeto.setVisible(true);
-    }//GEN-LAST:event_negociosEmprestarActionPerformed
+    }//GEN-LAST:event_jMenuEmprestarActionPerformed
 
-    private void amigosDevolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_amigosDevolverActionPerformed
+    private void jMenuDevolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuDevolverActionPerformed
         // TODO add your handling code here:
-        TelaDevolverFerramenta objeto = new TelaDevolverFerramenta();
+        FrmDevolverFerramentaV2 objeto = new FrmDevolverFerramentaV2();
         objeto.setVisible(true);
-    }//GEN-LAST:event_amigosDevolverActionPerformed
+    }//GEN-LAST:event_jMenuDevolverActionPerformed
 
     /**
      * @param args the command line arguments
@@ -225,7 +225,6 @@ public class Index extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem amigosCadastrar;
     private javax.swing.JMenuItem amigosDevedores;
-    private javax.swing.JMenuItem amigosDevolver;
     private javax.swing.JMenuItem amigosEditar;
     private javax.swing.JMenuItem amigosEmprestados;
     private javax.swing.JMenuItem amigosExcluir;
@@ -240,7 +239,8 @@ public class Index extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuDevolver;
+    private javax.swing.JMenuItem jMenuEmprestar;
     private javax.swing.JDesktopPane jTelaDesktop;
-    private javax.swing.JMenuItem negociosEmprestar;
     // End of variables declaration//GEN-END:variables
 }
