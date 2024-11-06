@@ -7,6 +7,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import model.Amigos;
+import model.Ferramentas;
 import model.Negocios;
 
 public class NegociosDAO extends ServidorDAO {
@@ -23,8 +25,8 @@ public class NegociosDAO extends ServidorDAO {
       try {
          // FAZENDO A BUSCA NO BANCO DE DADOS
          Statement stmt = super.getConexao().createStatement();
-         // ResultSet res = stmt.executeQuery("SELECT * FROM negocios");
-         ResultSet res = stmt.executeQuery("SELECT negocioId, ferramentas.ferramentaNome AS negocioFerramentaId, amigos.amigoNome AS negocioAmigoId, negocioInicio, negocioFim, negocioFinal FROM `negocios` INNER JOIN ferramentas ON negocios.negocioFerramentaId = ferramentas.ferramentaId  INNER JOIN amigos ON negocios.negocioAmigoId = amigos.amigoId ORDER BY negocioId");
+         ResultSet res = stmt.executeQuery("SELECT * FROM negocios");
+         // ResultSet res = stmt.executeQuery("SELECT negocioId, ferramentas.ferramentaNome AS negocioFerramentaId, amigos.amigoNome AS negocioAmigoId, negocioInicio, negocioFim, negocioFinal FROM `negocios` INNER JOIN ferramentas ON negocios.negocioFerramentaId = ferramentas.ferramentaId  INNER JOIN amigos ON negocios.negocioAmigoId = amigos.amigoId ORDER BY negocioId");
 
          // PROCESSANDO CADA LINHA RETORNADA DO BANCO
          while (res.next()) {
@@ -49,6 +51,44 @@ public class NegociosDAO extends ServidorDAO {
 
       // RETORNAR A LISTA
       return listaDeNegocios;
+   }
+
+   // LISTAR TODOS join =============================================================
+   // RELATÓRIO DE TODOS OS NEGÓCIOS REALIZADOS
+   public String listarNegociosJoin() {
+      // LIMPAR A LISTA ANTES DE INSERIR ALGO NELA
+//      listaDeNegocios.clear();
+
+      try {
+         // FAZENDO A BUSCA NO BANCO DE DADOS
+         Statement stmt = super.getConexao().createStatement();
+         ResultSet res = stmt.executeQuery("SELECT negocioId, ferramentas.ferramentaNome AS negocioFerramentaId, amigos.amigoNome AS negocioAmigoId, negocioInicio, negocioFim, negocioFinal FROM `negocios` INNER JOIN ferramentas ON negocios.negocioFerramentaId = ferramentas.ferramentaId  INNER JOIN amigos ON negocios.negocioAmigoId = amigos.amigoId ORDER BY negocioId");
+
+         System.out.println(res.getRow());
+
+         // PROCESSANDO CADA LINHA RETORNADA DO BANCO
+//         while (res.next()) {
+//            // PEGANDO DOS DADOS DO NEGÓCIO
+//            int id = res.getInt("negocioId");
+//            int ferramentaId = res.getInt("negocioFerramentaId");
+//            int amigoId = res.getInt("negocioAmigoId");
+//            String inicio = res.getString("negocioInicio");
+//            String fim = res.getString("negocioFim");
+//            String terminou = res.getString("negocioFinal");
+//
+//            Negocios este = new Negocios(id, ferramentaId, amigoId, inicio, fim, terminou);
+//
+//            // ADICIONAR O NEGÓCIO NA LISTA
+//            listaDeNegocios.add(este);
+//         }
+         stmt.close();
+
+      } catch (SQLException ex) {
+         System.out.println("Erro:" + ex);
+      }
+
+      // RETORNAR A LISTA
+      return "";
    }
 
    // LISTAR UM ================================================================
@@ -124,7 +164,9 @@ public class NegociosDAO extends ServidorDAO {
             stmt.setInt(3, novoNegocio.getNegocioAmigoId());
             stmt.setString(4, novoNegocio.getNegocioInicio());
             stmt.setString(5, novoNegocio.getNegocioFim());
-            stmt.setString(6, novoNegocio.getNegocioFinal());
+            // stmt.setString(6, novoNegocio.getNegocioFinal());
+            // stmt.setString(6, "0000-00-00 00:00:00");
+            stmt.setString(6, null);
 
             stmt.execute();
             stmt.cancel();
@@ -193,8 +235,47 @@ public class NegociosDAO extends ServidorDAO {
 
       }
    }
-   
-   
+
+   // ENCERRAR UM NEGÓCIO ======================================================
+   public boolean encerrarNegocio(int id) {
+      // CRIANDO A QUERY
+      String sql = "UPDATE negocios SET negocioFim = now(), negocioFinal = now() WHERE negocioId = " + id;
+
+      try {
+         try (
+            // PREPARANDO A CONEXÃO COM O BANCO
+             PreparedStatement stmt = super.getConexao().prepareStatement(sql)) {
+
+            stmt.execute();
+            stmt.cancel();
+         }
+         return true;
+      } catch (SQLException erro) {
+         System.out.println("Erro:" + erro);
+         throw new RuntimeException(erro);
+      }
+   }
+
+   // FINALIZAR UM NEGÓCIO =====================================================
+   public boolean finalizarNegocio(int id) {
+      // CRIANDO A QUERY
+      String sql = "UPDATE negocios SET negocioFinal = now() WHERE negocioId = " + id;
+
+      try {
+         try (
+            // PREPARANDO A CONEXÃO COM O BANCO
+             PreparedStatement stmt = super.getConexao().prepareStatement(sql)) {
+
+            stmt.execute();
+            stmt.cancel();
+         }
+         return true;
+      } catch (SQLException erro) {
+         System.out.println("Erro:" + erro);
+         throw new RuntimeException(erro);
+      }
+   }
+
    // LISTAR NEGÓCIOS ATIVOS ===================================================
    // RELATÓRIO LISTAR NEGÓCIOS ATIVOS
    public ArrayList<Negocios> listarNegociosAtivos() {
@@ -230,8 +311,7 @@ public class NegociosDAO extends ServidorDAO {
       // RETORNAR A LISTA
       return listaDeNegocios;
    }
-   
-   
+
    // LISTAR NEGÓCIOS ATRASADOS ===================================================
    // RELATÓRIO LISTAR TODOS OS NEGÓCIOS ATRASADOS
    public ArrayList<Negocios> listarNegociosAtrasados() {
@@ -267,10 +347,8 @@ public class NegociosDAO extends ServidorDAO {
       // RETORNAR A LISTA
       return listaDeNegocios;
    }
-   
-   
-   
-   // LISTAR NEGÓCIOS ATRASADOS ===================================================
+
+   // LISTAR NEGÓCIOS ATRASADOS ================================================
    // RELATÓRIO LISTAR NEGÓCIOS ATRASADOS PARA UM AMIGO ESPECÍFICO
    public ArrayList<Negocios> verificarNegociosAtrasados(int suspeito) {
       // LIMPAR A LISTA ANTES DE INSERIR ALGO NELA

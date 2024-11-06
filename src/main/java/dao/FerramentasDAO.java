@@ -46,6 +46,40 @@ public class FerramentasDAO extends ServidorDAO {
       // RETORNAR A LISTA
       return listaDeFerramentas;
    }
+   
+   
+   // BUSCAR FERRAMENTAS DISPONÍVEIS ===========================================
+   public ArrayList<Ferramentas> buscarDisponiveis(String texto) {
+      // LIMPAR A LISTA ANTES DE INSERIR ALGO NELA
+      listaDeFerramentas.clear();
+
+      try {
+         // FAZENDO A BUSCA NO BANCO DE DADOS
+         Statement stmt = super.getConexao().createStatement();
+         ResultSet res = stmt.executeQuery("SELECT * FROM ferramentas");
+
+         // PROCESSANDO CADA LINHA RETORNADA DO BANCO
+         while (res.next()) {
+            // PEGANDO DOS DADOS DA FERRAMENTA
+            int id = res.getInt("ferramentaId");
+            String nome = res.getString("ferramentaNome");
+            String marca = res.getString("ferramentaMarca");
+            double valor = res.getDouble("ferramentaValor");
+
+            Ferramentas esta = new Ferramentas(id, nome, marca, valor);
+
+            // ADICIONAR A FERRAMENTA NA LISTA
+            listaDeFerramentas.add(esta);
+         }
+         stmt.close();
+
+      } catch (SQLException ex) {
+         System.out.println("Erro:" + ex);
+      }
+
+      // RETORNAR A LISTA
+      return listaDeFerramentas;
+   }
 
    // LISTAR UMA ===============================================================
    public Ferramentas listarUmaObjeto(int id) {
@@ -250,7 +284,8 @@ public class FerramentasDAO extends ServidorDAO {
       try {
          // FAZENDO A BUSCA NO BANCO DE DADOS
          Statement stmt = super.getConexao().createStatement();
-         ResultSet res = stmt.executeQuery("SELECT * FROM ferramentas INNER JOIN negocios ON ferramentas.ferramentaId = negocios.negocioFerramentaId WHERE negocios.negocioFinal = '0000-00-00 00:00:00'");
+        // ResultSet res = stmt.executeQuery("SELECT * FROM ferramentas INNER JOIN negocios ON ferramentas.ferramentaId = negocios.negocioFerramentaId WHERE negocios.negocioFinal = '0000-00-00 00:00:00'");
+         ResultSet res = stmt.executeQuery("SELECT * FROM ferramentas INNER JOIN negocios ON ferramentas.ferramentaId = negocios.negocioFerramentaId WHERE negocios.negocioFinal is null");
 
          // PROCESSANDO CADA LINHA RETORNADA DO BANCO
          while (res.next()) {

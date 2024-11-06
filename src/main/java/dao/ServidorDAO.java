@@ -9,11 +9,11 @@ import java.sql.SQLException;
 public class ServidorDAO {
 
    // ATRIBUTOS ================================================================
-   private final String server = "8.8.8.8";
+   private final String server = "127.0.0.1";
    private final int port = 3306;
    private final String database = "ferramentas";
-   private final String user = "sergey";
-   private final String password = "euNaoSerTaLoco!";
+   private final String user = "root";
+   private final String password = "unisul";
    private final String url = "jdbc:mysql://" + server + ":" + port + "/" + database + "?useTimezone=true&serverTimezone=UTC";
 
    // CONEXÃO COM O BANCO ======================================================

@@ -220,7 +220,8 @@ public class AmigosDAO extends ServidorDAO {
       try {
          // FAZENDO A BUSCA NO BANCO DE DADOS
          Statement stmt = super.getConexao().createStatement();
-         ResultSet res = stmt.executeQuery("SELECT * FROM amigos INNER JOIN negocios ON amigos.amigoId = negocios.negocioAmigoId WHERE negocios.negocioFim > now() GROUP BY amigos.amigoNome");
+         // ResultSet res = stmt.executeQuery("SELECT * FROM amigos INNER JOIN negocios ON amigos.amigoId = negocios.negocioAmigoId WHERE negocios.negocioFim > now() GROUP BY amigos.amigoNome");
+         ResultSet res = stmt.executeQuery("SELECT * FROM amigos INNER JOIN negocios ON amigos.amigoId = negocios.negocioAmigoId WHERE negocios.negocioFim > now()");
 
          // PROCESSANDO CADA LINHA RETORNADA DO BANCO
          while (res.next()) {
@@ -256,7 +257,8 @@ public class AmigosDAO extends ServidorDAO {
       try {
          // FAZENDO A BUSCA NO BANCO DE DADOS
          Statement stmt = super.getConexao().createStatement();
-         ResultSet res = stmt.executeQuery("SELECT * FROM amigos INNER JOIN negocios ON amigos.amigoId = negocios.negocioAmigoId WHERE now() > negocios.negocioFim AND negocios.negocioFinal = '0000-00-00 00:00:00' GROUP BY amigos.amigoNome");
+         // ResultSet res = stmt.executeQuery("SELECT * FROM amigos INNER JOIN negocios ON amigos.amigoId = negocios.negocioAmigoId WHERE now() > negocios.negocioFim AND negocios.negocioFinal = '0000-00-00 00:00:00' GROUP BY amigos.amigoNome");
+         ResultSet res = stmt.executeQuery("SELECT * FROM amigos INNER JOIN negocios ON amigos.amigoId = negocios.negocioAmigoId WHERE now() > negocios.negocioFim AND negocios.negocioFinal is null");
 
          // PROCESSANDO CADA LINHA RETORNADA DO BANCO
          while (res.next()) {
