@@ -9,108 +9,64 @@
         </Property>
       </Properties>
       <SubComponents>
-        <Menu class="javax.swing.JMenu" name="jMenu1">
+        <Menu class="javax.swing.JMenu" name="ferramentasMenu">
           <Properties>
             <Property name="text" type="java.lang.String" value="Ferramentas"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="ferramentasTodas">
+            <MenuItem class="javax.swing.JMenuItem" name="ferramentasMenuGerenciar">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Listar todas"/>
+                <Property name="text" type="java.lang.String" value="Gerenciar"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ferramentasTodasActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ferramentasMenuGerenciarActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="ferramentasEmprestadas">
+            <MenuItem class="javax.swing.JMenuItem" name="ferramentasMenuEmprestadas">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Listar emprestadas"/>
               </Properties>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="ferramentasDisponiveis">
+            <MenuItem class="javax.swing.JMenuItem" name="ferramentasMenuDisponiveis">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Listar dispon&#xed;veis"/>
               </Properties>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="ferramentasCadastrar">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Cadastrar"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ferramentasCadastrarActionPerformed"/>
-              </Events>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="ferramentasEditar">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Editar"/>
-              </Properties>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="ferramentasExcluir">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Excluir"/>
-              </Properties>
-            </MenuItem>
           </SubComponents>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu2">
+        <Menu class="javax.swing.JMenu" name="amigosMenu">
           <Properties>
             <Property name="text" type="java.lang.String" value="Amigos"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="amigosTodos">
+            <MenuItem class="javax.swing.JMenuItem" name="amigosMenuGerenciar">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Listar todos"/>
+                <Property name="text" type="java.lang.String" value="Gerenciar"/>
               </Properties>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="amigosEmprestados">
+            <MenuItem class="javax.swing.JMenuItem" name="amigosMenuEmprestados">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Listar emprestados"/>
               </Properties>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="amigosDevedores">
+            <MenuItem class="javax.swing.JMenuItem" name="amigosMenuDevedores">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Listar devedores"/>
               </Properties>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="amigosCadastrar">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Cadastrar"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="amigosCadastrarActionPerformed"/>
-              </Events>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="amigosEditar">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Editar"/>
-              </Properties>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="amigosExcluir">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Excluir"/>
-              </Properties>
-            </MenuItem>
           </SubComponents>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu3">
+        <Menu class="javax.swing.JMenu" name="negociosMenu">
           <Properties>
             <Property name="text" type="java.lang.String" value="Neg&#xf3;cios"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuEmprestar">
+            <MenuItem class="javax.swing.JMenuItem" name="negociosMenuGerenciar">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Emprestar"/>
+                <Property name="text" type="java.lang.String" value="Gerenciar"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuEmprestarActionPerformed"/>
-              </Events>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuDevolver">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Devolver"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuDevolverActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="negociosMenuGerenciarActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>
