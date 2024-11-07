@@ -4,6 +4,8 @@
  */
 package view;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Pedro
@@ -105,7 +107,22 @@ public class FrmDevolverFerramentaV2 extends javax.swing.JFrame {
 
     private void JOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JOkActionPerformed
         // TODO add your handling code here:
-       //
+       try{
+           String nome = "";
+           String marca = "";
+           if(this.jnomedevolver.getText().length() < 2){
+               throw new Mensagem("Nome da ferramenta deve conter no mínimo 2 caracteres.");
+           }else{
+            nome = this.jnomedevolver.getText();
+        } if(this.jmarcadevolver.getText().length() < 2){
+            throw new Mensagem("Nome da marca deve conter no mínimo 2 caracteres.");
+        }else{
+            marca = this.jmarcadevolver.getText();
+        }
+        }catch(Mensagem erro){
+            JOptionPane.showMessageDialog(null, erro.getMessage());
+        }
+       
     }//GEN-LAST:event_JOkActionPerformed
 
     private void JCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JCancelarActionPerformed
