@@ -8,15 +8,15 @@ public class Index extends javax.swing.JFrame {
    // FUNÇÃO PARA CARREGAR O DASHBOARD
    private void carregarDashboard() {
       // RESUMO DAS FERRAMENTAS
-      Ferramentas ferramenta = new Ferramentas();
-      Double[] resumoFerramentas = ferramenta.fazerResumo();
-      ferramentasQuantidade.setText(String.format("%.0f", resumoFerramentas[0]));
-      ferramentasValor.setText("R$ " + String.format("%.2f", resumoFerramentas[1]));
+//      Ferramentas ferramenta = new Ferramentas();
+//      Double[] resumoFerramentas = ferramenta.fazerResumo();
+//      ferramentasQuantidade.setText(String.format("%.0f", resumoFerramentas[0]));
+//      ferramentasValor.setText("R$ " + String.format("%.2f", resumoFerramentas[1]));
 
       // RESUMO DOS AMIGOS
-      Amigos amigo = new Amigos();
-      int resumoAmigos = amigo.fazerRezumo();
-      amigosQuantidade.setText(String.valueOf(resumoAmigos));
+//      Amigos amigo = new Amigos();
+//      int resumoAmigos = amigo.fazerRezumo();
+//      amigosQuantidade.setText(String.valueOf(resumoAmigos));
    }
 
    public Index() {
@@ -261,7 +261,7 @@ public class Index extends javax.swing.JFrame {
 
     private void negociosMenuGerenciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_negociosMenuGerenciarActionPerformed
        // TODO add your handling code here:
-       FrmEmprestarFerramenta objeto = new FrmEmprestarFerramenta();
+       Gerenciador objeto = new Gerenciador();
        objeto.setVisible(true);
     }//GEN-LAST:event_negociosMenuGerenciarActionPerformed
 
