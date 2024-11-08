@@ -93,6 +93,7 @@ public class Ferramentas {
    // CADASTRAR FERRAMENTA =====================================================
    public boolean inserirFerramenta(String nome, String marca, double valor) {
       // VALIDAR OS DADOS
+       
       if (nome.length() < 5 || marca.length() < 3 || valor <= 0) {
          return false;
       }

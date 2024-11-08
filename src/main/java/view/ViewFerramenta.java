@@ -256,43 +256,27 @@ public class ViewFerramenta extends javax.swing.JFrame {
     }//GEN-LAST:event_JBFecharActionPerformed
 
     private void JBRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBRegistrarActionPerformed
-        try {
-// recebendo e validando dados da interface gráfica.
-            String ferramentaNome = "";
-            String ferramentaMarca = "";
-            double ferramentaValor = 0.0;
-            if (this.JTFNome.getText().length() < 2) {
-                throw new Mensagem("Nome deve conter ao menos 2 caracteres.");
-            } else {
-                ferramentaNome = this.JTFNome.getText();
-            }
-            if (this.JTFMarca.getText().length() < 1) {
-                throw new Mensagem("Marca deve conter ao menos 2 caracteres.");
-            } else {
-                ferramentaMarca = this.JTFMarca.getText();
-            }
+        // LENDO O VALOR, CASO ESTEJA VAZIO DEFINIR COMO ZERO
+      Double valor = 0.0;
+      String val = JTFValor.getText();
+      if (val.length() > 0) {
+         valor = Double.parseDouble(val);
+      }
 
-            if (this.JTFValor.getText().length() <= 0) {
-                throw new Mensagem("Fase deve ser número e maior que zero.");
-            } else {
-                ferramentaValor = Double.parseDouble(this.JTFValor.getText());
-            }
-// envia os dados para o Controlador cadastrar
-            System.out.println(ferramentaNome);
-            if (this.manipulado.inserirFerramenta(ferramentaNome, ferramentaMarca, ferramentaValor)) {
-                JOptionPane.showMessageDialog(null, "Aluno Cadastrado com Sucesso!");
-// limpa campos da interface
-                this.JTFNome.setText("");
-                this.JTFMarca.setText("");
-                this.JTFValor.setText("");
-            }
-//Exibie no console o aluno cadastrado
-            System.out.println(this.manipulado.listarTodas().toString());
-        } catch (Mensagem erro) {
-            JOptionPane.showMessageDialog(null, erro.getMessage());
-        } catch (NumberFormatException erro2) {
-            JOptionPane.showMessageDialog(null, "Informe um número válido.");
-        }
+      // SALVANDO NO BANCO DE DADOS
+        System.out.println(JTFNome.getText());
+        System.out.println(JTFMarca.getText());
+        System.out.println(valor);
+      boolean result = manipulado.inserirFerramenta(JTFNome.getText(), JTFMarca.getText(), valor);
+
+      // PÓS PROCESSAMENTO
+      if (result == true) {
+         // RECARREGAR TABELA
+         carregaTabela();
+         JOptionPane.showMessageDialog(null, "Ferramenta cadastrada com sucesso");
+      } else {
+         JOptionPane.showMessageDialog(null, "Não foi possível cadastrar a ferramenta no banco de dados");
+      }
     }//GEN-LAST:event_JBRegistrarActionPerformed
 
     private void JBExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBExcluirActionPerformed
@@ -309,15 +293,27 @@ public class ViewFerramenta extends javax.swing.JFrame {
     }//GEN-LAST:event_JBExcluirActionPerformed
 
     private void JBAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBAtualizarActionPerformed
-        if (JTTabelaFerramentas.getSelectedRow() != -1) {
-            JTTabelaFerramentas.setValueAt(JTFNome.getText(), JTTabelaFerramentas.getSelectedRow(), 0);
-            JTTabelaFerramentas.setValueAt(JTFMarca.getText(), JTTabelaFerramentas.getSelectedRow(), 1);
-            JTTabelaFerramentas.setValueAt(JTFValor.getText(), JTTabelaFerramentas.getSelectedRow(), 2);
-            JOptionPane.showMessageDialog(null, "Atualizado com sucesso");
+        // LENDO O ID DA LINHA
+      int id = Integer.parseInt(this.JTTabelaFerramentas.getValueAt(this.JTTabelaFerramentas.getSelectedRow(), 0).toString());
 
-        } else {
-            JOptionPane.showMessageDialog(null, "É preciso escolher um para atualizar primeiro");
-        }
+      // LENDO O VALOR, CASO ESTEJA VAZIO DEFINIR COMO ZERO
+      Double valor = 0.0;
+      String val = JTFValor.getText();
+      if (val.length() > 0) {
+         valor = Double.parseDouble(val);
+      }
+
+      // SALVANDO NO BANCO
+      boolean result = manipulado.editarFerramenta(id, JTFNome.getText(), JTFMarca.getText(), valor);
+
+      // PÓS PROCESSAMENTO
+      if (result == true) {
+         // RECARREGAR TABELA
+         carregaTabela();
+         JOptionPane.showMessageDialog(null, "Alterações de ferramenta salvas com sucesso");
+      } else {
+         JOptionPane.showMessageDialog(null, "Não foi possível salvar as alterações de ferramenta");
+      }
     }//GEN-LAST:event_JBAtualizarActionPerformed
 
     private void JBLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBLimparActionPerformed
