@@ -88,5 +88,50 @@ public class Negocios {
    }
 
    // OUTROS METODOS ===========================================================
+   // LISTAR NEGOCIOS ==========================================================
+   public ArrayList<Negocios> listarTodos() {
+      // CRIANDO O OBJETO DO BANCO DE DADOS
+      NegociosDAO db = new NegociosDAO();
+      return db.listarNegocios();
+   }
 
+   // LISTAR UM ================================================================
+   public Negocios listarUm(int id) {
+      // CRIANDO O OBJETO DO BANCO DE DADOS
+      NegociosDAO db = new NegociosDAO();
+      return db.listarUmObjeto(id);
+   }
+
+   // CADASTRAR NEGOCIO ========================================================
+   public boolean cadastrarNegocio(int ferramentaId, int amigoId, String inicio, String fim, String terminou) {
+      // CRIANDO UM OBJETO COM O  NOVO AMIGO
+      Negocios novoNegocio = new Negocios(ferramentaId, amigoId, inicio, fim, terminou);
+
+      // CRIANDO O OBJETO DO BANCO DE DADOS
+      NegociosDAO db = new NegociosDAO();
+      db.inserirNegocio(novoNegocio);
+
+      return true;
+   }
+
+   // EDITAR NEGOCIO ===========================================================
+   public boolean editarNegocio(int id, int ferramentaId, int amigoId, String inicio, String fim, String terminou) {
+      // CRIANDO UM OBJETO DE NEGOCIO
+       Negocios esteNegocio = new Negocios(id, ferramentaId, amigoId, inicio, fim, terminou);
+
+      // CRIANDO O OBJETO DO BANCO DE DADOS
+      NegociosDAO db = new NegociosDAO();
+      db.modificarNegocio(esteNegocio);
+
+      return true;
+   }
+
+   // APAGAR UM NEGOCIO ========================================================
+   public boolean apagarNegocio(int id) {
+      // CRIANDO O OBJETO DO BANCO DE DADOS
+      NegociosDAO db = new NegociosDAO();
+      db.deletarNegocio(id);
+
+      return true;
+   }
 }

@@ -1,105 +1,166 @@
+// PACOTES
 package model;
 
+// IMPORTAÇÕES
 import javax.swing.JOptionPane;
+import dao.AmigosDAO;
+import java.util.ArrayList;
 
 public class Amigos {
 
-    //VARIÁVEIS DE AMIGOS
-    private int amigoId;
-    private String amigoNome;
-    private String amigoEmail;
-    private String amigoEndereco;
-    private String amigoTelefone;
+   // ATRIBUTOS ================================================================
+   private int amigoId;
+   private String amigoNome;
+   private String amigoEmail;
+   private String amigoEndereco;
+   private String amigoTelefone;
 
-    //CONSTRUTORES
-    public Amigos() {
+   // CONSTRUTORES =============================================================
+   public Amigos() {
+      this(0, "", "", "", "");
+   }
 
-        this(1, "Eduardo", "eduardo@gmail.com", "Rua teste 534", "48 999854357");
+   public Amigos(String amigoNome, String amigoEmail, String amigoEndereco, String amigoTelefone) {
+      this.amigoNome = amigoNome;
+      this.amigoEmail = amigoEmail;
+      this.amigoEndereco = amigoEndereco;
+      this.amigoTelefone = amigoTelefone;
+   }
 
-    }
+   public Amigos(int amigoId, String amigoNome, String amigoEmail, String amigoEndereco, String amigoTelefone) {
+      this.amigoId = amigoId;
+      this.amigoNome = amigoNome;
+      this.amigoEmail = amigoEmail;
+      this.amigoEndereco = amigoEndereco;
+      this.amigoTelefone = amigoTelefone;
+   }
 
-    public Amigos(int amigoId, String amigoNome, String amigoEmail, String amigoEndereco, String amigoTelefone) {
-        this.amigoId = amigoId;
-        this.amigoNome = amigoNome;
-        this.amigoEmail = amigoEmail;
-        this.amigoEndereco = amigoEndereco;
-        this.amigoTelefone = amigoTelefone;
-    }
+   // GETTERS / SETTERS ========================================================
+   public int getAmigoId() {
+      return amigoId;
+   }
 
-    public Amigos(String amigoNome, String amigoEmail, String amigoEndereco, String amigoTelefone) {
-        this.amigoNome = amigoNome;
-        this.amigoEmail = amigoEmail;
-        this.amigoEndereco = amigoEndereco;
-        this.amigoTelefone = amigoTelefone;
-    }
+   public String getAmigoNome() {
+      return amigoNome;
+   }
 
+   public String getAmigoEmail() {
+      return amigoEmail;
+   }
 
+   public String getAmigoEndereco() {
+      return amigoEndereco;
+   }
 
-    
-    //GETERS
-    public int getAmigoId() {
-        return amigoId;
-    }
+   public String getAmigoTelefone() {
+      return amigoTelefone;
+   }
 
-    public String getAmigoNome() {
-        return amigoNome;
-    }
+   // Talvez não precise
+   public void setAmigoId(int amigoId) {
+      if (amigoId < 0) {
+         JOptionPane.showMessageDialog(null, "ID do amigo não pode ser negativo. Por favor, insira um valor válido.");
+      } else {
+         this.amigoId = amigoId;
+      }
+   }
 
-    public String getAmigoEmail() {
-        return amigoEmail;
-    }
+   public void setAmigoNome(String amigoNome) {
+      this.amigoNome = amigoNome;
+   }
 
-    public String getAmigoEndereco() {
-        return amigoEndereco;
-    }
+   public void setAmigoEmail(String amigoEmail) {
+      this.amigoEmail = amigoEmail;
+   }
 
-    public String getAmigoTelefone() {
-        return amigoTelefone;
-    }
+   public void setAmigoEndereco(String amigoEndereco) {
+      this.amigoEndereco = amigoEndereco;
+   }
 
-    //SETTERS
-    public void setAmigoId(int amigoId) {
-        if (amigoId < 0) {
-            JOptionPane.showMessageDialog(null, "ID do amigo não pode ser negativo. Por favor, insira um valor válido.");
-        } else {
-            this.amigoId = amigoId;
-        }
-    }
+   public void setAmigoTelefone(String amigoTelefone) {
+      this.amigoTelefone = amigoTelefone;
+   }
 
-    public void setAmigoNome(String amigoNome) {
-        this.amigoNome = amigoNome;
-    }
+   // OUTROS METODOS ===========================================================
+   // LISTAR AMIGOS ===========================================================
+   public ArrayList<Amigos> listarTodos() {
+      // CRIANDO O OBJETO DO BANCO DE DADOS
+      AmigosDAO db = new AmigosDAO();
+      return db.listarTodos();
+   }
 
-    public void setAmigoEmail(String amigoEmail) {
-        this.amigoEmail = amigoEmail;
-    }
+   // LISTAR UM ================================================================
+   public Amigos listarUm(int id) {
+      // CRIANDO O OBJETO DO BANCO DE DADOS
+      AmigosDAO db = new AmigosDAO();
+      return db.listarUmObjeto(id);
+   }
 
-    public void setAmigoEndereco(String amigoEndereco) {
-        this.amigoEndereco = amigoEndereco;
-    }
+   // CADASTRAR AMIGO ==========================================================
+   public boolean inserirAmigo(String nome, String email, String endereco, String telefone) {
+      // VALIDANDO OS DADOS
+      if (nome.length() < 5 || email.length() < 5 || endereco.length() < 5 || telefone.length() < 5) {
+         return false;
+      }
 
-    public void setAmigoTelefone(String amigoTelefone) {
-        this.amigoTelefone = amigoTelefone;
-    }
+      // CRIANDO UM OBJETO COM O  NOVO AMIGO
+      Amigos novoAmigo = new Amigos(nome, email, endereco, telefone);
 
-    //INSTANCIAR
-//    public void leituraAmigos() {
-//        int id;
-//        do {
-//            id = Integer.parseInt(JOptionPane.showInputDialog("Digite o id do amigo (não pode ser negativo)"));
-//            if (id < 0) {
-//                JOptionPane.showMessageDialog(null, "ID inválido. Tente novamente.");
-//            }
-//        } while (id < 0);
-//
-//        setAmigoId(id);
-//        setAmigoNome(JOptionPane.showInputDialog("Digite o nome do amigo"));
-//        setAmigoEmail(JOptionPane.showInputDialog("Digite o e-mail do amigo"));
-//        setAmigoEndereco(JOptionPane.showInputDialog("Digite o endereço do amigo"));
-//        setAmigoTelefone(JOptionPane.showInputDialog("Digite o telefone do amigo"));
-//    }
+      // CRIANDO O OBJETO DO BANCO DE DADOS
+      AmigosDAO db = new AmigosDAO();
+      db.inserirAmigo(novoAmigo);
 
-    public String mostrarAmigos() {
-        return "ID: " + getAmigoId() + ", " + "NOME: " + getAmigoNome() + ", " + "EMAIL: " + getAmigoEmail() + ", " + "ENDEREÇO: " + getAmigoEndereco() + ", " + "Telefone: " + getAmigoTelefone() + ".";
-    }
+      return true;
+   }
+
+   // EDITAR AMIGO =============================================================
+   public boolean editarAmigo(int id, String nome, String email, String endereco, String telefone) {
+      // VALIDANDO OS DADOS
+      if (nome.length() < 5 || email.length() < 5 || endereco.length() < 5 || telefone.length() < 5) {
+         return false;
+      }
+
+      // CRIANDO UM OBJETO COM O AMIGO
+      Amigos esteAmigo = new Amigos(id, nome, email, endereco, telefone);
+
+      // CRIANDO O OBJETO DO BANCO DE DADOS
+      AmigosDAO db = new AmigosDAO();
+      db.modificarAmigo(esteAmigo);
+
+      return true;
+   }
+
+   // APAGAR UM AMIGO ==========================================================
+   public boolean deletarAmigo(int id) {
+      // CRIANDO O OBJETO DO BANCO DE DADOS
+      AmigosDAO db = new AmigosDAO();
+      db.deletarAmigo(id);
+
+      return true;
+   }
+
+   // LISTAR EMPRESTADOS =======================================================
+   public ArrayList<Amigos> listarEmprestados() {
+      // CRIANDO O OBJETO DO BANCO DE DADOS
+      AmigosDAO db = new AmigosDAO();
+      return db.listarEmpmrestados();
+   }
+
+   // LISTAR DEVEDORES =========================================================
+   public ArrayList<Amigos> listarDevedores() {
+      // CRIANDO O OBJETO DO BANCO DE DADOS
+      AmigosDAO db = new AmigosDAO();
+      return db.listarDevedores();
+   }
+
+   // Resumo ===================================================================
+   public int fazerRezumo() {
+      // CRIANDO O OBJETO DO BANCO DE DADOS
+      AmigosDAO db = new AmigosDAO();
+      return db.fazerResumo();
+   }
 }
+
+
+
+
