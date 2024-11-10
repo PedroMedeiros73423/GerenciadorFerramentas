@@ -50,13 +50,8 @@ public class Ferramentas {
       return ferramentaValor;
    }
 
-   // Talvez não precise
    public void setFerramentaId(int ferramentaId) {
-      if (ferramentaId < 0) {
-         JOptionPane.showMessageDialog(null, "ID do amigo não pode ser negativo. Por favor, insira um valor válido.");
-      } else {
-         this.ferramentaId = ferramentaId;
-      }
+      this.ferramentaId = ferramentaId;
    }
 
    public void setFerramentaNome(String ferramentaNome) {
@@ -83,7 +78,7 @@ public class Ferramentas {
       return db.listarTodas();
    }
 
-   // LISTAR UMA ==============================================================
+   // LISTAR UMA ===============================================================
    public Ferramentas listarUma(int id) {
       // CRIANDO O OBJETO DO BANCO DE DADOS
       FerramentasDAO db = new FerramentasDAO();
@@ -93,7 +88,6 @@ public class Ferramentas {
    // CADASTRAR FERRAMENTA =====================================================
    public boolean inserirFerramenta(String nome, String marca, double valor) {
       // VALIDAR OS DADOS
-       
       if (nome.length() < 5 || marca.length() < 3 || valor <= 0) {
          return false;
       }
@@ -145,6 +139,13 @@ public class Ferramentas {
       return db.listarDisponiveis();
    }
 
+   // BUSCARA FERRAMENTAS DISPONÍVEIS ==========================================
+   public ArrayList<Ferramentas> buscarDisponiveis(String texto) {
+      // CRIANDO O OBJETO DO BANCO DE DADOS
+      FerramentasDAO db = new FerramentasDAO();
+      return db.buscarDisponiveis(texto);
+   }
+
    // LISTAR SOMENTE EMPRESTADAS ===============================================
    public ArrayList<Ferramentas> listarEmprestadas() {
       // CRIANDO O OBJETO DO BANCO DE DADOS
@@ -159,31 +160,10 @@ public class Ferramentas {
       return db.fazerResumo();
    }
 
+   // VERIFICAR SE A FERRAMENTA TEM EMPRÉSTIMOS ================================
+   public int temEmprestimos(int id) {
+      // CRIANDO O OBJETO DO BANCO DE DADOS
+      FerramentasDAO db = new FerramentasDAO();
+      return db.temEmprestimos(id);
+   }
 }
-    
-    //INSTANCIAR
-//    public void leituraFerramenta() {
-//        int id;
-//        do {
-//            id = Integer.parseInt(JOptionPane.showInputDialog("Digite o id da ferramenta (não pode ser negativo)"));
-//            if (id < 0) {
-//                JOptionPane.showMessageDialog(null, "ID inválido. Tente novamente.");
-//            }
-//        } while (id < 0);
-//
-//        setFerramentaId(id);
-//        setFerramentaNome(JOptionPane.showInputDialog("Digite o nome da ferramenta"));
-//        setFerramentaMarca(JOptionPane.showInputDialog("Digite a marca da ferramenta"));
-//        double valor;
-//        do {
-//            valor = Double.parseDouble(JOptionPane.showInputDialog("Digite o valor da ferramenta (não pode ser negativo)"));
-//            if (valor < 0) {
-//                JOptionPane.showMessageDialog(null, "Valor inválido. Tente novamente.");
-//            }
-//        } while (valor < 0);
-//        
-//        setFerramentaValor(valor);
-//    }
-
-  
-

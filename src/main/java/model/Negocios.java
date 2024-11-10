@@ -11,14 +11,16 @@ public class Negocios {
    // ATRIBUTOS ================================================================
    private int negocioId;
    private int negocioFerramentaId;
+   private String negocioFerramentaNome;
    private int negocioAmigoId;
+   private String negocioAmigoNome;
    private String negocioInicio;
    private String negocioFim;
    private String negocioFinal;
 
    // CONSTRUTORES =============================================================
    public Negocios() {
-      this(0, 0, 0, "", "", "");
+      this(0, 0, "", 0, "", "", "", "");
    }
 
    public Negocios(int negocioFerramentaId, int negocioAmigoId, String negocioInicio, String negocioFim, String negocioFinal) {
@@ -29,10 +31,12 @@ public class Negocios {
       this.negocioFinal = negocioFinal;
    }
 
-   public Negocios(int negocioId, int negocioFerramentaId, int negocioAmigoId, String negocioInicio, String negocioFim, String negocioFinal) {
+   public Negocios(int negocioId, int negocioFerramentaId, String ferramentaNome, int negocioAmigoId, String amigoNome, String negocioInicio, String negocioFim, String negocioFinal) {
       this.negocioId = negocioId;
       this.negocioFerramentaId = negocioFerramentaId;
+      this.negocioFerramentaNome = ferramentaNome;
       this.negocioAmigoId = negocioAmigoId;
+      this.negocioAmigoNome = amigoNome;
       this.negocioInicio = negocioInicio;
       this.negocioFim = negocioFim;
       this.negocioFinal = negocioFinal;
@@ -87,12 +91,42 @@ public class Negocios {
       this.negocioFinal = negocioFinal;
    }
 
+   public String getNegocioFerramentaNome() {
+      return negocioFerramentaNome;
+   }
+
+   public void setNegocioFerramentaNome(String negocioFerramentaNome) {
+      this.negocioFerramentaNome = negocioFerramentaNome;
+   }
+
+   public String getNegocioAmigoNome() {
+      return negocioAmigoNome;
+   }
+
+   public void setNegocioAmigoNome(String negocioAmigoNome) {
+      this.negocioAmigoNome = negocioAmigoNome;
+   }
+
    // OUTROS METODOS ===========================================================
    // LISTAR NEGOCIOS ==========================================================
    public ArrayList<Negocios> listarTodos() {
       // CRIANDO O OBJETO DO BANCO DE DADOS
       NegociosDAO db = new NegociosDAO();
       return db.listarNegocios();
+   }
+
+   // LISTAR EMPRÉSTIMOS NÃO DEVOLVIDOS ========================================
+   public ArrayList<Negocios> listarNegociosAtrasados() {
+      // CRIANDO O OBJETO DO BANCO DE DADOS
+      NegociosDAO db = new NegociosDAO();
+      return db.listarNegociosAtrasados();
+   }
+
+   // LISTAR EMPRÉSTIMOS ativos ================================================
+   public ArrayList<Negocios> listarNegociosAtivos() {
+      // CRIANDO O OBJETO DO BANCO DE DADOS
+      NegociosDAO db = new NegociosDAO();
+      return db.listarNegociosAtivos();
    }
 
    // LISTAR UM ================================================================
@@ -104,7 +138,11 @@ public class Negocios {
 
    // CADASTRAR NEGOCIO ========================================================
    public boolean cadastrarNegocio(int ferramentaId, int amigoId, String inicio, String fim, String terminou) {
-      // CRIANDO UM OBJETO COM O  NOVO AMIGO
+      // VALIDANDO OS DADOS
+      if (ferramentaId == 0 || amigoId == 0) {
+         return false;
+      }
+      // CRIANDO UM OBJETO COM O NOVO NEGÓCIO
       Negocios novoNegocio = new Negocios(ferramentaId, amigoId, inicio, fim, terminou);
 
       // CRIANDO O OBJETO DO BANCO DE DADOS
@@ -116,8 +154,8 @@ public class Negocios {
 
    // EDITAR NEGOCIO ===========================================================
    public boolean editarNegocio(int id, int ferramentaId, int amigoId, String inicio, String fim, String terminou) {
-      // CRIANDO UM OBJETO DE NEGOCIO
-       Negocios esteNegocio = new Negocios(id, ferramentaId, amigoId, inicio, fim, terminou);
+      // CRIANDO UM OBJETO DE NEGOCIO SOMENTE COM AS CHAVES ESTRANGEIRAS
+      Negocios esteNegocio = new Negocios(id, ferramentaId, "", amigoId, "", inicio, fim, terminou);
 
       // CRIANDO O OBJETO DO BANCO DE DADOS
       NegociosDAO db = new NegociosDAO();
@@ -126,12 +164,43 @@ public class Negocios {
       return true;
    }
 
-   // APAGAR UM NEGOCIO ========================================================
-   public boolean apagarNegocio(int id) {
+   // DELETAR UM NEGOCIO =======================================================
+   public boolean deletarNegocio(int id) {
       // CRIANDO O OBJETO DO BANCO DE DADOS
       NegociosDAO db = new NegociosDAO();
       db.deletarNegocio(id);
 
       return true;
+   }
+
+   // ENCERRAR UM NEGOCIO ======================================================
+   public boolean encerrarNegocio(int id) {
+      // CRIANDO O OBJETO DO BANCO DE DADOS
+      NegociosDAO db = new NegociosDAO();
+      db.encerrarNegocio(id);
+
+      return true;
+   }
+
+   // FINALIZAR UM NEGOCIO =====================================================
+   public boolean finalizarNegocio(int id) {
+      // CRIANDO O OBJETO DO BANCO DE DADOS
+      NegociosDAO db = new NegociosDAO();
+      db.finalizarNegocio(id);
+
+      return true;
+   }
+
+   public int verificaPendencias(int amigoId) {
+      // CRIANDO O OBJETO DO BANCO DE DADOS
+      NegociosDAO db = new NegociosDAO();
+      return db.verificaPendencias(amigoId);
+   }
+   
+      // RESUMO ===================================================================
+   public int[] fazerResumo() {
+      // CRIANDO O OBJETO DO BANCO DE DADOS
+      NegociosDAO db = new NegociosDAO();
+      return db.fazerResumo();
    }
 }

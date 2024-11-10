@@ -7,17 +7,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import model.Amigos;
-import model.Ferramentas;
 import model.Negocios;
 
 public class NegociosDAO extends ServidorDAO {
 
-   // ATRIBUTOS =============================================================
+   // ATRIBUTOS ================================================================
    private final ArrayList<Negocios> listaDeNegocios = new ArrayList<>();
 
    // LISTAR TODOS =============================================================
-   // RELATÓRIO DE TODOS OS NEGÓCIOS REALIZADOS
    public ArrayList<Negocios> listarNegocios() {
       // LIMPAR A LISTA ANTES DE INSERIR ALGO NELA
       listaDeNegocios.clear();
@@ -25,70 +22,32 @@ public class NegociosDAO extends ServidorDAO {
       try {
          // FAZENDO A BUSCA NO BANCO DE DADOS
          Statement stmt = super.getConexao().createStatement();
-         ResultSet res = stmt.executeQuery("SELECT * FROM negocios");
-         // ResultSet res = stmt.executeQuery("SELECT negocioId, ferramentas.ferramentaNome AS negocioFerramentaId, amigos.amigoNome AS negocioAmigoId, negocioInicio, negocioFim, negocioFinal FROM `negocios` INNER JOIN ferramentas ON negocios.negocioFerramentaId = ferramentas.ferramentaId  INNER JOIN amigos ON negocios.negocioAmigoId = amigos.amigoId ORDER BY negocioId");
+         ResultSet res = stmt.executeQuery("SELECT * FROM `negocios` INNER JOIN ferramentas ON negocios.negocioFerramentaId = ferramentas.ferramentaId  INNER JOIN amigos ON negocios.negocioAmigoId = amigos.amigoId ORDER BY negocioId");
 
          // PROCESSANDO CADA LINHA RETORNADA DO BANCO
          while (res.next()) {
             // PEGANDO DOS DADOS DO NEGÓCIO
             int id = res.getInt("negocioId");
             int ferramentaId = res.getInt("negocioFerramentaId");
+            String ferramentaNome = res.getString("ferramentaNome");
             int amigoId = res.getInt("negocioAmigoId");
+            String amigoNome = res.getString("amigoNome");
             String inicio = res.getString("negocioInicio");
             String fim = res.getString("negocioFim");
             String terminou = res.getString("negocioFinal");
 
-            Negocios este = new Negocios(id, ferramentaId, amigoId, inicio, fim, terminou);
+            Negocios este = new Negocios(id, ferramentaId, ferramentaNome, amigoId, amigoNome, inicio, fim, terminou);
 
             // ADICIONAR O NEGÓCIO NA LISTA
             listaDeNegocios.add(este);
          }
          stmt.close();
-
       } catch (SQLException ex) {
          System.out.println("Erro:" + ex);
       }
 
       // RETORNAR A LISTA
       return listaDeNegocios;
-   }
-
-   // LISTAR TODOS join =============================================================
-   // RELATÓRIO DE TODOS OS NEGÓCIOS REALIZADOS
-   public String listarNegociosJoin() {
-      // LIMPAR A LISTA ANTES DE INSERIR ALGO NELA
-//      listaDeNegocios.clear();
-
-      try {
-         // FAZENDO A BUSCA NO BANCO DE DADOS
-         Statement stmt = super.getConexao().createStatement();
-         ResultSet res = stmt.executeQuery("SELECT negocioId, ferramentas.ferramentaNome AS negocioFerramentaId, amigos.amigoNome AS negocioAmigoId, negocioInicio, negocioFim, negocioFinal FROM `negocios` INNER JOIN ferramentas ON negocios.negocioFerramentaId = ferramentas.ferramentaId  INNER JOIN amigos ON negocios.negocioAmigoId = amigos.amigoId ORDER BY negocioId");
-
-         System.out.println(res.getRow());
-
-         // PROCESSANDO CADA LINHA RETORNADA DO BANCO
-//         while (res.next()) {
-//            // PEGANDO DOS DADOS DO NEGÓCIO
-//            int id = res.getInt("negocioId");
-//            int ferramentaId = res.getInt("negocioFerramentaId");
-//            int amigoId = res.getInt("negocioAmigoId");
-//            String inicio = res.getString("negocioInicio");
-//            String fim = res.getString("negocioFim");
-//            String terminou = res.getString("negocioFinal");
-//
-//            Negocios este = new Negocios(id, ferramentaId, amigoId, inicio, fim, terminou);
-//
-//            // ADICIONAR O NEGÓCIO NA LISTA
-//            listaDeNegocios.add(este);
-//         }
-         stmt.close();
-
-      } catch (SQLException ex) {
-         System.out.println("Erro:" + ex);
-      }
-
-      // RETORNAR A LISTA
-      return "";
    }
 
    // LISTAR UM ================================================================
@@ -145,6 +104,8 @@ public class NegociosDAO extends ServidorDAO {
       } catch (SQLException erro) {
          System.out.println("Erro:" + erro);
       }
+
+      // RETORNAR A LISTA
       return listaDeNegocios;
    }
 
@@ -171,11 +132,9 @@ public class NegociosDAO extends ServidorDAO {
             stmt.execute();
             stmt.cancel();
          }
-
          return true;
       } catch (SQLException erro) {
-         System.out.println("Erro:" + erro);
-         throw new RuntimeException(erro);
+         return false;
       }
    }
 
@@ -200,11 +159,9 @@ public class NegociosDAO extends ServidorDAO {
             stmt.execute();
             stmt.cancel();
          }
-
          return true;
       } catch (SQLException erro) {
-         System.out.println("Erro:" + erro);
-         throw new RuntimeException(erro);
+         return false;
       }
    }
 
@@ -227,12 +184,9 @@ public class NegociosDAO extends ServidorDAO {
             stmt.execute();
             stmt.cancel();
          }
-
          return true;
       } catch (SQLException erro) {
-         System.out.println("Erro:" + erro);
-         throw new RuntimeException(erro);
-
+         return false;
       }
    }
 
@@ -251,8 +205,7 @@ public class NegociosDAO extends ServidorDAO {
          }
          return true;
       } catch (SQLException erro) {
-         System.out.println("Erro:" + erro);
-         throw new RuntimeException(erro);
+         return false;
       }
    }
 
@@ -271,13 +224,11 @@ public class NegociosDAO extends ServidorDAO {
          }
          return true;
       } catch (SQLException erro) {
-         System.out.println("Erro:" + erro);
-         throw new RuntimeException(erro);
+         return false;
       }
    }
 
    // LISTAR NEGÓCIOS ATIVOS ===================================================
-   // RELATÓRIO LISTAR NEGÓCIOS ATIVOS
    public ArrayList<Negocios> listarNegociosAtivos() {
       // LIMPAR A LISTA ANTES DE INSERIR ALGO NELA
       listaDeNegocios.clear();
@@ -285,19 +236,21 @@ public class NegociosDAO extends ServidorDAO {
       try {
          // FAZENDO A BUSCA NO BANCO DE DADOS
          Statement stmt = super.getConexao().createStatement();
-         ResultSet res = stmt.executeQuery("SELECT negocioId, ferramentas.ferramentaNome AS negocioFerramentaId, amigos.amigoNome AS negocioAmigoId, negocioInicio, negocioFim, negocioFinal FROM `negocios` INNER JOIN ferramentas ON negocios.negocioFerramentaId = ferramentas.ferramentaId  INNER JOIN amigos ON negocios.negocioAmigoId = amigos.amigoId WHERE negocios.negocioFim > now()");
+         ResultSet res = stmt.executeQuery("SELECT * FROM `negocios` INNER JOIN ferramentas ON negocios.negocioFerramentaId = ferramentas.ferramentaId INNER JOIN amigos ON negocios.negocioAmigoId = amigos.amigoId WHERE negocios.negocioFinal IS NULL");
 
          // PROCESSANDO CADA LINHA RETORNADA DO BANCO
          while (res.next()) {
             // PEGANDO DOS DADOS DO NEGÓCIO
             int id = res.getInt("negocioId");
             int ferramentaId = res.getInt("negocioFerramentaId");
+            String ferramentaNome = res.getString("ferramentaNome");
             int amigoId = res.getInt("negocioAmigoId");
+            String amigoNome = res.getString("amigoNome");
             String inicio = res.getString("negocioInicio");
             String fim = res.getString("negocioFim");
             String terminou = res.getString("negocioFinal");
 
-            Negocios este = new Negocios(id, ferramentaId, amigoId, inicio, fim, terminou);
+            Negocios este = new Negocios(id, ferramentaId, ferramentaNome, amigoId, amigoNome, inicio, fim, terminou);
 
             // ADICIONAR O NEGÓCIO NA LISTA
             listaDeNegocios.add(este);
@@ -313,7 +266,6 @@ public class NegociosDAO extends ServidorDAO {
    }
 
    // LISTAR NEGÓCIOS ATRASADOS ===================================================
-   // RELATÓRIO LISTAR TODOS OS NEGÓCIOS ATRASADOS
    public ArrayList<Negocios> listarNegociosAtrasados() {
       // LIMPAR A LISTA ANTES DE INSERIR ALGO NELA
       listaDeNegocios.clear();
@@ -321,19 +273,21 @@ public class NegociosDAO extends ServidorDAO {
       try {
          // FAZENDO A BUSCA NO BANCO DE DADOS
          Statement stmt = super.getConexao().createStatement();
-         ResultSet res = stmt.executeQuery("SELECT negocioId, ferramentas.ferramentaNome AS negocioFerramentaId, amigos.amigoNome AS negocioAmigoId, negocioInicio, negocioFim, negocioFinal FROM `negocios` INNER JOIN ferramentas ON negocios.negocioFerramentaId = ferramentas.ferramentaId  INNER JOIN amigos ON negocios.negocioAmigoId = amigos.amigoId WHERE negocios.negocioFim < now() AND negocios.negocioFim != negocios.negocioFinal");
+         ResultSet res = stmt.executeQuery("SELECT * FROM `negocios` INNER JOIN ferramentas ON negocios.negocioFerramentaId = ferramentas.ferramentaId INNER JOIN amigos ON negocios.negocioAmigoId = amigos.amigoId WHERE negocios.negocioFim < now() AND negocios.negocioFinal IS NULL");
 
          // PROCESSANDO CADA LINHA RETORNADA DO BANCO
          while (res.next()) {
             // PEGANDO DOS DADOS DO NEGÓCIO
             int id = res.getInt("negocioId");
             int ferramentaId = res.getInt("negocioFerramentaId");
+            String ferramentaNome = res.getString("ferramentaNome");
             int amigoId = res.getInt("negocioAmigoId");
+            String amigoNome = res.getString("amigoNome");
             String inicio = res.getString("negocioInicio");
             String fim = res.getString("negocioFim");
             String terminou = res.getString("negocioFinal");
 
-            Negocios este = new Negocios(id, ferramentaId, amigoId, inicio, fim, terminou);
+            Negocios este = new Negocios(id, ferramentaId, ferramentaNome, amigoId, amigoNome, inicio, fim, terminou);
 
             // ADICIONAR O NEGÓCIO NA LISTA
             listaDeNegocios.add(este);
@@ -348,39 +302,60 @@ public class NegociosDAO extends ServidorDAO {
       return listaDeNegocios;
    }
 
-   // LISTAR NEGÓCIOS ATRASADOS ================================================
-   // RELATÓRIO LISTAR NEGÓCIOS ATRASADOS PARA UM AMIGO ESPECÍFICO
-   public ArrayList<Negocios> verificarNegociosAtrasados(int suspeito) {
-      // LIMPAR A LISTA ANTES DE INSERIR ALGO NELA
-      listaDeNegocios.clear();
+   // VERIFICAR SE UM AMIGO TEM PENDÊNCIAS =====================================
+   public int verificaPendencias(int amigoId) {
+      // DEFININDO UMA QUANTIDADE INICIAL
+      int quantidade = 99;
 
       try {
          // FAZENDO A BUSCA NO BANCO DE DADOS
          Statement stmt = super.getConexao().createStatement();
-         ResultSet res = stmt.executeQuery("SELECT negocioId, ferramentas.ferramentaNome AS negocioFerramentaId, amigos.amigoNome AS negocioAmigoId, negocioInicio, negocioFim, negocioFinal FROM `negocios` INNER JOIN ferramentas ON negocios.negocioFerramentaId = ferramentas.ferramentaId  INNER JOIN amigos ON negocios.negocioAmigoId = amigos.amigoId WHERE negocios.negocioAmigoId = " + suspeito + " AND negocios.negocioFim < now() AND negocios.negocioFim != negocios.negocioFinal");
+         ResultSet res = stmt.executeQuery("SELECT count(*) AS quantidade FROM `negocios` WHERE negocios.negocioAmigoId = " + amigoId + " AND negocios.negocioFim < now() AND negocios.negocioFinal IS NULL");
 
-         // PROCESSANDO CADA LINHA RETORNADA DO BANCO
+         // PROCESSANDO A RESPOSTA
          while (res.next()) {
-            // PEGANDO DOS DADOS DO NEGÓCIO
-            int id = res.getInt("negocioId");
-            int ferramentaId = res.getInt("negocioFerramentaId");
-            int amigoId = res.getInt("negocioAmigoId");
-            String inicio = res.getString("negocioInicio");
-            String fim = res.getString("negocioFim");
-            String terminou = res.getString("negocioFinal");
-
-            Negocios este = new Negocios(id, ferramentaId, amigoId, inicio, fim, terminou);
-
-            // ADICIONAR O NEGÓCIO NA LISTA
-            listaDeNegocios.add(este);
+            quantidade = res.getInt("quantidade");
          }
-         stmt.close();
 
+         // RETORNANDO O VALOR
+         stmt.close();
+         return quantidade;
       } catch (SQLException ex) {
-         System.out.println("Erro:" + ex);
+         // COMO NÃO FOI POSSÍVEL CONSULTAR NO BANCO, ALERTA O USUÁRIO COM UM NOMERO GRANDE
+         return 1000;
+      }
+   }
+
+   // RESUMO ===================================================================
+   public int[] fazerResumo() {
+      // CRIANDO O ARRAY DE RETORNO
+      int[] resumoNegocios = new int[3];
+
+      try {
+         // FAZENDO A BUSCA NO BANCO DE DADOS
+         Statement stmt = super.getConexao().createStatement();
+
+         // QUANTIDADE DE EMPRESTIMOS
+         ResultSet res = stmt.executeQuery("SELECT COUNT(*) AS quantidade FROM negocios");
+         res.next();
+         resumoNegocios[0] = res.getInt("quantidade");
+
+         // QUANTIDADE DE EMPRESTIMOS EM DIA
+         res = stmt.executeQuery("SELECT COUNT(*) AS quantidade FROM negocios WHERE negocios.negocioFim >= now() AND negocios.negocioFinal IS NULL");
+         res.next();
+         resumoNegocios[1] = res.getInt("quantidade");
+
+         // QUANTIDADE DE EMPRESTIMOS EM DIA
+         res = stmt.executeQuery("SELECT COUNT(*) AS quantidade FROM negocios WHERE negocios.negocioFim < now() AND negocios.negocioFinal IS NULL");
+         res.next();
+         resumoNegocios[2] = res.getInt("quantidade");
+
+         stmt.close();
+      } catch (SQLException erro) {
+         System.out.println("Erro:" + erro);
       }
 
-      // RETORNAR A LISTA
-      return listaDeNegocios;
+      // RETORNAR O RESUMO
+      return resumoNegocios;
    }
 }

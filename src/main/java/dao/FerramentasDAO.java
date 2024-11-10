@@ -11,45 +11,11 @@ import model.Ferramentas;
 
 public class FerramentasDAO extends ServidorDAO {
 
-   // ATRIBUTOS =============================================================
+   // ATRIBUTOS ================================================================
    private final ArrayList<Ferramentas> listaDeFerramentas = new ArrayList<>();
 
    // LISTAR TODAS =============================================================
    public ArrayList<Ferramentas> listarTodas() {
-      // LIMPAR A LISTA ANTES DE INSERIR ALGO NELA
-      listaDeFerramentas.clear();
-
-      try {
-         // FAZENDO A BUSCA NO BANCO DE DADOS
-         Statement stmt = super.getConexao().createStatement();
-         ResultSet res = stmt.executeQuery("SELECT * FROM ferramentas");
-
-         // PROCESSANDO CADA LINHA RETORNADA DO BANCO
-         while (res.next()) {
-            // PEGANDO DOS DADOS DA FERRAMENTA
-            int id = res.getInt("ferramentaId");
-            String nome = res.getString("ferramentaNome");
-            String marca = res.getString("ferramentaMarca");
-            double valor = res.getDouble("ferramentaValor");
-
-            Ferramentas esta = new Ferramentas(id, nome, marca, valor);
-
-            // ADICIONAR A FERRAMENTA NA LISTA
-            listaDeFerramentas.add(esta);
-         }
-         stmt.close();
-
-      } catch (SQLException ex) {
-         System.out.println("Erro:" + ex);
-      }
-
-      // RETORNAR A LISTA
-      return listaDeFerramentas;
-   }
-   
-   
-   // BUSCAR FERRAMENTAS DISPONÍVEIS ===========================================
-   public ArrayList<Ferramentas> buscarDisponiveis(String texto) {
       // LIMPAR A LISTA ANTES DE INSERIR ALGO NELA
       listaDeFerramentas.clear();
 
@@ -156,8 +122,7 @@ public class FerramentasDAO extends ServidorDAO {
 
          return true;
       } catch (SQLException erro) {
-         System.out.println("Erro:" + erro);
-         throw new RuntimeException(erro);
+         return false;
       }
    }
 
@@ -210,39 +175,34 @@ public class FerramentasDAO extends ServidorDAO {
 
          return true;
       } catch (SQLException erro) {
-         System.out.println("Erro:" + erro);
-         throw new RuntimeException(erro);
-
+         return false;
       }
    }
 
    // RESUMO ===================================================================
-   // RELATÓRIO DE QUANTAS FERRAMENTAS TEM E DE QUANTO GASTOU
    public Double[] fazerResumo() {
-      // Talvez agrupar por nome e somar os grupos /////////////////////////////
-
       // CRIANDO O ARRAY DE RETORNO
       Double[] resumoFerramentas = new Double[2];
 
       try {
          // FAZENDO A BUSCA NO BANCO DE DADOS
          Statement stmt = super.getConexao().createStatement();
-         ResultSet res = stmt.executeQuery("SELECT COUNT(*) AS quantidade, sum(ferramentaValor) As investimento FROM ferramentas");
+         ResultSet res = stmt.executeQuery("SELECT COUNT(*) AS quantidade, sum(ferramentas.ferramentaValor) As investimento FROM ferramentas");
          res.next();
 
          // PEGANDO DOS DADOS DO RESUMO
          resumoFerramentas[0] = Double.valueOf(res.getInt("quantidade"));
-         resumoFerramentas[1] = Double.valueOf(res.getInt("investimento"));
+         resumoFerramentas[1] = res.getDouble("investimento");
 
          stmt.close();
       } catch (SQLException erro) {
          System.out.println("Erro:" + erro);
       }
+
       return resumoFerramentas;
    }
 
    // LISTAR TODAS DISPONÍVEIS =================================================
-   // RELATÓRIO LISTAR TODAS AS FERRAMENTAS DISPONÍVEIS PARA EMPRÉSTIMO
    public ArrayList<Ferramentas> listarDisponiveis() {
       // LIMPAR A LISTA ANTES DE INSERIR ALGO NELA
       listaDeFerramentas.clear();
@@ -250,7 +210,8 @@ public class FerramentasDAO extends ServidorDAO {
       try {
          // FAZENDO A BUSCA NO BANCO DE DADOS
          Statement stmt = super.getConexao().createStatement();
-         ResultSet res = stmt.executeQuery("SELECT * FROM ferramentas LEFT JOIN negocios ON ferramentas.ferramentaId = negocios.negocioFerramentaId WHERE negocios.negocioId IS NULL OR negocios.negocioFim <= now() AND negocios.negocioFinal <= now()");
+         // ResultSet res = stmt.executeQuery("SELECT * FROM ferramentas LEFT JOIN negocios ON ferramentas.ferramentaId = negocios.negocioFerramentaId WHERE (negocios.negocioId IS NULL OR negocios.negocioFinal IS NOT NULL) AND negocios.negocioFim != negocios.negocioFinal");
+         ResultSet res = stmt.executeQuery("SELECT distinct ferramentas.* FROM ferramentas WHERE ferramentas.ferramentaId NOT IN (SELECT DISTINCT negocios.negocioFerramentaId FROM negocios)");
 
          // PROCESSANDO CADA LINHA RETORNADA DO BANCO
          while (res.next()) {
@@ -266,7 +227,6 @@ public class FerramentasDAO extends ServidorDAO {
             listaDeFerramentas.add(esta);
          }
          stmt.close();
-
       } catch (SQLException ex) {
          System.out.println("Erro:" + ex);
       }
@@ -275,8 +235,63 @@ public class FerramentasDAO extends ServidorDAO {
       return listaDeFerramentas;
    }
 
+   // BUSCAR FERRAMENTAS DISPONÍVEIS ===========================================
+   public ArrayList<Ferramentas> buscarDisponiveis(String texto) {
+      // LIMPAR A LISTA ANTES DE INSERIR ALGO NELA
+      listaDeFerramentas.clear();
+
+      try {
+         // FAZENDO A BUSCA NO BANCO DE DADOS
+         Statement stmt = super.getConexao().createStatement();
+         // ResultSet res = stmt.executeQuery("SELECT * FROM ferramentas LEFT JOIN negocios ON ferramentas.ferramentaId = negocios.negocioFerramentaId WHERE ((negocios.negocioId IS NULL OR negocios.negocioFinal IS NOT NULL) AND negocios.negocioFim != negocios.negocioFinal) AND (ferramentas.ferramentaNome LIKE '%" + texto + "%' OR ferramentas.ferramentaMarca LIKE '%" + texto + "%')");
+         ResultSet res = stmt.executeQuery("SELECT DISTINCT ferramentas.* FROM ferramentas WHERE ferramentas.ferramentaId NOT IN (SELECT DISTINCT negocios.negocioFerramentaId FROM negocios) AND (ferramentas.ferramentaNome LIKE '%" + texto + "%' OR ferramentas.ferramentaMarca LIKE '%" + texto + "%')");
+
+         // PROCESSANDO CADA LINHA RETORNADA DO BANCO
+         while (res.next()) {
+            // PEGANDO DOS DADOS DA FERRAMENTA
+            int id = res.getInt("ferramentaId");
+            String nome = res.getString("ferramentaNome");
+            String marca = res.getString("ferramentaMarca");
+            double valor = res.getDouble("ferramentaValor");
+
+            Ferramentas esta = new Ferramentas(id, nome, marca, valor);
+
+            // ADICIONAR A FERRAMENTA NA LISTA
+            listaDeFerramentas.add(esta);
+         }
+         stmt.close();
+      } catch (SQLException ex) {
+         System.out.println("Erro:" + ex);
+      }
+
+      // RETORNAR A LISTA
+      return listaDeFerramentas;
+   }
+
+   // SABER SE A FERRAMENTA JÁ FOI EMPRESTADA ==================================
+   public int temEmprestimos(int id) {
+      // DEFININDO UMA QUANTIDADE INICIAL
+      int quantidade = 99;
+
+      try {
+         // FAZENDO A BUSCA NO BANCO DE DADOS
+         Statement stmt = super.getConexao().createStatement();
+         ResultSet res = stmt.executeQuery("SELECT count(*) AS quantidade FROM ferramentas LEFT JOIN negocios ON ferramentas.ferramentaId = negocios.negocioFerramentaId WHERE negocios.negocioFerramentaId = " + id);
+
+         // PROCESSANDO A RESPOSTA
+         while (res.next()) {
+            quantidade = res.getInt("quantidade");
+         }
+
+         // RETORNANDO O VALOR
+         stmt.close();
+         return quantidade;
+      } catch (SQLException ex) {
+         return 1000;
+      }
+   }
+
    // LISTAR TODAS EMPRESTADAS =================================================
-   // RELATÓRIO LISTAR TODAS AS FERRAMENTAS EMPRESTADAS
    public ArrayList<Ferramentas> listarEmprestadas() {
       // LIMPAR A LISTA ANTES DE INSERIR ALGO NELA
       listaDeFerramentas.clear();
@@ -284,8 +299,7 @@ public class FerramentasDAO extends ServidorDAO {
       try {
          // FAZENDO A BUSCA NO BANCO DE DADOS
          Statement stmt = super.getConexao().createStatement();
-        // ResultSet res = stmt.executeQuery("SELECT * FROM ferramentas INNER JOIN negocios ON ferramentas.ferramentaId = negocios.negocioFerramentaId WHERE negocios.negocioFinal = '0000-00-00 00:00:00'");
-         ResultSet res = stmt.executeQuery("SELECT * FROM ferramentas INNER JOIN negocios ON ferramentas.ferramentaId = negocios.negocioFerramentaId WHERE negocios.negocioFinal is null");
+         ResultSet res = stmt.executeQuery("SELECT * FROM ferramentas INNER JOIN negocios ON ferramentas.ferramentaId = negocios.negocioFerramentaId WHERE negocios.negocioFinal IS NULL");
 
          // PROCESSANDO CADA LINHA RETORNADA DO BANCO
          while (res.next()) {
@@ -309,5 +323,4 @@ public class FerramentasDAO extends ServidorDAO {
       // RETORNAR A LISTA
       return listaDeFerramentas;
    }
-
 }
