@@ -56,13 +56,8 @@ public class Amigos {
       return amigoTelefone;
    }
 
-   // Talvez não precise
    public void setAmigoId(int amigoId) {
-      if (amigoId < 0) {
-         JOptionPane.showMessageDialog(null, "ID do amigo não pode ser negativo. Por favor, insira um valor válido.");
-      } else {
          this.amigoId = amigoId;
-      }
    }
 
    public void setAmigoNome(String amigoNome) {
@@ -81,8 +76,7 @@ public class Amigos {
       this.amigoTelefone = amigoTelefone;
    }
 
-   // OUTROS METODOS ===========================================================
-   // LISTAR AMIGOS ===========================================================
+   // LISTAR AMIGOS ============================================================
    public ArrayList<Amigos> listarTodos() {
       // CRIANDO O OBJETO DO BANCO DE DADOS
       AmigosDAO db = new AmigosDAO();
@@ -94,6 +88,13 @@ public class Amigos {
       // CRIANDO O OBJETO DO BANCO DE DADOS
       AmigosDAO db = new AmigosDAO();
       return db.listarUmObjeto(id);
+   }
+
+   // buscar AMIGO =============================================================
+   public ArrayList<Amigos> buscarAmigos(String texto) {
+      // CRIANDO O OBJETO DO BANCO DE DADOS
+      AmigosDAO db = new AmigosDAO();
+      return db.buscarAmigos(texto);
    }
 
    // CADASTRAR AMIGO ==========================================================
@@ -146,6 +147,20 @@ public class Amigos {
       return db.listarEmpmrestados();
    }
 
+   // RANKING DE EMPRÉSTIMOS ===================================================
+   public ArrayList<Amigos> getRanking() {
+      // CRIANDO O OBJETO DO BANCO DE DADOS
+      AmigosDAO db = new AmigosDAO();
+      return db.getRanking();
+   }
+
+   // LISTAR OS AMIGOS QUE NUNCA DEVOLVERAM AS FERRAMENTAS =====================
+   public ArrayList<Amigos> getInadimplentes() {
+      // CRIANDO O OBJETO DO BANCO DE DADOS
+      AmigosDAO db = new AmigosDAO();
+      return db.getInadimplentes();
+   }
+
    // LISTAR DEVEDORES =========================================================
    public ArrayList<Amigos> listarDevedores() {
       // CRIANDO O OBJETO DO BANCO DE DADOS
@@ -153,14 +168,17 @@ public class Amigos {
       return db.listarDevedores();
    }
 
-   // Resumo ===================================================================
-   public int fazerRezumo() {
+   // RESUMO ===================================================================
+   public int[] fazerRezumo() {
       // CRIANDO O OBJETO DO BANCO DE DADOS
       AmigosDAO db = new AmigosDAO();
       return db.fazerResumo();
    }
+
+   // VERIFICAR SE O AMIGO TEM EMPRÉSTIMOS =====================================
+   public int temEmprestimos(int id) {
+      // CRIANDO O OBJETO DO BANCO DE DADOS
+      AmigosDAO db = new AmigosDAO();
+      return db.temEmprestimos(id);
+   }
 }
-
-
-
-
