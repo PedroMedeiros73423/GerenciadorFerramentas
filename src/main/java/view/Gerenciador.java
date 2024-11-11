@@ -374,7 +374,14 @@ public class Gerenciador extends javax.swing.JFrame {
         botaoSelecionarFerramenta.setEnabled(false);
         // this.carregarFerramentas("");
     }//GEN-LAST:event_negocioFerramentaNomeMouseClicked
+     
+    private void negocioFerramentaNomeActionPerformed(java.awt.event.ActionEvent evt) {                                                      
+        // TODO add your handling code here:
+    }
+    private void tabelaAmigosMouseClicked(java.awt.event.MouseEvent evt) {                                          
 
+   }
+    
     private void botaoSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSalvarActionPerformed
         // SE TEM ALGUMA LINHA SELECIONADA
       if (this.tabelaNegocios.getSelectedRow() != -1) {
@@ -514,41 +521,137 @@ public class Gerenciador extends javax.swing.JFrame {
          }
       }
     }//GEN-LAST:event_botaoDevolverActionPerformed
+        
+    private void tabelaNegociosMouseClicked(java.awt.event.MouseEvent evt) {                                            
+      // SE TEM ALGUMA LINHA SELECIONADA
+      if (this.tabelaNegocios.getSelectedRow() != -1) {
+         // COLETANDO DADOS DA TABELA
+         int fId = Integer.parseInt(this.tabelaNegocios.getValueAt(this.tabelaNegocios.getSelectedRow(), 1).toString());
+         String ferramentaNome = this.tabelaNegocios.getValueAt(this.tabelaNegocios.getSelectedRow(), 2).toString();
+         int aId = Integer.parseInt(this.tabelaNegocios.getValueAt(this.tabelaNegocios.getSelectedRow(), 3).toString());
+         String amigoNome = this.tabelaNegocios.getValueAt(this.tabelaNegocios.getSelectedRow(), 4).toString();
+         String dataInicio = this.tabelaNegocios.getValueAt(this.tabelaNegocios.getSelectedRow(), 5).toString();
+         String dataFim = this.tabelaNegocios.getValueAt(this.tabelaNegocios.getSelectedRow(), 6).toString();
+         String dataFinal = "";
+         try {
+            dataFinal = this.tabelaNegocios.getValueAt(this.tabelaNegocios.getSelectedRow(), 7).toString();
+         } catch (Exception e) {
+         }
 
+         // CARREGANDO ITENS NO FORMULÁRIO
+         negocioFerramentaNome.setText(String.valueOf(ferramentaNome));
+         negocioAmigoNome.setText(String.valueOf(amigoNome));
+         negocioFim.setText(dataFim);
+         
+         // SALVANDO AS CHAVE ESTRANGEIRAS NO OBJETO DE MANIPULAÇÃO
+         manipulado.setNegocioFerramentaId(fId);
+         manipulado.setNegocioAmigoId(aId);
+
+         // MANIPULANDO BOTÕES
+         botaoCadastrar.setEnabled(false);
+         botaoDeletar.setEnabled(true);
+         if (dataFinal.length() > 0) {
+            botaoSalvar.setEnabled(false);
+            botaoDevolver.setEnabled(false);
+            botaoFinalizar.setEnabled(false);
+         } else {
+            botaoSalvar.setEnabled(true);
+         }
+         // DEVOLVER OU FINALIZAR
+         Date agora = new Date();
+         try {
+            if (agora.after(dataSql.parse(dataFim)) && dataFinal.length() == 0) {
+               botaoFinalizar.setEnabled(true);
+               botaoDevolver.setEnabled(false);
+            } else if (agora.after(dataSql.parse(dataFim)) && dataFinal.length() > 0) {
+               botaoFinalizar.setEnabled(false);
+               botaoDevolver.setEnabled(false);
+            } else {
+               botaoFinalizar.setEnabled(false);
+               botaoDevolver.setEnabled(true);
+            }
+         } catch (Exception e) {
+            botaoDevolver.setEnabled(false);
+            botaoFinalizar.setEnabled(false);
+         }
+      }
+   }
+    private void tabelaResultadoFerramentasMouseClicked(java.awt.event.MouseEvent evt) {                                                        
+      // SE TEM ALGUMA LINHA SELECIONADA
+      if (this.tabelaResultadoFerramentas.getSelectedRow() != -1) {
+         // MANIPULANDO BOTÕES
+         botaoSelecionarFerramenta.setEnabled(true);
+      }
+   }
+    private void botaoListarFerramentasActionPerformed(java.awt.event.ActionEvent evt) {                                                       
+      this.carregarFerramentas("");
+   }
+    private void botaoSelecionarFerramentaActionPerformed(java.awt.event.ActionEvent evt) {                                                          
+      // COLETANDO OS DADOS DA TABELA
+      int fId = Integer.parseInt(this.tabelaResultadoFerramentas.getValueAt(this.tabelaResultadoFerramentas.getSelectedRow(), 0).toString());
+      String nome = this.tabelaResultadoFerramentas.getValueAt(this.tabelaResultadoFerramentas.getSelectedRow(), 1).toString();
+
+      // SALVANDO A ESCOLHA
+      manipulado.setNegocioFerramentaId(fId);
+      negocioFerramentaNome.setText(nome);
+
+      // FECHANDO A JANELA
+      pesquiserFerramenta.setVisible(false);
+   }
+    private void botaoListarAmigosActionPerformed(java.awt.event.ActionEvent evt) {                                                  
+      this.carregarAmigos("");
+   }
+    private void botaoSelecionarAmigoActionPerformed(java.awt.event.ActionEvent evt) {                                                     
+      // COLETANDO OS DADOS DA LINHA DA TABELA
+      int aId = Integer.parseInt(this.tabelaResultadoAmigos.getValueAt(this.tabelaResultadoAmigos.getSelectedRow(), 0).toString());
+      String nome = this.tabelaResultadoAmigos.getValueAt(this.tabelaResultadoAmigos.getSelectedRow(), 1).toString();
+
+      // SALVANDO A ESCOLHA
+      manipulado.setNegocioAmigoId(aId);
+      negocioAmigoNome.setText(nome);
+
+      // FECHANDO A JANELA
+      pesquisarAmigo.setVisible(false);
+   }
+    private void tabelaResultadoAmigosMouseClicked(java.awt.event.MouseEvent evt) {                                                   
+      // SE TEM ALGUMA LINHA SELECIONADA
+      if (this.tabelaResultadoAmigos.getSelectedRow() != -1) {
+         // MANIPULANDO BOTÕES
+         botaoSelecionarAmigo.setEnabled(true);
+      }
+   }
+    private void botaoBuscarAmigoActionPerformed(java.awt.event.ActionEvent evt) {                                                 
+      // LENDO O FORMULÁRIO
+      String texto = buscaAmigo.getText();
+      if (texto.length() == 0) {
+         JOptionPane.showMessageDialog(null, "Informe o nome, email ou o telefone do amigo que deseja localizar");
+         return;
+      }
+
+      // CARREGANDO A TABELA DE BUSCA
+      this.carregarAmigos(texto);
+   }
+    private void botaoBuscarFerramentaActionPerformed(java.awt.event.ActionEvent evt) {                                                      
+      // LENDO O FORMULÁRIO
+      String texto = buscaFerramenta.getText();
+      if (texto.length() == 0) {
+         JOptionPane.showMessageDialog(null, "Informe o nome ou a marca da ferramenta que deseja localizar");
+         return;
+      }
+
+      // CARREGANDO A TABELA DE BUSCA
+      this.carregarFerramentas(texto);
+   }
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Gerenciador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Gerenciador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Gerenciador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Gerenciador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Gerenciador().setVisible(true);
-            }
-        });
-    }
+      java.awt.EventQueue.invokeLater(new Runnable() {
+         public void run() {
+            new Gerenciador().setVisible(true);
+         }
+      });
+   }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoCadastrar;
