@@ -7,6 +7,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Vector;
+import jdk.nashorn.internal.runtime.regexp.joni.Regex;
 import model.Amigos;
 
 public class AmigosDAO extends ServidorDAO {
@@ -369,29 +371,63 @@ public class AmigosDAO extends ServidorDAO {
       return listaDeAmigos;
    }
 
-   // INADIMPLENTES ============================================================ Falta fazer ainda
+   // INADIMPLENTES ============================================================
    public ArrayList<Amigos> getInadimplentes() {
       // LIMPAR A LISTA ANTES DE INSERIR ALGO NELA
       listaDeAmigos.clear();
 
+      // VETOR PARA ARMAZENAR A LISTA DE ID DE AMIGOS
+      Vector<Integer> amigosId = new Vector<Integer>();
+      
+      // VARIÁVEIS
+      int cnt1;
+      int cnt2;
+      String nome = "";
+      String email = "";
+      String endereco = "";
+      String telefone = "";
+
       try {
-         // FAZENDO A BUSCA NO BANCO DE DADOS
+         // CONECTANDO NO BANCO
          Statement stmt = super.getConexao().createStatement();
-         ResultSet res = stmt.executeQuery("SELECT * FROM amigos");
 
-         // PROCESSANDO CADA LINHA RETORNADA DO BANCO
+         // PEGANDO OS IDS DOS AMIGOS
+         ResultSet res = stmt.executeQuery("SELECT amigoId FROM amigos");
          while (res.next()) {
-            // PEGANDO DOS DADOS DO AMIGO
-            int id = res.getInt("amigoid"); 
-            String nome = res.getString("amigoNome");
-            String email = res.getString("amigoEmail");
-            String endereco = res.getString("amigoEndereco");
-            String telefone = res.getString("amigoTelefone");
+            amigosId.add(res.getInt("amigoid"));
+         }
 
-            Amigos este = new Amigos(id, nome, email, endereco, telefone);
+         // VERIFICANDO CADA AMIGO DA LISTA
+         for (Integer x : amigosId) {
+            // EMPRÉSTIMOS ATIVOS
+            ResultSet res1 = stmt.executeQuery("SELECT * FROM negocios INNER JOIN amigos ON negocios.negocioAmigoId = amigos.amigoId WHERE negocios.negocioFinal IS NULL AND negocios.negocioFim < NOW() AND negocios.negocioAmigoId = " + x);
+            cnt1 = 0;
+            while (res1.next()) {
+               nome = res1.getString("amigoNome");
+               email = res1.getString("amigoEmail");
+               endereco = res1.getString("amigoEndereco");
+               telefone = res1.getString("amigoTelefone");
+               cnt1++;
+            }
+
+            // EMPRÉSTIMOS ATRASADOS
+            ResultSet res2 = stmt.executeQuery("SELECT * FROM negocios INNER JOIN amigos ON negocios.negocioAmigoId = amigos.amigoId WHERE negocios.negocioFinal IS NOT NULL AND negocios.negocioAmigoId = " + x);
+            cnt2 = 0;
+            while (res2.next()) {
+               cnt2++;
+            }
+
+            // SE JÁ DEVOLVEU PELO MENOS UMA, IGNORAR
+            if (cnt2 > 0 || (cnt1 == 0 && cnt2 == 0)) {
+               continue;
+            }
+
+            // CRIANDO UM OBJETO DE AMIGO
+            Amigos este = new Amigos(cnt1, nome, email, endereco, telefone);
 
             // ADICIONAR O AMIGO NA LISTA
             listaDeAmigos.add(este);
+
          }
          stmt.close();
       } catch (SQLException ex) {
