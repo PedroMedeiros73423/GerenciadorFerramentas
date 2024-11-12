@@ -5,6 +5,7 @@ package view;
 import model.Amigos;
 import model.Ferramentas;
 import model.Negocios;
+import view.ferramentas.ViewFerramenta;
 
 public class Index extends javax.swing.JFrame {
 
