@@ -5,6 +5,7 @@ package view;
 import model.Amigos;
 import model.Ferramentas;
 import model.Negocios;
+import view.amigos.ViewAmigos;
 import view.ferramentas.ViewFerramenta;
 
 public class Index extends javax.swing.JFrame {
@@ -469,7 +470,9 @@ public class Index extends javax.swing.JFrame {
    }//GEN-LAST:event_ferramentasMenuDisponiveisActionPerformed
 
    private void amigosMenuGerenciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_amigosMenuGerenciarActionPerformed
-      // ABRINDO A TELA PARA GERENCIAR OS AMIGOS
+      ViewAmigos objeto = new ViewAmigos();
+       objeto.setVisible(true);
+       objeto.setLocationRelativeTo(null);
 
    }//GEN-LAST:event_amigosMenuGerenciarActionPerformed
 
