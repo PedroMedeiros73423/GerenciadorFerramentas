@@ -74,7 +74,7 @@ public class Gerenciador extends javax.swing.JFrame {
    // METODO PARA CARREGAR FERRAMENTAS DISPONÍVEIS =============================
    private void carregarFerramentas(String texto) {
       // LENDO O MODELO DA TABELA
-      DefaultTableModel modelo = (DefaultTableModel) this.tabelaResultadoFerramentas.getModel();
+      DefaultTableModel modelo = (DefaultTableModel) tabelaNegocios.getModel();
       modelo.setNumRows(0);
 
       // BUSCANDO OS DADOS NO BANCO
@@ -104,14 +104,14 @@ public class Gerenciador extends javax.swing.JFrame {
    // METODO PARA CARREGAR A LISTA DE AMIGOS ===================================
    private void carregarAmigos(String texto) {
       // LENDO O MODELO DA TABELA
-      DefaultTableModel modelo = (DefaultTableModel) this.tabelaResultadoAmigos.getModel();
+      DefaultTableModel modelo = (DefaultTableModel) tabelaNegocios.getModel();
       modelo.setNumRows(0);
 
       // BUSCANDO OS DADOS NO BANCO
       ArrayList<Amigos> listaAmigos;
       
       if (texto.length() == 0) {
-         listaAmigos = this.meusAmigos.listarTodos();
+         listaAmigos = this.meusAmigos.listarTodas();
       } else {
          listaAmigos = this.meusAmigos.buscarAmigos(texto);
       }
