@@ -2,6 +2,7 @@
 package view;
 
 // IMPORTAÇÕES
+import view.negocios.Gerenciador;
 import model.Amigos;
 import model.Ferramentas;
 import model.Negocios;
