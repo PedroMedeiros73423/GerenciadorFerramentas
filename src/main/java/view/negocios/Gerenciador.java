@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package view.negocios;
 
 import java.text.SimpleDateFormat;
@@ -13,10 +10,7 @@ import model.Amigos;
 import model.Ferramentas;
 import model.Negocios;
 
-/**
- *
- * @author Pedro
- */
+
 public class Gerenciador extends javax.swing.JFrame {
 
    // CRIANDO OBJETOS DE MANIPULAÇÃO ===========================================
@@ -643,9 +637,7 @@ public class Gerenciador extends javax.swing.JFrame {
       // CARREGANDO A TABELA DE BUSCA
       this.carregarFerramentas(texto);
    }
-    /**
-     * @param args the command line arguments
-     */
+
     public static void main(String args[]) {
       java.awt.EventQueue.invokeLater(new Runnable() {
          public void run() {
