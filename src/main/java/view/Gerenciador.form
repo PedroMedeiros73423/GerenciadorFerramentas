@@ -116,7 +116,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="48" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Gerenciar empr&#xe9;stimos"/>
+        <Property name="text" type="java.lang.String" value="Gerenciar Empr&#xe9;stimos"/>
       </Properties>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">
