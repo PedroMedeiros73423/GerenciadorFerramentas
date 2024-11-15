@@ -1,5 +1,5 @@
 
-package view;
+package view.negocios;
 
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
