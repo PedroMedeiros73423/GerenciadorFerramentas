@@ -62,6 +62,7 @@ public class Ativos extends javax.swing.JFrame {
         tabelaEmprestimosAtuais = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("EMPRÉSTIMOS");
 
         botaoAtualizar.setText("Atualizar");
         botaoAtualizar.addActionListener(new java.awt.event.ActionListener() {
@@ -78,7 +79,7 @@ public class Ativos extends javax.swing.JFrame {
         });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        jLabel1.setText("Lista de empréstimos");
+        jLabel1.setText("Lista de Empréstimos");
 
         tabelaEmprestimosAtuais.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

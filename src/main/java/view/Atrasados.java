@@ -52,6 +52,7 @@ public class Atrasados extends javax.swing.JFrame {
         botaoAtualizar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("EMPRÉSIMOS NÃO DEVOLVIDOS");
 
         botaoVoltar.setText("Voltar");
         botaoVoltar.addActionListener(new java.awt.event.ActionListener() {
@@ -61,7 +62,7 @@ public class Atrasados extends javax.swing.JFrame {
         });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        jLabel1.setText("Lista de empréstimos não devolvidos");
+        jLabel1.setText("Lista de Empréstimos não Devolvidos");
 
         tablelaEmpresimosAtrasados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -89,7 +90,7 @@ public class Atrasados extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addGap(0, 212, Short.MAX_VALUE))
+                        .addGap(0, 207, Short.MAX_VALUE))
                     .addComponent(jScrollPane1))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()

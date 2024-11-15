@@ -84,6 +84,7 @@ public class ViewAmigos extends javax.swing.JFrame {
         });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("AMIGOS");
 
         JTTabelaAmigos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

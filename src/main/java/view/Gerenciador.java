@@ -170,6 +170,7 @@ public class Gerenciador extends javax.swing.JFrame {
         botaoDevolver = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Gerenciador de Empréstimos");
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
         jLabel4.setText("Gerenciar empréstimos");
