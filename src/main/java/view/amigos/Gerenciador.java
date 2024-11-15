@@ -25,7 +25,7 @@ public class Gerenciador extends javax.swing.JFrame {
       modelo.setNumRows(0);
 
       // BUSCANDO OS DADOS NO BANCO
-      ArrayList<Amigos> todosAmigos = manipulado.listarTodos();
+      ArrayList<Amigos> todosAmigos = manipulado.listarTodas();
 
       if (todosAmigos.size() == 0) {
          JOptionPane.showMessageDialog(null, "Não há amigos cadastrados");
