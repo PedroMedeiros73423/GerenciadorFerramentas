@@ -38,7 +38,7 @@ public class Gerenciador extends javax.swing.JFrame {
 
       // BUSCANDO OS DADOS NO BANCO
       ArrayList<Negocios> todosNegocios = manipulado.listarTodos();
-      
+
       if (todosNegocios.size() == 0) {
          JOptionPane.showMessageDialog(null, "Não há empréstimos registrados");
       }
@@ -77,13 +77,13 @@ public class Gerenciador extends javax.swing.JFrame {
 
       // BUSCANDO OS DADOS NO BANCO
       ArrayList<Ferramentas> fDisponivies;
-      
+
       if (texto.length() == 0) {
          fDisponivies = disponiveis.listarDisponiveis();
       } else {
          fDisponivies = disponiveis.buscarDisponiveis(texto);
       }
-      
+
       if (fDisponivies.size() == 0) {
          JOptionPane.showMessageDialog(null, "Não há ferramentas disponíveis");
       }
@@ -107,13 +107,13 @@ public class Gerenciador extends javax.swing.JFrame {
 
       // BUSCANDO OS DADOS NO BANCO
       ArrayList<Amigos> listaAmigos;
-      
+
       if (texto.length() == 0) {
          listaAmigos = this.meusAmigos.listarTodos();
       } else {
          listaAmigos = this.meusAmigos.buscarAmigos(texto);
       }
-      
+
       if (listaAmigos.size() == 0) {
          JOptionPane.showMessageDialog(null, "Nenhum amigo ecnotrado");
       }
@@ -580,7 +580,7 @@ public class Gerenciador extends javax.swing.JFrame {
       if (quantidadeAtrasada > 0) {
          Object[] options = {"Sim", "Não"};
          int seguir = JOptionPane.showOptionDialog(this, "Amigo: " + negocioAmigoNome.getText() + "\nTem: " + quantidadeAtrasada + " ferramentas não devolvidas\n\nDeseja mesmo emprestar mais uma ferramenta?", "Atenção", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[1]);
-         
+
          if (seguir != 0) {
             // ABORTANDO
             return;
@@ -592,7 +592,7 @@ public class Gerenciador extends javax.swing.JFrame {
 
       // INSERIR NO BANCO
       boolean result = manipulado.cadastrarNegocio(manipulado.getNegocioFerramentaId(), manipulado.getNegocioAmigoId(), inicio, negocioFim.getText(), null);
-      
+
       if (result == true) {
          this.carregaTabela();
          this.tempoEmprestimo();
@@ -641,7 +641,7 @@ public class Gerenciador extends javax.swing.JFrame {
          negocioFerramentaNome.setText(String.valueOf(ferramentaNome));
          negocioAmigoNome.setText(String.valueOf(amigoNome));
          negocioFim.setText(dataFim);
-         
+
          // SALVANDO AS CHAVE ESTRANGEIRAS NO OBJETO DE MANIPULAÇÃO
          manipulado.setNegocioFerramentaId(fId);
          manipulado.setNegocioAmigoId(aId);

@@ -2,7 +2,6 @@
 package model;
 
 // IMPORTAÇÕES
-import javax.swing.JOptionPane;
 import dao.AmigosDAO;
 import java.util.ArrayList;
 
@@ -57,7 +56,7 @@ public class Amigos {
    }
 
    public void setAmigoId(int amigoId) {
-         this.amigoId = amigoId;
+      this.amigoId = amigoId;
    }
 
    public void setAmigoNome(String amigoNome) {

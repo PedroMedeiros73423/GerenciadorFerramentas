@@ -196,8 +196,8 @@ public class Negocios {
       NegociosDAO db = new NegociosDAO();
       return db.verificaPendencias(amigoId);
    }
-   
-      // RESUMO ===================================================================
+
+   // RESUMO ===================================================================
    public int[] fazerResumo() {
       // CRIANDO O OBJETO DO BANCO DE DADOS
       NegociosDAO db = new NegociosDAO();

@@ -1,4 +1,3 @@
-
 package view.amigos;
 
 import java.util.ArrayList;
@@ -8,17 +7,17 @@ import model.Amigos;
 
 public class Gerenciador extends javax.swing.JFrame {
 
-    // CRIANDO UM OBJETO DE MANIPULAÇÃO
+   // CRIANDO UM OBJETO DE MANIPULAÇÃO
    Amigos manipulado = new Amigos("", "", "", "");
-    
-    public Gerenciador() {
-        initComponents();
-        
-        // CARREGANDO A TABELA
+
+   public Gerenciador() {
+      initComponents();
+
+      // CARREGANDO A TABELA
       this.carregaTabela();
-    }
-    
-    // METODO PARA CARREGAR OS DADOS NA TABELA
+   }
+
+   // METODO PARA CARREGAR OS DADOS NA TABELA
    public void carregaTabela() {
       // LENDO O MODELO DA TABELA
       DefaultTableModel modelo = (DefaultTableModel) tabelaAmigos.getModel();
@@ -54,8 +53,7 @@ public class Gerenciador extends javax.swing.JFrame {
       botaoDeletar.setEnabled(false);
    }
 
-
-    @SuppressWarnings("unchecked")
+   @SuppressWarnings("unchecked")
    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
    private void initComponents() {
 
@@ -219,110 +217,109 @@ public class Gerenciador extends javax.swing.JFrame {
    }// </editor-fold>//GEN-END:initComponents
 
     private void botaoCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCadastrarActionPerformed
-        // SALVANDO NO BANCO
-        boolean result = manipulado.inserirAmigo(amigoNome.getText(), amigoEmail.getText(), amigoEndereco.getText(), amigoTelefone.getText());
-        if (result == true) {
-            // RECARREGAR TABELA
-            this.carregaTabela();
-            // JOptionPane.showMessageDialog(null, "Amigo cadastrado com sucesso");
-        } else {
-            JOptionPane.showMessageDialog(null, "Não foi possível cadastrar o amigo no banco de dados");
-        }
+       // SALVANDO NO BANCO
+       boolean result = manipulado.inserirAmigo(amigoNome.getText(), amigoEmail.getText(), amigoEndereco.getText(), amigoTelefone.getText());
+       if (result == true) {
+          // RECARREGAR TABELA
+          this.carregaTabela();
+          // JOptionPane.showMessageDialog(null, "Amigo cadastrado com sucesso");
+       } else {
+          JOptionPane.showMessageDialog(null, "Não foi possível cadastrar o amigo no banco de dados");
+       }
     }//GEN-LAST:event_botaoCadastrarActionPerformed
 
     private void botaoSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSalvarActionPerformed
-        // SE TEM ALGUMA LINHA SELECIONADA
-        if (this.tabelaAmigos.getSelectedRow() != -1) {
-            // LENDO O ID DA LINHA
-            int id = Integer.parseInt(this.tabelaAmigos.getValueAt(this.tabelaAmigos.getSelectedRow(), 0).toString());
+       // SE TEM ALGUMA LINHA SELECIONADA
+       if (this.tabelaAmigos.getSelectedRow() != -1) {
+          // LENDO O ID DA LINHA
+          int id = Integer.parseInt(this.tabelaAmigos.getValueAt(this.tabelaAmigos.getSelectedRow(), 0).toString());
 
-            // SALVANDO NO BANCO
-            boolean result = manipulado.editarAmigo(id, amigoNome.getText(), amigoEmail.getText(), amigoEndereco.getText(), amigoTelefone.getText());
-            if (result == true) {
-                // RECARREGAR TABELA
-                this.carregaTabela();
-                // JOptionPane.showMessageDialog(null, "Alterações de amigo salvas com sucesso");
-            } else {
-                JOptionPane.showMessageDialog(null, "Não foi possível as alterações de amigo");
-            }
-        }
+          // SALVANDO NO BANCO
+          boolean result = manipulado.editarAmigo(id, amigoNome.getText(), amigoEmail.getText(), amigoEndereco.getText(), amigoTelefone.getText());
+          if (result == true) {
+             // RECARREGAR TABELA
+             this.carregaTabela();
+             // JOptionPane.showMessageDialog(null, "Alterações de amigo salvas com sucesso");
+          } else {
+             JOptionPane.showMessageDialog(null, "Não foi possível as alterações de amigo");
+          }
+       }
     }//GEN-LAST:event_botaoSalvarActionPerformed
 
     private void botaoDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoDeletarActionPerformed
-        // SE TEM ALGUMA LINHA SELECIONADA
-        if (this.tabelaAmigos.getSelectedRow() != -1) {
-            // CONFIRMAR DELEÇÃO
-            Object[] options = {"Sim", "Não"};
-            int seguir = JOptionPane.showOptionDialog(this, "Deseja mesmo excluir esse amigo?", "Cuidado", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[1]);
-            if (seguir != 0) {
-                return;
-            }
+       // SE TEM ALGUMA LINHA SELECIONADA
+       if (this.tabelaAmigos.getSelectedRow() != -1) {
+          // CONFIRMAR DELEÇÃO
+          Object[] options = {"Sim", "Não"};
+          int seguir = JOptionPane.showOptionDialog(this, "Deseja mesmo excluir esse amigo?", "Cuidado", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[1]);
+          if (seguir != 0) {
+             return;
+          }
 
-            // LENDO OS DADOS DA LINHA
-            int id = Integer.parseInt(this.tabelaAmigos.getValueAt(this.tabelaAmigos.getSelectedRow(), 0).toString());
+          // LENDO OS DADOS DA LINHA
+          int id = Integer.parseInt(this.tabelaAmigos.getValueAt(this.tabelaAmigos.getSelectedRow(), 0).toString());
 
-            // VERIFICAR SE A FERRAMENTA AINDA ESTÁ EMPRESTADA
-            int emprestimos = manipulado.temEmprestimos(id);
-            if (emprestimos > 0) {
-                JOptionPane.showMessageDialog(null, "Não é possível excluir o amigo.\n\nEle possui : " + emprestimos + " registros de empréstimo.\nExclua todos os registros de empréstimos referentes a este amigo antes de deletar");
-                return;
-            }
+          // VERIFICAR SE A FERRAMENTA AINDA ESTÁ EMPRESTADA
+          int emprestimos = manipulado.temEmprestimos(id);
+          if (emprestimos > 0) {
+             JOptionPane.showMessageDialog(null, "Não é possível excluir o amigo.\n\nEle possui : " + emprestimos + " registros de empréstimo.\nExclua todos os registros de empréstimos referentes a este amigo antes de deletar");
+             return;
+          }
 
-            // DELETANDO DO BANCO
-            boolean result = manipulado.deletarAmigo(id);
+          // DELETANDO DO BANCO
+          boolean result = manipulado.deletarAmigo(id);
 
-            // PÓS PROCESSAMENTO
-            if (result == true) {
-                // RECARREGAR TABELA
-                this.carregaTabela();
-                JOptionPane.showMessageDialog(null, "Amigo deletado com sucesso!");
-            } else {
-                JOptionPane.showMessageDialog(null, "Erro ao deletar amigo");
-            }
-        }
+          // PÓS PROCESSAMENTO
+          if (result == true) {
+             // RECARREGAR TABELA
+             this.carregaTabela();
+             JOptionPane.showMessageDialog(null, "Amigo deletado com sucesso!");
+          } else {
+             JOptionPane.showMessageDialog(null, "Erro ao deletar amigo");
+          }
+       }
     }//GEN-LAST:event_botaoDeletarActionPerformed
 
     private void tabelaAmigosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaAmigosMouseClicked
-        // SE TEM ALGUMA LINHA SELECIONADA
-        if (this.tabelaAmigos.getSelectedRow() != -1) {
-            // LENDO OS DADOS DA LINHA
-            String nome = this.tabelaAmigos.getValueAt(this.tabelaAmigos.getSelectedRow(), 1).toString();
-            String email = this.tabelaAmigos.getValueAt(this.tabelaAmigos.getSelectedRow(), 2).toString();
-            String endereco = this.tabelaAmigos.getValueAt(this.tabelaAmigos.getSelectedRow(), 3).toString();
-            String telefone = this.tabelaAmigos.getValueAt(this.tabelaAmigos.getSelectedRow(), 4).toString();
+       // SE TEM ALGUMA LINHA SELECIONADA
+       if (this.tabelaAmigos.getSelectedRow() != -1) {
+          // LENDO OS DADOS DA LINHA
+          String nome = this.tabelaAmigos.getValueAt(this.tabelaAmigos.getSelectedRow(), 1).toString();
+          String email = this.tabelaAmigos.getValueAt(this.tabelaAmigos.getSelectedRow(), 2).toString();
+          String endereco = this.tabelaAmigos.getValueAt(this.tabelaAmigos.getSelectedRow(), 3).toString();
+          String telefone = this.tabelaAmigos.getValueAt(this.tabelaAmigos.getSelectedRow(), 4).toString();
 
-            // PREENCHENDO O FORMULÁRIO
-            amigoNome.setText(nome);
-            amigoEmail.setText(email);
-            amigoEndereco.setText(endereco);
-            amigoTelefone.setText(telefone);
+          // PREENCHENDO O FORMULÁRIO
+          amigoNome.setText(nome);
+          amigoEmail.setText(email);
+          amigoEndereco.setText(endereco);
+          amigoTelefone.setText(telefone);
 
-            // MANIPULANDO BOTÕES
-            botaoCadastrar.setEnabled(false);
-            botaoSalvar.setEnabled(true);
-            botaoDeletar.setEnabled(true);
-        }
+          // MANIPULANDO BOTÕES
+          botaoCadastrar.setEnabled(false);
+          botaoSalvar.setEnabled(true);
+          botaoDeletar.setEnabled(true);
+       }
     }//GEN-LAST:event_tabelaAmigosMouseClicked
 
     private void botaoVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoVoltarActionPerformed
-        this.dispose();
+       this.dispose();
     }//GEN-LAST:event_botaoVoltarActionPerformed
 
     private void botaoLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoLimparActionPerformed
-        // LIMPANDO O FORMULÁRIO
-        amigoNome.setText("");
-        amigoEmail.setText("");
-        amigoEndereco.setText("");
-        amigoTelefone.setText("");
+       // LIMPANDO O FORMULÁRIO
+       amigoNome.setText("");
+       amigoEmail.setText("");
+       amigoEndereco.setText("");
+       amigoTelefone.setText("");
 
-        // MANIPULANDO OS BOTÕES
-        botaoCadastrar.setEnabled(true);
-        botaoSalvar.setEnabled(false);
-        botaoDeletar.setEnabled(false);
+       // MANIPULANDO OS BOTÕES
+       botaoCadastrar.setEnabled(true);
+       botaoSalvar.setEnabled(false);
+       botaoDeletar.setEnabled(false);
     }//GEN-LAST:event_botaoLimparActionPerformed
 
-
-    public static void main(String args[]) {
+   public static void main(String args[]) {
       java.awt.EventQueue.invokeLater(new Runnable() {
          public void run() {
             new Gerenciador().setVisible(true);

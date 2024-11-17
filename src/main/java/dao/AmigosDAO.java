@@ -378,7 +378,7 @@ public class AmigosDAO extends ServidorDAO {
 
       // VETOR PARA ARMAZENAR A LISTA DE ID DE AMIGOS
       Vector<Integer> amigosId = new Vector<Integer>();
-      
+
       // VARIÁVEIS
       int cnt1;
       int cnt2;

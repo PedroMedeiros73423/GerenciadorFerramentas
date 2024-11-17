@@ -1,4 +1,3 @@
-
 package view.amigos;
 
 import java.util.ArrayList;
@@ -6,19 +5,19 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.Amigos;
 
-
 public class Devedores extends javax.swing.JFrame {
-    
-    // CRIANDO UM OBJETO DE MANIPULAÇÃO
+
+   // CRIANDO UM OBJETO DE MANIPULAÇÃO
    Amigos manipulado = new Amigos("", "", "", "");
 
-    public Devedores() {
-        initComponents();
-        
-        // CARREGANDO A TABELA
+   public Devedores() {
+      initComponents();
+
+      // CARREGANDO A TABELA
       this.carregaTabela();
    }
-    // METODO PARA CARREGAR OS DADOS NA TABELA
+   // METODO PARA CARREGAR OS DADOS NA TABELA
+
    public void carregaTabela() {
       // LENDO O MODELO DA TABELA
       DefaultTableModel modelo = (DefaultTableModel) this.tabelaDevedores.getModel();
@@ -42,10 +41,8 @@ public class Devedores extends javax.swing.JFrame {
          });
       }
    }
-    
 
-
-    @SuppressWarnings("unchecked")
+   @SuppressWarnings("unchecked")
    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
    private void initComponents() {
 
@@ -120,15 +117,15 @@ public class Devedores extends javax.swing.JFrame {
    }// </editor-fold>//GEN-END:initComponents
 
     private void botaoAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAtualizarActionPerformed
-        // RECARREGANDO A TABELA
-        this.carregaTabela();
+       // RECARREGANDO A TABELA
+       this.carregaTabela();
     }//GEN-LAST:event_botaoAtualizarActionPerformed
 
     private void botãoVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botãoVoltarActionPerformed
-        this.dispose();
+       this.dispose();
     }//GEN-LAST:event_botãoVoltarActionPerformed
 
-    public static void main(String args[]) {
+   public static void main(String args[]) {
       java.awt.EventQueue.invokeLater(new Runnable() {
          public void run() {
             new Devedores().setVisible(true);

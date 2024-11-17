@@ -1,4 +1,3 @@
-
 package view.amigos;
 
 import java.util.ArrayList;
@@ -6,21 +5,19 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.Amigos;
 
-
 public class Ranking extends javax.swing.JFrame {
 
-    
-    // CRIANDO UM OBJETO DE MANIPULAÇÃO
-    Amigos manipulado = new Amigos();
-    
-    public Ranking() {
-        initComponents();
-        
-        // CARREGANDO A TABELA
-        this.carregaTabela();
-    }
-    
-    // METODO PARA CARREGAR OS DADOS NA TABELA
+   // CRIANDO UM OBJETO DE MANIPULAÇÃO
+   Amigos manipulado = new Amigos();
+
+   public Ranking() {
+      initComponents();
+
+      // CARREGANDO A TABELA
+      this.carregaTabela();
+   }
+
+   // METODO PARA CARREGAR OS DADOS NA TABELA
    public void carregaTabela() {
       // LENDO O MODELO DA TABELA
       DefaultTableModel modelo = (DefaultTableModel) this.tabelaAmigosRanking.getModel();
@@ -45,8 +42,7 @@ public class Ranking extends javax.swing.JFrame {
       }
    }
 
-
-    @SuppressWarnings("unchecked")
+   @SuppressWarnings("unchecked")
    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
    private void initComponents() {
 
@@ -123,16 +119,15 @@ public class Ranking extends javax.swing.JFrame {
    }// </editor-fold>//GEN-END:initComponents
 
     private void botaoAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAtualizarActionPerformed
-        // RECARREGAR A TABELA
-        this.carregaTabela();
+       // RECARREGAR A TABELA
+       this.carregaTabela();
     }//GEN-LAST:event_botaoAtualizarActionPerformed
 
     private void botaoVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoVoltarActionPerformed
-        this.dispose();
+       this.dispose();
     }//GEN-LAST:event_botaoVoltarActionPerformed
 
-
-    public static void main(String args[]) {
+   public static void main(String args[]) {
       java.awt.EventQueue.invokeLater(new Runnable() {
          public void run() {
             new Ranking().setVisible(true);
