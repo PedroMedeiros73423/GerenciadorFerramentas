@@ -7,51 +7,50 @@ import model.Amigos;
 
 public class ViewAmigos extends javax.swing.JFrame {
 
-    Amigos manipulado = new Amigos("", "", "", "");
+   Amigos manipulado = new Amigos("", "", "", "");
 
-    public ViewAmigos() {
-        initComponents();
+   public ViewAmigos() {
+      initComponents();
 
-        // CARREGANDO A TABELA
-        carregaTabela();
-    }
+      // CARREGANDO A TABELA
+      carregaTabela();
+   }
 
-    public void carregaTabela() {
-        // LENDO O MODELO DA TABELA
-        DefaultTableModel modelo = (DefaultTableModel) this.JTTabelaAmigos.getModel();
-        modelo.setNumRows(0);
+   public void carregaTabela() {
+      // LENDO O MODELO DA TABELA
+      DefaultTableModel modelo = (DefaultTableModel) this.JTTabelaAmigos.getModel();
+      modelo.setNumRows(0);
 
-        // BUSCANDO OS DADOS NO BANCO
-        ArrayList<Amigos> todasAmigoses = manipulado.listarTodos();
+      // BUSCANDO OS DADOS NO BANCO
+      ArrayList<Amigos> todasAmigoses = manipulado.listarTodos();
 
-        if (todasAmigoses.size() == 0) {
-            JOptionPane.showMessageDialog(null, "Não há nenhuma ferramenta cadastrada");
-        }
+      if (todasAmigoses.size() == 0) {
+         JOptionPane.showMessageDialog(null, "Não há nenhum amigo cadastrado");
+      }
 
-        for (Amigos esteAmigos : todasAmigoses) {
-            modelo.addRow(new Object[]{
-                esteAmigos.getAmigoId(),
-                esteAmigos.getAmigoNome(),
-                esteAmigos.getAmigoEmail(),
-                esteAmigos.getAmigoEndereco(),
-                esteAmigos.getAmigoTelefone()
-            });
+      for (Amigos esteAmigos : todasAmigoses) {
+         modelo.addRow(new Object[]{
+            esteAmigos.getAmigoId(),
+            esteAmigos.getAmigoNome(),
+            esteAmigos.getAmigoEmail(),
+            esteAmigos.getAmigoEndereco(),
+            esteAmigos.getAmigoTelefone()
+         });
 
-            // LIMPANDO O FORMULÁRIO
-            JTFNomeAmigo.setText("");
-            JTFEndereco.setText("");
-            JTFEmail.setText("");
-            JTFTelefone.setText("");
+         // LIMPANDO O FORMULÁRIO
+         JTFNomeAmigo.setText("");
+         JTFEndereco.setText("");
+         JTFEmail.setText("");
+         JTFTelefone.setText("");
 
-            // MANIPULANDO OS BOTÕES
-            JBRegistrar.setEnabled(true);
-            JBRegistrar.setEnabled(true);
-            JBExcluir.setEnabled(true);
+         // MANIPULANDO OS BOTÕES
+         JBRegistrar.setEnabled(true);
+         JBAtualizar.setEnabled(false);
+         JBExcluir.setEnabled(false);
+      }
+   }
 
-        }
-    }
-
-    @SuppressWarnings("unchecked")
+   @SuppressWarnings("unchecked")
    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
    private void initComponents() {
 
@@ -231,142 +230,121 @@ public class ViewAmigos extends javax.swing.JFrame {
    }// </editor-fold>//GEN-END:initComponents
 
     private void JTTabelaAmigosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTTabelaAmigosMouseClicked
-        // SE TEM ALGUMA LINHA SELECIONADA
-        if (this.JTTabelaAmigos.getSelectedRow() != -1) {
-            // LENDO OS DADOS DA LINHA
-            String nome = this.JTTabelaAmigos.getValueAt(this.JTTabelaAmigos.getSelectedRow(), 1).toString();
-            String endereco = this.JTTabelaAmigos.getValueAt(this.JTTabelaAmigos.getSelectedRow(), 2).toString();
-            String email = this.JTTabelaAmigos.getValueAt(this.JTTabelaAmigos.getSelectedRow(), 3).toString();
-            String telefone = this.JTTabelaAmigos.getValueAt(this.JTTabelaAmigos.getSelectedRow(), 4).toString();
-            // PREENCHENDO O FORMULÁRIO
-            JTFNomeAmigo.setText(nome);
-            JTFEndereco.setText(endereco);
-            JTFEmail.setText(email);
-            JTFTelefone.setText(telefone);
+       // SE TEM ALGUMA LINHA SELECIONADA
+       if (this.JTTabelaAmigos.getSelectedRow() != -1) {
+          // LENDO OS DADOS DA LINHA
+          String nome = this.JTTabelaAmigos.getValueAt(this.JTTabelaAmigos.getSelectedRow(), 1).toString();
+          String endereco = this.JTTabelaAmigos.getValueAt(this.JTTabelaAmigos.getSelectedRow(), 2).toString();
+          String email = this.JTTabelaAmigos.getValueAt(this.JTTabelaAmigos.getSelectedRow(), 3).toString();
+          String telefone = this.JTTabelaAmigos.getValueAt(this.JTTabelaAmigos.getSelectedRow(), 4).toString();
+          // PREENCHENDO O FORMULÁRIO
+          JTFNomeAmigo.setText(nome);
+          JTFEndereco.setText(endereco);
+          JTFEmail.setText(email);
+          JTFTelefone.setText(telefone);
 
-            // MANIPULANDO BOTÕES
-            JBRegistrar.setEnabled(false);
-            JBAtualizar.setEnabled(true);
-            JBExcluir.setEnabled(true);
-        }
+          // MANIPULANDO BOTÕES
+          JBRegistrar.setEnabled(false);
+          JBAtualizar.setEnabled(true);
+          JBExcluir.setEnabled(true);
+       }
     }//GEN-LAST:event_JTTabelaAmigosMouseClicked
 
     private void JBFecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBFecharActionPerformed
-        this.dispose();
+       this.dispose();
     }//GEN-LAST:event_JBFecharActionPerformed
 
     private void JBLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBLimparActionPerformed
-        JTFNomeAmigo.setText("");
-        JTFEndereco.setText("");
-        JTFEmail.setText("");
-        JTFTelefone.setText("");
+       // LIMPANDO O FORMULÁRIO 
+       JTFNomeAmigo.setText("");
+       JTFEndereco.setText("");
+       JTFEmail.setText("");
+       JTFTelefone.setText("");
+
+       // MANIPULANDO OS BOTÕES
+       JBRegistrar.setEnabled(true);
+       JBAtualizar.setEnabled(false);
+       JBExcluir.setEnabled(false);
 
     }//GEN-LAST:event_JBLimparActionPerformed
 
     private void JBAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBAtualizarActionPerformed
-        // LENDO O ID DA LINHA
-        int id = Integer.parseInt(this.JTTabelaAmigos.getValueAt(this.JTTabelaAmigos.getSelectedRow(), 0).toString());
+       // LENDO O ID DA LINHA
+       int id = Integer.parseInt(this.JTTabelaAmigos.getValueAt(this.JTTabelaAmigos.getSelectedRow(), 0).toString());
 
-        // SALVANDO NO BANCO
-        boolean result = manipulado.editarAmigo(id, JTFNomeAmigo.getText(), JTFEndereco.getText(), JTFEmail.getText(), JTFTelefone.getText());
+       // SALVANDO NO BANCO
+       boolean result = manipulado.editarAmigo(id, JTFNomeAmigo.getText(), JTFEndereco.getText(), JTFEmail.getText(), JTFTelefone.getText());
 
-        // PÓS PROCESSAMENTO
-        if (result == true) {
-            // RECARREGAR TABELA
-            carregaTabela();
-            JOptionPane.showMessageDialog(null, "Alterações de amigo salvas com sucesso");
-        } else {
-            JOptionPane.showMessageDialog(null, "Não foi possível salvar as alterações de amigo");
-        }
+       // PÓS PROCESSAMENTO
+       if (result == true) {
+          // RECARREGAR TABELA
+          carregaTabela();
+          JOptionPane.showMessageDialog(null, "Alterações de amigo salvas com sucesso");
+       } else {
+          JOptionPane.showMessageDialog(null, "Não foi possível salvar as alterações de amigo");
+       }
     }//GEN-LAST:event_JBAtualizarActionPerformed
 
     private void JBExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBExcluirActionPerformed
-        if (this.JTTabelaAmigos.getSelectedRow() == -1) {
-            JOptionPane.showMessageDialog(null, "É preciso escolher um para deletar primeiro");
-        }
-        if (this.JTTabelaAmigos.getSelectedRow() != -1) {
+       if (this.JTTabelaAmigos.getSelectedRow() == -1) {
+          JOptionPane.showMessageDialog(null, "É preciso escolher um para deletar primeiro");
+       }
+       if (this.JTTabelaAmigos.getSelectedRow() != -1) {
+          // CONFIRMAR DELEÇÃO
+          Object[] options = {"Sim", "Não"};
+          int seguir = JOptionPane.showOptionDialog(this, "Deseja mesmo excluir esse amigo?", "Cuidado", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[1]);
+          if (seguir != 0) {
+             return;
+          }
 
-            // LENDO OS DADOS DA LINHA
-            int id = Integer.parseInt(this.JTTabelaAmigos.getValueAt(this.JTTabelaAmigos.getSelectedRow(), 0).toString());
+          // LENDO OS DADOS DA LINHA
+          int id = Integer.parseInt(this.JTTabelaAmigos.getValueAt(this.JTTabelaAmigos.getSelectedRow(), 0).toString());
 
-            // DELETANDO DO BANCO
-            boolean result = manipulado.deletarAmigo(id);
-            if (result == true) {
-                // RECARREGAR TABELA
-                DefaultTableModel gf = (DefaultTableModel) JTTabelaAmigos.getModel();
-                gf.removeRow(JTTabelaAmigos.getSelectedRow());
-                JOptionPane.showMessageDialog(null, "Removido com sucesso!");
+          // DELETANDO DO BANCO
+          boolean result = manipulado.deletarAmigo(id);
+          if (result == true) {
+             // RECARREGAR TABELA
+             DefaultTableModel gf = (DefaultTableModel) JTTabelaAmigos.getModel();
+             gf.removeRow(JTTabelaAmigos.getSelectedRow());
+             JOptionPane.showMessageDialog(null, "Removido com sucesso!");
 
-            } else {
-                JOptionPane.showMessageDialog(null, "Erro ao deletar ferramenta");
-            }
-        }
+          } else {
+             JOptionPane.showMessageDialog(null, "Erro ao deletar amigo");
+          }
+       }
 
     }//GEN-LAST:event_JBExcluirActionPerformed
 
     private void JBRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBRegistrarActionPerformed
-        
+       // SALVANDO NO BANCO DE DADOS
+       boolean result = manipulado.inserirAmigo(JTFNomeAmigo.getText(), JTFEndereco.getText(), JTFEmail.getText(), JTFTelefone.getText());
 
-        // SALVANDO NO BANCO DE DADOS
-        System.out.println(JTFNomeAmigo.getText());
-        System.out.println(JTFEndereco.getText());
-        System.out.println(JTFEmail.getText());
-        System.out.println(JTFTelefone.getText());
-        boolean result = manipulado.inserirAmigo(JTFNomeAmigo.getText(), JTFEndereco.getText(), JTFEmail.getText(), JTFTelefone.getText());
-
-        // PÓS PROCESSAMENTO
-        if (result == true) {
-            // RECARREGAR TABELA
-            carregaTabela();
-            JOptionPane.showMessageDialog(null, "Amigo cadastrado com sucesso");
-        } else {
-            JOptionPane.showMessageDialog(null, "Não foi possível cadastrar o amigo no banco de dados");
-        }
+       // PÓS PROCESSAMENTO
+       if (result == true) {
+          // RECARREGAR TABELA
+          carregaTabela();
+          JOptionPane.showMessageDialog(null, "Amigo cadastrado com sucesso");
+       } else {
+          JOptionPane.showMessageDialog(null, "Não foi possível cadastrar o amigo no banco de dados");
+       }
 
     }//GEN-LAST:event_JBRegistrarActionPerformed
 
     private void atualizarTabelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atualizarTabelaActionPerformed
-        
+
     }//GEN-LAST:event_atualizarTabelaActionPerformed
 
     private void JTFEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFEmailActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_JTFEmailActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ViewAmigos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ViewAmigos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ViewAmigos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ViewAmigos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ViewAmigos().setVisible(true);
-            }
-        });
-    }
+   public static void main(String args[]) {
+      java.awt.EventQueue.invokeLater(new Runnable() {
+         public void run() {
+            new ViewAmigos().setVisible(true);
+         }
+      });
+   }
 
    // Variables declaration - do not modify//GEN-BEGIN:variables
    private javax.swing.JButton JBAtualizar;
