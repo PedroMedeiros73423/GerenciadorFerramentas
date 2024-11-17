@@ -7,64 +7,64 @@ import model.Ferramentas;
 
 public class ViewFerramenta extends javax.swing.JFrame {
 
-    private void carregarDashboard() {
-        // RESUMO DAS FERRAMENTAS
-        Ferramentas ferramenta = new Ferramentas();
-        Double[] resumoFerramentas = ferramenta.fazerResumo();
-        somaQuantidade.setText(String.format("%.0f", resumoFerramentas[0]));
-        somaValor.setText("R$ " + String.format("%.2f", resumoFerramentas[1]));
-    }
-    Ferramentas manipulado = new Ferramentas("", "", 0.0);
+   private void carregarDashboard() {
+      // RESUMO DAS FERRAMENTAS
+      Ferramentas ferramenta = new Ferramentas();
+      Double[] resumoFerramentas = ferramenta.fazerResumo();
+      somaQuantidade.setText(String.format("%.0f", resumoFerramentas[0]));
+      somaValor.setText("R$ " + String.format("%.2f", resumoFerramentas[1]));
+   }
+   Ferramentas manipulado = new Ferramentas("", "", 0.0);
 
-    public ViewFerramenta() {
-        initComponents();
+   public ViewFerramenta() {
+      initComponents();
 
-        // CARREGANDO A TABELA
-        carregaTabela();
-    }
+      // CARREGANDO A TABELA
+      carregaTabela();
+   }
 
-    // METODO PARA CARREGAR OS DADOS NA TABELA
-    public void carregaTabela() {
-        // LENDO O MODELO DA TABELA
-        DefaultTableModel modelo = (DefaultTableModel) this.JTTabelaFerramentas.getModel();
-        modelo.setNumRows(0);
+   // METODO PARA CARREGAR OS DADOS NA TABELA
+   public void carregaTabela() {
+      // LENDO O MODELO DA TABELA
+      DefaultTableModel modelo = (DefaultTableModel) this.JTTabelaFerramentas.getModel();
+      modelo.setNumRows(0);
 
-        // BUSCANDO OS DADOS NO BANCO
-        ArrayList<Ferramentas> todasFerramentas = manipulado.listarTodas();
+      // BUSCANDO OS DADOS NO BANCO
+      ArrayList<Ferramentas> todasFerramentas = manipulado.listarTodas();
 
-        if (todasFerramentas.size() == 0) {
-            JOptionPane.showMessageDialog(null, "Não há nenhuma ferramenta cadastrada");
-        }
+      if (todasFerramentas.size() == 0) {
+         JOptionPane.showMessageDialog(null, "Não há nenhuma ferramenta cadastrada");
+      }
 
-        // INSRINDO OS DADOS NA TABELA
-        double soma = 0;
-        int quantidade = 0;
-        for (Ferramentas estaFerramenta : todasFerramentas) {
-            modelo.addRow(new Object[]{
-                estaFerramenta.getFerramentaId(),
-                estaFerramenta.getFerramentaNome(),
-                estaFerramenta.getFerramentaMarca(),
-                estaFerramenta.getFerramentaValor()
-            });
-            soma += estaFerramenta.getFerramentaValor();
-            quantidade += 1;
-        }
-        somaValor.setText("R$ " + String.format("%.2f", soma));
-        somaQuantidade.setText(String.valueOf(quantidade));
+      // INSRINDO OS DADOS NA TABELA
+      double soma = 0;
+      int quantidade = 0;
+      for (Ferramentas estaFerramenta : todasFerramentas) {
+         modelo.addRow(new Object[]{
+            estaFerramenta.getFerramentaId(),
+            estaFerramenta.getFerramentaNome(),
+            estaFerramenta.getFerramentaMarca(),
+            estaFerramenta.getFerramentaValor()
+         });
+         soma += estaFerramenta.getFerramentaValor();
+         quantidade += 1;
+      }
+      somaValor.setText("R$ " + String.format("%.2f", soma));
+      somaQuantidade.setText(String.valueOf(quantidade));
 
-        // LIMPANDO O FORMULÁRIO
-        JTFNome.setText("");
-        JTFMarca.setText("");
-        JTFValor.setText("");
+      // LIMPANDO O FORMULÁRIO
+      JTFNome.setText("");
+      JTFMarca.setText("");
+      JTFValor.setText("");
 
-        // MANIPULANDO OS BOTÕES
-        JBRegistrar.setEnabled(true);
-        JBAtualizar.setEnabled(false);
-        JBExcluir.setEnabled(false);
+      // MANIPULANDO OS BOTÕES
+      JBRegistrar.setEnabled(true);
+      JBAtualizar.setEnabled(false);
+      JBExcluir.setEnabled(false);
 
-    }
+   }
 
-    @SuppressWarnings("unchecked")
+   @SuppressWarnings("unchecked")
    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
    private void initComponents() {
 
@@ -313,81 +313,83 @@ public class ViewFerramenta extends javax.swing.JFrame {
    }// </editor-fold>//GEN-END:initComponents
 
     private void JBFecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBFecharActionPerformed
-        this.dispose();
+       this.dispose();
     }//GEN-LAST:event_JBFecharActionPerformed
 
     private void JBRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBRegistrarActionPerformed
-        // LENDO O VALOR, CASO ESTEJA VAZIO DEFINIR COMO ZERO
-        Double valor = 0.0;
-        String val = JTFValor.getText();
-        if (val.length() > 0) {
-            valor = Double.parseDouble(val);
-        }
+       // LENDO O VALOR, CASO ESTEJA VAZIO DEFINIR COMO ZERO
+       Double valor = 0.0;
+       String val = JTFValor.getText();
+       if (val.length() > 0) {
+          valor = Double.parseDouble(val);
+       }
 
-        // SALVANDO NO BANCO DE DADOS
-        System.out.println(JTFNome.getText());
-        System.out.println(JTFMarca.getText());
-        System.out.println(valor);
-        boolean result = manipulado.inserirFerramenta(JTFNome.getText(), JTFMarca.getText(), valor);
-  
-                // PÓS PROCESSAMENTO
-                if (result == true) {
-                    // RECARREGAR TABELA
-                    carregaTabela();
-                    JOptionPane.showMessageDialog(null, "Ferramenta cadastrada com sucesso");
-                } else {
-                    JOptionPane.showMessageDialog(null, "Não foi possível cadastrar a ferramenta no banco de dados");
-                }
-            
+       // SALVANDO NO BANCO DE DADOS
+       boolean result = manipulado.inserirFerramenta(JTFNome.getText(), JTFMarca.getText(), valor);
+
+       // PÓS PROCESSAMENTO
+       if (result == true) {
+          // RECARREGAR TABELA
+          carregaTabela();
+          JOptionPane.showMessageDialog(null, "Ferramenta cadastrada com sucesso");
+       } else {
+          JOptionPane.showMessageDialog(null, "Não foi possível cadastrar a ferramenta no banco de dados");
+       }
     }//GEN-LAST:event_JBRegistrarActionPerformed
 
     private void JBExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBExcluirActionPerformed
-        if (this.JTTabelaFerramentas.getSelectedRow() == -1) {
-            JOptionPane.showMessageDialog(null, "É preciso escolher um para deletar primeiro");
-        }
-        if (this.JTTabelaFerramentas.getSelectedRow() != -1) {
+       if (this.JTTabelaFerramentas.getSelectedRow() == -1) {
+          JOptionPane.showMessageDialog(null, "É preciso escolher um para deletar primeiro");
+       }
+       if (this.JTTabelaFerramentas.getSelectedRow() != -1) {
+          // CONFIRMAR DELEÇÃO
+          Object[] options = {"Sim", "Não"};
+          int seguir = JOptionPane.showOptionDialog(this, "Deseja mesmo excluir essa ferramenta?", "Cuidado", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[1]);
+          if (seguir != 0) {
+             return;
+          }
+         
+          // LENDO OS DADOS DA LINHA
+          int id = Integer.parseInt(this.JTTabelaFerramentas.getValueAt(this.JTTabelaFerramentas.getSelectedRow(), 0).toString());
 
-            // LENDO OS DADOS DA LINHA
-            int id = Integer.parseInt(this.JTTabelaFerramentas.getValueAt(this.JTTabelaFerramentas.getSelectedRow(), 0).toString());
+          // DELETANDO DO BANCO
+          boolean result = manipulado.deletarFerramenta(id);
+          if (result == true) {
+             // RECARREGAR TABELA
+             DefaultTableModel gf = (DefaultTableModel) JTTabelaFerramentas.getModel();
+             gf.removeRow(JTTabelaFerramentas.getSelectedRow());
+             JOptionPane.showMessageDialog(null, "Removido com sucesso!");
 
-            // DELETANDO DO BANCO
-            boolean result = manipulado.deletarFerramenta(id);
-            if (result == true) {
-                // RECARREGAR TABELA
-                DefaultTableModel gf = (DefaultTableModel) JTTabelaFerramentas.getModel();
-                gf.removeRow(JTTabelaFerramentas.getSelectedRow());
-                JOptionPane.showMessageDialog(null, "Removido com sucesso!");
-
-            } else {
-                JOptionPane.showMessageDialog(null, "Erro ao deletar ferramenta");
-            }
-        }
+          } else {
+             JOptionPane.showMessageDialog(null, "Erro ao deletar ferramenta");
+          }
+       }
 
 
     }//GEN-LAST:event_JBExcluirActionPerformed
 
     private void JBAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBAtualizarActionPerformed
-        // LENDO O ID DA LINHA
-        int id = Integer.parseInt(this.JTTabelaFerramentas.getValueAt(this.JTTabelaFerramentas.getSelectedRow(), 0).toString());
+       // LENDO O ID DA LINHA
+       int id = Integer.parseInt(this.JTTabelaFerramentas.getValueAt(this.JTTabelaFerramentas.getSelectedRow(), 0).toString());
 
-        // LENDO O VALOR, CASO ESTEJA VAZIO DEFINIR COMO ZERO
-        Double valor = 0.0;
-        String val = JTFValor.getText();
-        if (val.length() > 0) {
-            valor = Double.parseDouble(val);
-        }
+       // LENDO O VALOR, CASO ESTEJA VAZIO DEFINIR COMO ZERO
+       Double valor = 0.0;
+       String val = JTFValor.getText();
+       if (val.length() > 0) {
+          valor = Double.parseDouble(val);
+       }
 
-        // SALVANDO NO BANCO
-        boolean result = manipulado.editarFerramenta(id, JTFNome.getText(), JTFMarca.getText(), valor);
+       // SALVANDO NO BANCO
+       boolean result = manipulado.editarFerramenta(id, JTFNome.getText(), JTFMarca.getText(), valor);
 
-        // PÓS PROCESSAMENTO
-        if (result == true) {
-            // RECARREGAR TABELA
-            carregaTabela();
-            JOptionPane.showMessageDialog(null, "Alterações de ferramenta salvas com sucesso");
-        } else {
-            JOptionPane.showMessageDialog(null, "Não foi possível salvar as alterações de ferramenta");
-        }
+       // PÓS PROCESSAMENTO
+       if (result == true) {
+          // RECARREGAR TABELA
+          carregaTabela();
+          JOptionPane.showMessageDialog(null, "Alterações de ferramenta salvas com sucesso");
+       } else {
+          JOptionPane.showMessageDialog(null, "Não foi possível salvar as alterações de ferramenta");
+       }
     }//GEN-LAST:event_JBAtualizarActionPerformed
 
     private void JBLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBLimparActionPerformed
@@ -403,66 +405,66 @@ public class ViewFerramenta extends javax.swing.JFrame {
     }//GEN-LAST:event_JBLimparActionPerformed
 
     private void JTTabelaFerramentasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTTabelaFerramentasMouseClicked
-        // SE TEM ALGUMA LINHA SELECIONADA
-        if (this.JTTabelaFerramentas.getSelectedRow() != -1) {
-            // LENDO OS DADOS DA LINHA
-            String nome = this.JTTabelaFerramentas.getValueAt(this.JTTabelaFerramentas.getSelectedRow(), 1).toString();
-            String marca = this.JTTabelaFerramentas.getValueAt(this.JTTabelaFerramentas.getSelectedRow(), 2).toString();
-            String valor = this.JTTabelaFerramentas.getValueAt(this.JTTabelaFerramentas.getSelectedRow(), 3).toString();
+       // SE TEM ALGUMA LINHA SELECIONADA
+       if (this.JTTabelaFerramentas.getSelectedRow() != -1) {
+          // LENDO OS DADOS DA LINHA
+          String nome = this.JTTabelaFerramentas.getValueAt(this.JTTabelaFerramentas.getSelectedRow(), 1).toString();
+          String marca = this.JTTabelaFerramentas.getValueAt(this.JTTabelaFerramentas.getSelectedRow(), 2).toString();
+          String valor = this.JTTabelaFerramentas.getValueAt(this.JTTabelaFerramentas.getSelectedRow(), 3).toString();
 
-            // PREENCHENDO O FORMULÁRIO
-            JTFNome.setText(nome);
-            JTFMarca.setText(marca);
-            JTFValor.setText(valor);
+          // PREENCHENDO O FORMULÁRIO
+          JTFNome.setText(nome);
+          JTFMarca.setText(marca);
+          JTFValor.setText(valor);
 
-            // MANIPULANDO BOTÕES
-            JBRegistrar.setEnabled(false);
-            JBAtualizar.setEnabled(true);
-            JBExcluir.setEnabled(true);
-        }
+          // MANIPULANDO BOTÕES
+          JBRegistrar.setEnabled(false);
+          JBAtualizar.setEnabled(true);
+          JBExcluir.setEnabled(true);
+       }
     }//GEN-LAST:event_JTTabelaFerramentasMouseClicked
 
     private void atualizarTabelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atualizarTabelaActionPerformed
-        this.carregarDashboard();
+       this.carregarDashboard();
     }//GEN-LAST:event_atualizarTabelaActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+   /**
+    * @param args the command line arguments
+    */
+   public static void main(String args[]) {
+      /* Set the Nimbus look and feel */
+      //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+      /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
+       */
+      try {
+         for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+            if ("Nimbus".equals(info.getName())) {
+               javax.swing.UIManager.setLookAndFeel(info.getClassName());
+               break;
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ViewFerramenta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ViewFerramenta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ViewFerramenta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ViewFerramenta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
+         }
+      } catch (ClassNotFoundException ex) {
+         java.util.logging.Logger.getLogger(ViewFerramenta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+      } catch (InstantiationException ex) {
+         java.util.logging.Logger.getLogger(ViewFerramenta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+      } catch (IllegalAccessException ex) {
+         java.util.logging.Logger.getLogger(ViewFerramenta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+      } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+         java.util.logging.Logger.getLogger(ViewFerramenta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+      }
+      //</editor-fold>
+      //</editor-fold>
+      //</editor-fold>
+      //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ViewFerramenta().setVisible(true);
-            }
-        });
-    }
+      /* Create and display the form */
+      java.awt.EventQueue.invokeLater(new Runnable() {
+         public void run() {
+            new ViewFerramenta().setVisible(true);
+         }
+      });
+   }
 
    // Variables declaration - do not modify//GEN-BEGIN:variables
    private javax.swing.JButton JBAtualizar;
