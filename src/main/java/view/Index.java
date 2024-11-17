@@ -462,48 +462,65 @@ public class Index extends javax.swing.JFrame {
 
    private void ferramentasMenuEmprestadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ferramentasMenuEmprestadasActionPerformed
       // ABRINDO A TELA COM A LISTA DE FERRAMENTAS EMPRESTADAS
-
+      view.ferramentas.Emprestadas emprestadas = new view.ferramentas.Emprestadas();
+      emprestadas.setVisible(true);
+      emprestadas.setLocationRelativeTo(null);
    }//GEN-LAST:event_ferramentasMenuEmprestadasActionPerformed
 
    private void ferramentasMenuDisponiveisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ferramentasMenuDisponiveisActionPerformed
       // ABRIRINDO A TELA COM A LISTA DE FERRAMENTAS DISPONÍVEIS PARA EMPRÉSTIMOS
-
+      view.ferramentas.Disponiveis disponivel = new view.ferramentas.Disponiveis();
+      disponivel.setVisible(true);
+      disponivel.setLocationRelativeTo(null);
    }//GEN-LAST:event_ferramentasMenuDisponiveisActionPerformed
 
    private void amigosMenuGerenciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_amigosMenuGerenciarActionPerformed
       ViewAmigos objeto = new ViewAmigos();
-       objeto.setVisible(true);
-       objeto.setLocationRelativeTo(null);
+      objeto.setVisible(true);
+      objeto.setLocationRelativeTo(null);
 
    }//GEN-LAST:event_amigosMenuGerenciarActionPerformed
 
    private void amigosMenuEmprestadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_amigosMenuEmprestadosActionPerformed
       // ABRIRINDO A TELA COM A LISTA DE AMIGOS QUE POSSUEM EMPRÉSTIMOS ATIVOS
-
+      view.amigos.Emprestados emprestados = new view.amigos.Emprestados();
+      emprestados.setVisible(true);
+      emprestados.setLocationRelativeTo(null);
    }//GEN-LAST:event_amigosMenuEmprestadosActionPerformed
 
    private void amigosMenuDevedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_amigosMenuDevedoresActionPerformed
       // ABRIRINDO A TELA COM A LISTA DE AMIGOS COM EMPRESTIMOS PENDENTES
+      view.amigos.Devedores devedores = new view.amigos.Devedores();
+      devedores.setVisible(true);
+      devedores.setLocationRelativeTo(null);
    }//GEN-LAST:event_amigosMenuDevedoresActionPerformed
 
    private void amigosMenuRankingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_amigosMenuRankingActionPerformed
       // ABRIRINDO A TELA COM A LISTA DE DOS AMIGOS COM MAIS EMPRÉSTIMOS
-
+      view.amigos.Ranking ranking = new view.amigos.Ranking();
+      ranking.setVisible(true);
+      ranking.setLocationRelativeTo(null);
    }//GEN-LAST:event_amigosMenuRankingActionPerformed
 
    private void amigosMenuInadimplentesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_amigosMenuInadimplentesActionPerformed
       // ABRIRINDO A TELA COM A LISTA DE AMIGOS QUE NUNCA DEVOLVERAM AS FERRAMENTAS
-
+      view.amigos.Inadimplantes inadimplentes = new view.amigos.Inadimplantes();
+      inadimplentes.setVisible(true);
+      inadimplentes.setLocationRelativeTo(null);
    }//GEN-LAST:event_amigosMenuInadimplentesActionPerformed
 
    private void negociosMenuAtivosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_negociosMenuAtivosActionPerformed
       // ABRIRINDO A TELA COM A LISTA DE EMPRÉSTIMOS ATIVOS NO MOMENTO
-
+      view.negocios.Ativos ativos = new view.negocios.Ativos();
+      ativos.setVisible(true);
+      ativos.setLocationRelativeTo(null);
    }//GEN-LAST:event_negociosMenuAtivosActionPerformed
 
    private void negociosMenuAtrasadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_negociosMenuAtrasadosActionPerformed
       // ABRIRINDO A TELA COM A LISTA DE EMPRÉSTIMOS PENDENTES
-
+      view.negocios.Atrasados atrasados = new view.negocios.Atrasados();
+      atrasados.setVisible(true);
+      atrasados.setLocationRelativeTo(null);
    }//GEN-LAST:event_negociosMenuAtrasadosActionPerformed
 
    public static void main(String args[]) {

@@ -46,78 +46,78 @@ public class Devedores extends javax.swing.JFrame {
 
 
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+   // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+   private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tabelaDevedores = new javax.swing.JTable();
-        botaoAtualizar = new javax.swing.JButton();
-        botãoVoltar = new javax.swing.JButton();
+      jLabel1 = new javax.swing.JLabel();
+      jScrollPane1 = new javax.swing.JScrollPane();
+      tabelaDevedores = new javax.swing.JTable();
+      botaoAtualizar = new javax.swing.JButton();
+      botãoVoltar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+      setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
-        jLabel1.setText("Lista de amigos devedores");
+      jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+      jLabel1.setText("Lista de amigos devedores");
 
-        tabelaDevedores.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
+      tabelaDevedores.setModel(new javax.swing.table.DefaultTableModel(
+         new Object [][] {
 
-            },
-            new String [] {
-                "ID", "Nome", "Email", "Endereço", "Telefone"
-            }
-        ));
-        jScrollPane1.setViewportView(tabelaDevedores);
+         },
+         new String [] {
+            "ID", "Nome", "Email", "Endereço", "Telefone"
+         }
+      ));
+      jScrollPane1.setViewportView(tabelaDevedores);
 
-        botaoAtualizar.setText("Atualizar");
-        botaoAtualizar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoAtualizarActionPerformed(evt);
-            }
-        });
+      botaoAtualizar.setText("Atualizar");
+      botaoAtualizar.addActionListener(new java.awt.event.ActionListener() {
+         public void actionPerformed(java.awt.event.ActionEvent evt) {
+            botaoAtualizarActionPerformed(evt);
+         }
+      });
 
-        botãoVoltar.setText("Voltar");
-        botãoVoltar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botãoVoltarActionPerformed(evt);
-            }
-        });
+      botãoVoltar.setText("Voltar");
+      botãoVoltar.addActionListener(new java.awt.event.ActionListener() {
+         public void actionPerformed(java.awt.event.ActionEvent evt) {
+            botãoVoltarActionPerformed(evt);
+         }
+      });
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 766, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(291, 291, 291)
-                        .addComponent(botaoAtualizar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(botãoVoltar)))
-                .addContainerGap(28, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 364, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(botaoAtualizar)
-                    .addComponent(botãoVoltar))
-                .addGap(18, 18, 18))
-        );
+      javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+      getContentPane().setLayout(layout);
+      layout.setHorizontalGroup(
+         layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+         .addGroup(layout.createSequentialGroup()
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+               .addGroup(layout.createSequentialGroup()
+                  .addContainerGap()
+                  .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                     .addComponent(jLabel1)
+                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 766, javax.swing.GroupLayout.PREFERRED_SIZE)))
+               .addGroup(layout.createSequentialGroup()
+                  .addGap(291, 291, 291)
+                  .addComponent(botaoAtualizar)
+                  .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                  .addComponent(botãoVoltar)))
+            .addContainerGap(28, Short.MAX_VALUE))
+      );
+      layout.setVerticalGroup(
+         layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+         .addGroup(layout.createSequentialGroup()
+            .addGap(14, 14, 14)
+            .addComponent(jLabel1)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 364, Short.MAX_VALUE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+               .addComponent(botaoAtualizar)
+               .addComponent(botãoVoltar))
+            .addGap(18, 18, 18))
+      );
 
-        pack();
-    }// </editor-fold>//GEN-END:initComponents
+      pack();
+   }// </editor-fold>//GEN-END:initComponents
 
     private void botaoAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAtualizarActionPerformed
         // RECARREGANDO A TABELA
@@ -136,11 +136,11 @@ public class Devedores extends javax.swing.JFrame {
       });
    }
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton botaoAtualizar;
-    private javax.swing.JButton botãoVoltar;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tabelaDevedores;
-    // End of variables declaration//GEN-END:variables
+   // Variables declaration - do not modify//GEN-BEGIN:variables
+   private javax.swing.JButton botaoAtualizar;
+   private javax.swing.JButton botãoVoltar;
+   private javax.swing.JLabel jLabel1;
+   private javax.swing.JScrollPane jScrollPane1;
+   private javax.swing.JTable tabelaDevedores;
+   // End of variables declaration//GEN-END:variables
 }

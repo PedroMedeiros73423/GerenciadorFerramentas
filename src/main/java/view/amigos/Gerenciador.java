@@ -56,167 +56,167 @@ public class Gerenciador extends javax.swing.JFrame {
 
 
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+   // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+   private void initComponents() {
 
-        amigoTelefone = new javax.swing.JTextField();
-        botaoCadastrar = new javax.swing.JButton();
-        botaoSalvar = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        botaoDeletar = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tabelaAmigos = new javax.swing.JTable();
-        botaoVoltar = new javax.swing.JButton();
-        botaoLimpar = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        amigoEmail = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        amigoNome = new javax.swing.JTextField();
-        amigoEndereco = new javax.swing.JTextField();
+      amigoTelefone = new javax.swing.JTextField();
+      botaoCadastrar = new javax.swing.JButton();
+      botaoSalvar = new javax.swing.JButton();
+      jLabel1 = new javax.swing.JLabel();
+      botaoDeletar = new javax.swing.JButton();
+      jScrollPane1 = new javax.swing.JScrollPane();
+      tabelaAmigos = new javax.swing.JTable();
+      botaoVoltar = new javax.swing.JButton();
+      botaoLimpar = new javax.swing.JButton();
+      jLabel2 = new javax.swing.JLabel();
+      jLabel5 = new javax.swing.JLabel();
+      jLabel3 = new javax.swing.JLabel();
+      amigoEmail = new javax.swing.JTextField();
+      jLabel4 = new javax.swing.JLabel();
+      amigoNome = new javax.swing.JTextField();
+      amigoEndereco = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("GERENCIADOR AMIGOS");
+      setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+      setTitle("GERENCIADOR AMIGOS");
 
-        botaoCadastrar.setText("Cadastrar");
-        botaoCadastrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoCadastrarActionPerformed(evt);
-            }
-        });
+      botaoCadastrar.setText("Cadastrar");
+      botaoCadastrar.addActionListener(new java.awt.event.ActionListener() {
+         public void actionPerformed(java.awt.event.ActionEvent evt) {
+            botaoCadastrarActionPerformed(evt);
+         }
+      });
 
-        botaoSalvar.setText("Salvar");
-        botaoSalvar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoSalvarActionPerformed(evt);
-            }
-        });
+      botaoSalvar.setText("Salvar");
+      botaoSalvar.addActionListener(new java.awt.event.ActionListener() {
+         public void actionPerformed(java.awt.event.ActionEvent evt) {
+            botaoSalvarActionPerformed(evt);
+         }
+      });
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
-        jLabel1.setText("Gerenciar Amigos");
+      jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+      jLabel1.setText("Gerenciar Amigos");
 
-        botaoDeletar.setText("Deletar");
-        botaoDeletar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoDeletarActionPerformed(evt);
-            }
-        });
+      botaoDeletar.setText("Deletar");
+      botaoDeletar.addActionListener(new java.awt.event.ActionListener() {
+         public void actionPerformed(java.awt.event.ActionEvent evt) {
+            botaoDeletarActionPerformed(evt);
+         }
+      });
 
-        tabelaAmigos.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
+      tabelaAmigos.setModel(new javax.swing.table.DefaultTableModel(
+         new Object [][] {
 
-            },
-            new String [] {
-                "ID", "Nome", "Email", "Endereço", "Telefone"
-            }
-        ));
-        tabelaAmigos.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tabelaAmigosMouseClicked(evt);
-            }
-        });
-        jScrollPane1.setViewportView(tabelaAmigos);
+         },
+         new String [] {
+            "ID", "Nome", "Email", "Endereço", "Telefone"
+         }
+      ));
+      tabelaAmigos.addMouseListener(new java.awt.event.MouseAdapter() {
+         public void mouseClicked(java.awt.event.MouseEvent evt) {
+            tabelaAmigosMouseClicked(evt);
+         }
+      });
+      jScrollPane1.setViewportView(tabelaAmigos);
 
-        botaoVoltar.setText("Voltar");
-        botaoVoltar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoVoltarActionPerformed(evt);
-            }
-        });
+      botaoVoltar.setText("Voltar");
+      botaoVoltar.addActionListener(new java.awt.event.ActionListener() {
+         public void actionPerformed(java.awt.event.ActionEvent evt) {
+            botaoVoltarActionPerformed(evt);
+         }
+      });
 
-        botaoLimpar.setText("Limpar");
-        botaoLimpar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoLimparActionPerformed(evt);
-            }
-        });
+      botaoLimpar.setText("Limpar");
+      botaoLimpar.addActionListener(new java.awt.event.ActionListener() {
+         public void actionPerformed(java.awt.event.ActionEvent evt) {
+            botaoLimparActionPerformed(evt);
+         }
+      });
 
-        jLabel2.setText("Nome");
+      jLabel2.setText("Nome");
 
-        jLabel5.setText("Email");
+      jLabel5.setText("Email");
 
-        jLabel3.setText("Endereço");
+      jLabel3.setText("Endereço");
 
-        jLabel4.setText("Telefone");
+      jLabel4.setText("Telefone");
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel5))
-                        .addContainerGap(745, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(amigoTelefone, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(amigoEmail, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(amigoEndereco, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 667, Short.MAX_VALUE)
-                            .addComponent(amigoNome, javax.swing.GroupLayout.Alignment.LEADING))
-                        .addGap(0, 127, Short.MAX_VALUE))))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 777, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(194, 194, 194)
-                        .addComponent(botaoCadastrar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(botaoSalvar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(botaoDeletar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(botaoLimpar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(botaoVoltar)))
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(amigoNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(amigoEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(amigoEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(amigoTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(botaoCadastrar)
-                    .addComponent(botaoSalvar)
-                    .addComponent(botaoDeletar)
-                    .addComponent(botaoVoltar)
-                    .addComponent(botaoLimpar))
-                .addGap(41, 41, 41))
-        );
+      javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+      getContentPane().setLayout(layout);
+      layout.setHorizontalGroup(
+         layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+         .addGroup(layout.createSequentialGroup()
+            .addContainerGap()
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+               .addGroup(layout.createSequentialGroup()
+                  .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                     .addComponent(jLabel2)
+                     .addComponent(jLabel4)
+                     .addComponent(jLabel3)
+                     .addComponent(jLabel5))
+                  .addContainerGap(745, Short.MAX_VALUE))
+               .addGroup(layout.createSequentialGroup()
+                  .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                     .addComponent(amigoTelefone, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
+                     .addComponent(amigoEmail, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE)
+                     .addComponent(amigoEndereco, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 667, Short.MAX_VALUE)
+                     .addComponent(amigoNome, javax.swing.GroupLayout.Alignment.LEADING))
+                  .addGap(0, 127, Short.MAX_VALUE))))
+         .addGroup(layout.createSequentialGroup()
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+               .addGroup(layout.createSequentialGroup()
+                  .addContainerGap()
+                  .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 777, javax.swing.GroupLayout.PREFERRED_SIZE))
+               .addGroup(layout.createSequentialGroup()
+                  .addContainerGap()
+                  .addComponent(jLabel1))
+               .addGroup(layout.createSequentialGroup()
+                  .addGap(194, 194, 194)
+                  .addComponent(botaoCadastrar)
+                  .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                  .addComponent(botaoSalvar)
+                  .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                  .addComponent(botaoDeletar)
+                  .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                  .addComponent(botaoLimpar)
+                  .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                  .addComponent(botaoVoltar)))
+            .addGap(0, 0, Short.MAX_VALUE))
+      );
+      layout.setVerticalGroup(
+         layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+         .addGroup(layout.createSequentialGroup()
+            .addContainerGap()
+            .addComponent(jLabel1)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+            .addComponent(jLabel2)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(amigoNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(jLabel5)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(amigoEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabel3)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(amigoEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(jLabel4)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(amigoTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGap(18, 18, 18)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+               .addComponent(botaoCadastrar)
+               .addComponent(botaoSalvar)
+               .addComponent(botaoDeletar)
+               .addComponent(botaoVoltar)
+               .addComponent(botaoLimpar))
+            .addGap(41, 41, 41))
+      );
 
-        pack();
-    }// </editor-fold>//GEN-END:initComponents
+      pack();
+   }// </editor-fold>//GEN-END:initComponents
 
     private void botaoCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCadastrarActionPerformed
         // SALVANDO NO BANCO
@@ -330,22 +330,22 @@ public class Gerenciador extends javax.swing.JFrame {
       });
    }
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField amigoEmail;
-    private javax.swing.JTextField amigoEndereco;
-    private javax.swing.JTextField amigoNome;
-    private javax.swing.JTextField amigoTelefone;
-    private javax.swing.JButton botaoCadastrar;
-    private javax.swing.JButton botaoDeletar;
-    private javax.swing.JButton botaoLimpar;
-    private javax.swing.JButton botaoSalvar;
-    private javax.swing.JButton botaoVoltar;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tabelaAmigos;
-    // End of variables declaration//GEN-END:variables
+   // Variables declaration - do not modify//GEN-BEGIN:variables
+   private javax.swing.JTextField amigoEmail;
+   private javax.swing.JTextField amigoEndereco;
+   private javax.swing.JTextField amigoNome;
+   private javax.swing.JTextField amigoTelefone;
+   private javax.swing.JButton botaoCadastrar;
+   private javax.swing.JButton botaoDeletar;
+   private javax.swing.JButton botaoLimpar;
+   private javax.swing.JButton botaoSalvar;
+   private javax.swing.JButton botaoVoltar;
+   private javax.swing.JLabel jLabel1;
+   private javax.swing.JLabel jLabel2;
+   private javax.swing.JLabel jLabel3;
+   private javax.swing.JLabel jLabel4;
+   private javax.swing.JLabel jLabel5;
+   private javax.swing.JScrollPane jScrollPane1;
+   private javax.swing.JTable tabelaAmigos;
+   // End of variables declaration//GEN-END:variables
 }

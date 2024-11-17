@@ -42,78 +42,78 @@ public class Atrasados extends javax.swing.JFrame {
       }
    }
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+   // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+   private void initComponents() {
 
-        botaoVoltar = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tablelaEmpresimosAtrasados = new javax.swing.JTable();
-        botaoAtualizar = new javax.swing.JButton();
+      botaoVoltar = new javax.swing.JButton();
+      jLabel1 = new javax.swing.JLabel();
+      jScrollPane1 = new javax.swing.JScrollPane();
+      tablelaEmpresimosAtrasados = new javax.swing.JTable();
+      botaoAtualizar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("EMPRÉSIMOS NÃO DEVOLVIDOS");
+      setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+      setTitle("EMPRÉSIMOS NÃO DEVOLVIDOS");
 
-        botaoVoltar.setText("Voltar");
-        botaoVoltar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoVoltarActionPerformed(evt);
-            }
-        });
+      botaoVoltar.setText("Voltar");
+      botaoVoltar.addActionListener(new java.awt.event.ActionListener() {
+         public void actionPerformed(java.awt.event.ActionEvent evt) {
+            botaoVoltarActionPerformed(evt);
+         }
+      });
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        jLabel1.setText("Lista de Empréstimos não Devolvidos");
+      jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+      jLabel1.setText("Lista de Empréstimos não Devolvidos");
 
-        tablelaEmpresimosAtrasados.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
+      tablelaEmpresimosAtrasados.setModel(new javax.swing.table.DefaultTableModel(
+         new Object [][] {
 
-            },
-            new String [] {
-                "ID", "Ferramenta", "Amigo", "Início", "Fim", "Término"
-            }
-        ));
-        jScrollPane1.setViewportView(tablelaEmpresimosAtrasados);
+         },
+         new String [] {
+            "ID", "Ferramenta", "Amigo", "Início", "Fim", "Término"
+         }
+      ));
+      jScrollPane1.setViewportView(tablelaEmpresimosAtrasados);
 
-        botaoAtualizar.setText("Atualizar");
-        botaoAtualizar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoAtualizarActionPerformed(evt);
-            }
-        });
+      botaoAtualizar.setText("Atualizar");
+      botaoAtualizar.addActionListener(new java.awt.event.ActionListener() {
+         public void actionPerformed(java.awt.event.ActionEvent evt) {
+            botaoAtualizarActionPerformed(evt);
+         }
+      });
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(0, 207, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1))
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(267, 267, 267)
-                .addComponent(botaoAtualizar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(botaoVoltar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 465, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(botaoAtualizar)
-                    .addComponent(botaoVoltar)))
-        );
+      javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+      getContentPane().setLayout(layout);
+      layout.setHorizontalGroup(
+         layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+         .addGroup(layout.createSequentialGroup()
+            .addContainerGap()
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+               .addGroup(layout.createSequentialGroup()
+                  .addComponent(jLabel1)
+                  .addGap(0, 207, Short.MAX_VALUE))
+               .addComponent(jScrollPane1))
+            .addContainerGap())
+         .addGroup(layout.createSequentialGroup()
+            .addGap(267, 267, 267)
+            .addComponent(botaoAtualizar)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(botaoVoltar)
+            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+      );
+      layout.setVerticalGroup(
+         layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addComponent(jLabel1)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 465, Short.MAX_VALUE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+               .addComponent(botaoAtualizar)
+               .addComponent(botaoVoltar)))
+      );
 
-        pack();
-    }// </editor-fold>//GEN-END:initComponents
+      pack();
+   }// </editor-fold>//GEN-END:initComponents
 
     private void botaoVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoVoltarActionPerformed
         this.dispose();
@@ -159,11 +159,11 @@ public class Atrasados extends javax.swing.JFrame {
         });
     }
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton botaoAtualizar;
-    private javax.swing.JButton botaoVoltar;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tablelaEmpresimosAtrasados;
-    // End of variables declaration//GEN-END:variables
+   // Variables declaration - do not modify//GEN-BEGIN:variables
+   private javax.swing.JButton botaoAtualizar;
+   private javax.swing.JButton botaoVoltar;
+   private javax.swing.JLabel jLabel1;
+   private javax.swing.JScrollPane jScrollPane1;
+   private javax.swing.JTable tablelaEmpresimosAtrasados;
+   // End of variables declaration//GEN-END:variables
 }

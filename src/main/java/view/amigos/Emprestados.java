@@ -46,78 +46,78 @@ public class Emprestados extends javax.swing.JFrame {
    }
  
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+   // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+   private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tabelaEmprestados = new javax.swing.JTable();
-        botaoAtualizar = new javax.swing.JButton();
-        botaoVoltar = new javax.swing.JButton();
+      jLabel1 = new javax.swing.JLabel();
+      jScrollPane1 = new javax.swing.JScrollPane();
+      tabelaEmprestados = new javax.swing.JTable();
+      botaoAtualizar = new javax.swing.JButton();
+      botaoVoltar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+      setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
-        jLabel1.setText("Lista de amigos com empréstimos");
+      jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+      jLabel1.setText("Lista de amigos com empréstimos");
 
-        tabelaEmprestados.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
+      tabelaEmprestados.setModel(new javax.swing.table.DefaultTableModel(
+         new Object [][] {
 
-            },
-            new String [] {
-                "ID", "Nome", "Email", "Endereço", "Telefone"
-            }
-        ));
-        jScrollPane1.setViewportView(tabelaEmprestados);
+         },
+         new String [] {
+            "ID", "Nome", "Email", "Endereço", "Telefone"
+         }
+      ));
+      jScrollPane1.setViewportView(tabelaEmprestados);
 
-        botaoAtualizar.setText("Atualizar");
-        botaoAtualizar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoAtualizarActionPerformed(evt);
-            }
-        });
+      botaoAtualizar.setText("Atualizar");
+      botaoAtualizar.addActionListener(new java.awt.event.ActionListener() {
+         public void actionPerformed(java.awt.event.ActionEvent evt) {
+            botaoAtualizarActionPerformed(evt);
+         }
+      });
 
-        botaoVoltar.setText("Voltar");
-        botaoVoltar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoVoltarActionPerformed(evt);
-            }
-        });
+      botaoVoltar.setText("Voltar");
+      botaoVoltar.addActionListener(new java.awt.event.ActionListener() {
+         public void actionPerformed(java.awt.event.ActionEvent evt) {
+            botaoVoltarActionPerformed(evt);
+         }
+      });
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 766, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(283, 283, 283)
-                        .addComponent(botaoAtualizar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(botaoVoltar)))
-                .addContainerGap(18, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 376, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(botaoAtualizar)
-                    .addComponent(botaoVoltar))
-                .addGap(14, 14, 14))
-        );
+      javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+      getContentPane().setLayout(layout);
+      layout.setHorizontalGroup(
+         layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+         .addGroup(layout.createSequentialGroup()
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+               .addGroup(layout.createSequentialGroup()
+                  .addGap(16, 16, 16)
+                  .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 766, javax.swing.GroupLayout.PREFERRED_SIZE)
+                     .addComponent(jLabel1)))
+               .addGroup(layout.createSequentialGroup()
+                  .addGap(283, 283, 283)
+                  .addComponent(botaoAtualizar)
+                  .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                  .addComponent(botaoVoltar)))
+            .addContainerGap(18, Short.MAX_VALUE))
+      );
+      layout.setVerticalGroup(
+         layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+         .addGroup(layout.createSequentialGroup()
+            .addContainerGap()
+            .addComponent(jLabel1)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 376, Short.MAX_VALUE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+               .addComponent(botaoAtualizar)
+               .addComponent(botaoVoltar))
+            .addGap(14, 14, 14))
+      );
 
-        pack();
-    }// </editor-fold>//GEN-END:initComponents
+      pack();
+   }// </editor-fold>//GEN-END:initComponents
 
     private void botaoAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAtualizarActionPerformed
         // RECARREGANDO A TABELA
@@ -137,11 +137,11 @@ public class Emprestados extends javax.swing.JFrame {
       });
    }
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton botaoAtualizar;
-    private javax.swing.JButton botaoVoltar;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tabelaEmprestados;
-    // End of variables declaration//GEN-END:variables
+   // Variables declaration - do not modify//GEN-BEGIN:variables
+   private javax.swing.JButton botaoAtualizar;
+   private javax.swing.JButton botaoVoltar;
+   private javax.swing.JLabel jLabel1;
+   private javax.swing.JScrollPane jScrollPane1;
+   private javax.swing.JTable tabelaEmprestados;
+   // End of variables declaration//GEN-END:variables
 }

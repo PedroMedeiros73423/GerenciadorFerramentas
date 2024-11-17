@@ -52,183 +52,183 @@ public class ViewAmigos extends javax.swing.JFrame {
     }
 
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+   // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+   private void initComponents() {
 
-        jLabel6 = new javax.swing.JLabel();
-        atualizarTabela = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        JTTabelaAmigos = new javax.swing.JTable();
-        JBFechar = new javax.swing.JButton();
-        JBLimpar = new javax.swing.JButton();
-        JBAtualizar = new javax.swing.JButton();
-        JBExcluir = new javax.swing.JButton();
-        JBRegistrar = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        JTFEndereco = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        JTFEmail = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        JTFNomeAmigo = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        JTFTelefone = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
+      jLabel6 = new javax.swing.JLabel();
+      atualizarTabela = new javax.swing.JButton();
+      jScrollPane2 = new javax.swing.JScrollPane();
+      JTTabelaAmigos = new javax.swing.JTable();
+      JBFechar = new javax.swing.JButton();
+      JBLimpar = new javax.swing.JButton();
+      JBAtualizar = new javax.swing.JButton();
+      JBExcluir = new javax.swing.JButton();
+      JBRegistrar = new javax.swing.JButton();
+      jLabel2 = new javax.swing.JLabel();
+      JTFEndereco = new javax.swing.JTextField();
+      jLabel3 = new javax.swing.JLabel();
+      JTFEmail = new javax.swing.JTextField();
+      jLabel4 = new javax.swing.JLabel();
+      JTFNomeAmigo = new javax.swing.JTextField();
+      jLabel5 = new javax.swing.JLabel();
+      JTFTelefone = new javax.swing.JTextField();
+      jLabel8 = new javax.swing.JLabel();
 
-        jLabel6.setText("Quantidade de ferramentas:");
+      jLabel6.setText("Quantidade de ferramentas:");
 
-        atualizarTabela.setText("Atualizar Valores da tabela");
-        atualizarTabela.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                atualizarTabelaActionPerformed(evt);
-            }
-        });
+      atualizarTabela.setText("Atualizar Valores da tabela");
+      atualizarTabela.addActionListener(new java.awt.event.ActionListener() {
+         public void actionPerformed(java.awt.event.ActionEvent evt) {
+            atualizarTabelaActionPerformed(evt);
+         }
+      });
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("AMIGOS");
+      setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+      setTitle("AMIGOS");
 
-        JTTabelaAmigos.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
-            },
-            new String [] {
-                "ID", "Nome", "Endereço", "E-mail", "Telefone"
-            }
-        ));
-        JTTabelaAmigos.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                JTTabelaAmigosMouseClicked(evt);
-            }
-        });
-        jScrollPane2.setViewportView(JTTabelaAmigos);
+      JTTabelaAmigos.setModel(new javax.swing.table.DefaultTableModel(
+         new Object [][] {
+            {null, null, null, null, null},
+            {null, null, null, null, null},
+            {null, null, null, null, null},
+            {null, null, null, null, null}
+         },
+         new String [] {
+            "ID", "Nome", "Endereço", "E-mail", "Telefone"
+         }
+      ));
+      JTTabelaAmigos.addMouseListener(new java.awt.event.MouseAdapter() {
+         public void mouseClicked(java.awt.event.MouseEvent evt) {
+            JTTabelaAmigosMouseClicked(evt);
+         }
+      });
+      jScrollPane2.setViewportView(JTTabelaAmigos);
 
-        JBFechar.setText("Fechar");
-        JBFechar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JBFecharActionPerformed(evt);
-            }
-        });
+      JBFechar.setText("Fechar");
+      JBFechar.addActionListener(new java.awt.event.ActionListener() {
+         public void actionPerformed(java.awt.event.ActionEvent evt) {
+            JBFecharActionPerformed(evt);
+         }
+      });
 
-        JBLimpar.setText("Limpar");
-        JBLimpar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JBLimparActionPerformed(evt);
-            }
-        });
+      JBLimpar.setText("Limpar");
+      JBLimpar.addActionListener(new java.awt.event.ActionListener() {
+         public void actionPerformed(java.awt.event.ActionEvent evt) {
+            JBLimparActionPerformed(evt);
+         }
+      });
 
-        JBAtualizar.setText("Atualizar");
-        JBAtualizar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JBAtualizarActionPerformed(evt);
-            }
-        });
+      JBAtualizar.setText("Atualizar");
+      JBAtualizar.addActionListener(new java.awt.event.ActionListener() {
+         public void actionPerformed(java.awt.event.ActionEvent evt) {
+            JBAtualizarActionPerformed(evt);
+         }
+      });
 
-        JBExcluir.setText("Excluir");
-        JBExcluir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JBExcluirActionPerformed(evt);
-            }
-        });
+      JBExcluir.setText("Excluir");
+      JBExcluir.addActionListener(new java.awt.event.ActionListener() {
+         public void actionPerformed(java.awt.event.ActionEvent evt) {
+            JBExcluirActionPerformed(evt);
+         }
+      });
 
-        JBRegistrar.setText("Registrar");
-        JBRegistrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JBRegistrarActionPerformed(evt);
-            }
-        });
+      JBRegistrar.setText("Registrar");
+      JBRegistrar.addActionListener(new java.awt.event.ActionListener() {
+         public void actionPerformed(java.awt.event.ActionEvent evt) {
+            JBRegistrarActionPerformed(evt);
+         }
+      });
 
-        jLabel2.setText("Nome");
+      jLabel2.setText("Nome");
 
-        jLabel3.setText("Endereço");
+      jLabel3.setText("Endereço");
 
-        JTFEmail.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JTFEmailActionPerformed(evt);
-            }
-        });
+      JTFEmail.addActionListener(new java.awt.event.ActionListener() {
+         public void actionPerformed(java.awt.event.ActionEvent evt) {
+            JTFEmailActionPerformed(evt);
+         }
+      });
 
-        jLabel4.setText("E-mail");
+      jLabel4.setText("E-mail");
 
-        jLabel5.setText("Telefone");
+      jLabel5.setText("Telefone");
 
-        jLabel8.setFont(new java.awt.Font("Segoe UI Semibold", 0, 24)); // NOI18N
-        jLabel8.setText("AMIGOS");
+      jLabel8.setFont(new java.awt.Font("Segoe UI Semibold", 0, 24)); // NOI18N
+      jLabel8.setText("AMIGOS");
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 758, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(19, 337, Short.MAX_VALUE)
-                .addComponent(JBRegistrar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(JBAtualizar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(JBLimpar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(JBExcluir)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(JBFechar)
-                .addGap(41, 41, 41))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel4)
-                            .addComponent(JTFTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(JTFEmail)
-                            .addComponent(JTFEndereco)
-                            .addComponent(JTFNomeAmigo, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(309, 309, 309)
-                        .addComponent(jLabel8)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addComponent(jLabel8)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(JTFNomeAmigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(JTFEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(JTFEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(JTFTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(4, 4, 4)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(JBFechar)
-                    .addComponent(JBExcluir)
-                    .addComponent(JBRegistrar)
-                    .addComponent(JBAtualizar)
-                    .addComponent(JBLimpar))
-                .addContainerGap())
-        );
+      javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+      getContentPane().setLayout(layout);
+      layout.setHorizontalGroup(
+         layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+         .addGroup(layout.createSequentialGroup()
+            .addContainerGap()
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 758, Short.MAX_VALUE)
+            .addContainerGap())
+         .addGroup(layout.createSequentialGroup()
+            .addGap(19, 337, Short.MAX_VALUE)
+            .addComponent(JBRegistrar)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(JBAtualizar)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(JBLimpar)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(JBExcluir)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(JBFechar)
+            .addGap(41, 41, 41))
+         .addGroup(layout.createSequentialGroup()
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+               .addGroup(layout.createSequentialGroup()
+                  .addGap(32, 32, 32)
+                  .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                     .addComponent(jLabel5)
+                     .addComponent(jLabel4)
+                     .addComponent(JTFTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                     .addComponent(jLabel2)
+                     .addComponent(jLabel3)
+                     .addComponent(JTFEmail)
+                     .addComponent(JTFEndereco)
+                     .addComponent(JTFNomeAmigo, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
+               .addGroup(layout.createSequentialGroup()
+                  .addGap(309, 309, 309)
+                  .addComponent(jLabel8)))
+            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+      );
+      layout.setVerticalGroup(
+         layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+         .addGroup(layout.createSequentialGroup()
+            .addGap(10, 10, 10)
+            .addComponent(jLabel8)
+            .addGap(18, 18, 18)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(jLabel2)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(JTFNomeAmigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(jLabel3)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(JTFEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(jLabel4)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(JTFEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(jLabel5)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(JTFTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGap(4, 4, 4)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+               .addComponent(JBFechar)
+               .addComponent(JBExcluir)
+               .addComponent(JBRegistrar)
+               .addComponent(JBAtualizar)
+               .addComponent(JBLimpar))
+            .addContainerGap())
+      );
 
-        pack();
-    }// </editor-fold>//GEN-END:initComponents
+      pack();
+   }// </editor-fold>//GEN-END:initComponents
 
     private void JTTabelaAmigosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTTabelaAmigosMouseClicked
         // SE TEM ALGUMA LINHA SELECIONADA
@@ -368,24 +368,24 @@ public class ViewAmigos extends javax.swing.JFrame {
         });
     }
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton JBAtualizar;
-    private javax.swing.JButton JBExcluir;
-    private javax.swing.JButton JBFechar;
-    private javax.swing.JButton JBLimpar;
-    private javax.swing.JButton JBRegistrar;
-    private javax.swing.JTextField JTFEmail;
-    private javax.swing.JTextField JTFEndereco;
-    private javax.swing.JTextField JTFNomeAmigo;
-    private javax.swing.JTextField JTFTelefone;
-    private javax.swing.JTable JTTabelaAmigos;
-    private javax.swing.JButton atualizarTabela;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JScrollPane jScrollPane2;
-    // End of variables declaration//GEN-END:variables
+   // Variables declaration - do not modify//GEN-BEGIN:variables
+   private javax.swing.JButton JBAtualizar;
+   private javax.swing.JButton JBExcluir;
+   private javax.swing.JButton JBFechar;
+   private javax.swing.JButton JBLimpar;
+   private javax.swing.JButton JBRegistrar;
+   private javax.swing.JTextField JTFEmail;
+   private javax.swing.JTextField JTFEndereco;
+   private javax.swing.JTextField JTFNomeAmigo;
+   private javax.swing.JTextField JTFTelefone;
+   private javax.swing.JTable JTTabelaAmigos;
+   private javax.swing.JButton atualizarTabela;
+   private javax.swing.JLabel jLabel2;
+   private javax.swing.JLabel jLabel3;
+   private javax.swing.JLabel jLabel4;
+   private javax.swing.JLabel jLabel5;
+   private javax.swing.JLabel jLabel6;
+   private javax.swing.JLabel jLabel8;
+   private javax.swing.JScrollPane jScrollPane2;
+   // End of variables declaration//GEN-END:variables
 }

@@ -142,191 +142,191 @@ public class Gerenciador extends javax.swing.JFrame {
    }
    
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+   // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+   private void initComponents() {
 
-        jLabel4 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tabelaNegocios = new javax.swing.JTable();
-        botaoCadastrar = new javax.swing.JButton();
-        negocioFerramentaNome = new javax.swing.JTextField();
-        botaoSalvar = new javax.swing.JButton();
-        negocioAmigoNome = new javax.swing.JTextField();
-        botaoDeletar = new javax.swing.JButton();
-        jSeparator1 = new javax.swing.JSeparator();
-        botaoLimpar = new javax.swing.JButton();
-        botaoVoltar = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        negocioFim = new javax.swing.JTextField();
-        botaoFinalizar = new javax.swing.JButton();
-        botaoDevolver = new javax.swing.JButton();
+      jLabel4 = new javax.swing.JLabel();
+      jScrollPane1 = new javax.swing.JScrollPane();
+      tabelaNegocios = new javax.swing.JTable();
+      botaoCadastrar = new javax.swing.JButton();
+      negocioFerramentaNome = new javax.swing.JTextField();
+      botaoSalvar = new javax.swing.JButton();
+      negocioAmigoNome = new javax.swing.JTextField();
+      botaoDeletar = new javax.swing.JButton();
+      jSeparator1 = new javax.swing.JSeparator();
+      botaoLimpar = new javax.swing.JButton();
+      botaoVoltar = new javax.swing.JButton();
+      jLabel2 = new javax.swing.JLabel();
+      jLabel3 = new javax.swing.JLabel();
+      jLabel6 = new javax.swing.JLabel();
+      negocioFim = new javax.swing.JTextField();
+      botaoFinalizar = new javax.swing.JButton();
+      botaoDevolver = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Gerenciador de Empréstimos");
+      setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+      setTitle("Gerenciador de Empréstimos");
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
-        jLabel4.setText("Gerenciar Empréstimos");
+      jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+      jLabel4.setText("Gerenciar Empréstimos");
 
-        tabelaNegocios.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
-            },
-            new String [] {
-                "ID", "Ferramenta", "Amigo", "Início", "Fim", "Término"
-            }
-        ));
-        jScrollPane1.setViewportView(tabelaNegocios);
+      tabelaNegocios.setModel(new javax.swing.table.DefaultTableModel(
+         new Object [][] {
+            {null, null, null, null, null, null},
+            {null, null, null, null, null, null},
+            {null, null, null, null, null, null},
+            {null, null, null, null, null, null}
+         },
+         new String [] {
+            "ID", "Ferramenta", "Amigo", "Início", "Fim", "Término"
+         }
+      ));
+      jScrollPane1.setViewportView(tabelaNegocios);
 
-        botaoCadastrar.setText("Cadastrar");
-        botaoCadastrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoCadastrarActionPerformed(evt);
-            }
-        });
+      botaoCadastrar.setText("Cadastrar");
+      botaoCadastrar.addActionListener(new java.awt.event.ActionListener() {
+         public void actionPerformed(java.awt.event.ActionEvent evt) {
+            botaoCadastrarActionPerformed(evt);
+         }
+      });
 
-        negocioFerramentaNome.setEditable(false);
-        negocioFerramentaNome.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                negocioFerramentaNomeMouseClicked(evt);
-            }
-        });
+      negocioFerramentaNome.setEditable(false);
+      negocioFerramentaNome.addMouseListener(new java.awt.event.MouseAdapter() {
+         public void mouseClicked(java.awt.event.MouseEvent evt) {
+            negocioFerramentaNomeMouseClicked(evt);
+         }
+      });
 
-        botaoSalvar.setText("Salvar");
-        botaoSalvar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoSalvarActionPerformed(evt);
-            }
-        });
+      botaoSalvar.setText("Salvar");
+      botaoSalvar.addActionListener(new java.awt.event.ActionListener() {
+         public void actionPerformed(java.awt.event.ActionEvent evt) {
+            botaoSalvarActionPerformed(evt);
+         }
+      });
 
-        negocioAmigoNome.setEditable(false);
-        negocioAmigoNome.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                negocioAmigoNomeMouseClicked(evt);
-            }
-        });
+      negocioAmigoNome.setEditable(false);
+      negocioAmigoNome.addMouseListener(new java.awt.event.MouseAdapter() {
+         public void mouseClicked(java.awt.event.MouseEvent evt) {
+            negocioAmigoNomeMouseClicked(evt);
+         }
+      });
 
-        botaoDeletar.setText("Deletar");
-        botaoDeletar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoDeletarActionPerformed(evt);
-            }
-        });
+      botaoDeletar.setText("Deletar");
+      botaoDeletar.addActionListener(new java.awt.event.ActionListener() {
+         public void actionPerformed(java.awt.event.ActionEvent evt) {
+            botaoDeletarActionPerformed(evt);
+         }
+      });
 
-        botaoLimpar.setText("Limpar");
-        botaoLimpar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoLimparActionPerformed(evt);
-            }
-        });
+      botaoLimpar.setText("Limpar");
+      botaoLimpar.addActionListener(new java.awt.event.ActionListener() {
+         public void actionPerformed(java.awt.event.ActionEvent evt) {
+            botaoLimparActionPerformed(evt);
+         }
+      });
 
-        botaoVoltar.setText("Voltar");
-        botaoVoltar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoVoltarActionPerformed(evt);
-            }
-        });
+      botaoVoltar.setText("Voltar");
+      botaoVoltar.addActionListener(new java.awt.event.ActionListener() {
+         public void actionPerformed(java.awt.event.ActionEvent evt) {
+            botaoVoltarActionPerformed(evt);
+         }
+      });
 
-        jLabel2.setText("Ferramenta (clique para pesquisar)");
+      jLabel2.setText("Ferramenta (clique para pesquisar)");
 
-        jLabel3.setText("Amigo (clique para pesquisar)");
+      jLabel3.setText("Amigo (clique para pesquisar)");
 
-        jLabel6.setText("Emprestar até:");
+      jLabel6.setText("Emprestar até:");
 
-        botaoFinalizar.setText("Finalizar");
-        botaoFinalizar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoFinalizarActionPerformed(evt);
-            }
-        });
+      botaoFinalizar.setText("Finalizar");
+      botaoFinalizar.addActionListener(new java.awt.event.ActionListener() {
+         public void actionPerformed(java.awt.event.ActionEvent evt) {
+            botaoFinalizarActionPerformed(evt);
+         }
+      });
 
-        botaoDevolver.setText("Devolver");
-        botaoDevolver.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoDevolverActionPerformed(evt);
-            }
-        });
+      botaoDevolver.setText("Devolver");
+      botaoDevolver.addActionListener(new java.awt.event.ActionListener() {
+         public void actionPerformed(java.awt.event.ActionEvent evt) {
+            botaoDevolverActionPerformed(evt);
+         }
+      });
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSeparator1)
-                    .addGroup(layout.createSequentialGroup()
+      javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+      getContentPane().setLayout(layout);
+      layout.setHorizontalGroup(
+         layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+         .addGroup(layout.createSequentialGroup()
+            .addContainerGap()
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+               .addComponent(jSeparator1)
+               .addGroup(layout.createSequentialGroup()
+                  .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                     .addComponent(jLabel4)
+                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 779, javax.swing.GroupLayout.PREFERRED_SIZE)
+                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 779, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(negocioFerramentaNome, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel3)
-                                            .addComponent(negocioAmigoNome, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addGap(19, 19, 19)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(negocioFim, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel6)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(97, 97, 97)
-                                .addComponent(botaoCadastrar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(botaoSalvar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(botaoDevolver)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(botaoFinalizar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(botaoDeletar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(botaoLimpar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(botaoVoltar)))
-                        .addGap(0, 9, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 287, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(negocioFim, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(negocioFerramentaNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(negocioAmigoNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(5, 5, 5)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(botaoCadastrar)
-                    .addComponent(botaoSalvar)
-                    .addComponent(botaoFinalizar)
-                    .addComponent(botaoDevolver)
-                    .addComponent(botaoDeletar)
-                    .addComponent(botaoLimpar)
-                    .addComponent(botaoVoltar))
-                .addGap(26, 26, 26))
-        );
+                           .addComponent(jLabel2)
+                           .addGroup(layout.createSequentialGroup()
+                              .addComponent(negocioFerramentaNome, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
+                              .addGap(18, 18, 18)
+                              .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                 .addComponent(jLabel3)
+                                 .addComponent(negocioAmigoNome, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(19, 19, 19)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                           .addComponent(negocioFim, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                           .addComponent(jLabel6)))
+                     .addGroup(layout.createSequentialGroup()
+                        .addGap(97, 97, 97)
+                        .addComponent(botaoCadastrar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(botaoSalvar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(botaoDevolver)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(botaoFinalizar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(botaoDeletar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(botaoLimpar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(botaoVoltar)))
+                  .addGap(0, 9, Short.MAX_VALUE)))
+            .addContainerGap())
+      );
+      layout.setVerticalGroup(
+         layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+         .addGroup(layout.createSequentialGroup()
+            .addContainerGap()
+            .addComponent(jLabel4)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 287, Short.MAX_VALUE)
+            .addGap(18, 18, 18)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+               .addComponent(jLabel2)
+               .addComponent(jLabel3)
+               .addComponent(jLabel6))
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+               .addComponent(negocioFim, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+               .addComponent(negocioFerramentaNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+               .addComponent(negocioAmigoNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGap(5, 5, 5)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+               .addComponent(botaoCadastrar)
+               .addComponent(botaoSalvar)
+               .addComponent(botaoFinalizar)
+               .addComponent(botaoDevolver)
+               .addComponent(botaoDeletar)
+               .addComponent(botaoLimpar)
+               .addComponent(botaoVoltar))
+            .addGap(26, 26, 26))
+      );
 
-        pack();
-    }// </editor-fold>//GEN-END:initComponents
+      pack();
+   }// </editor-fold>//GEN-END:initComponents
 
     private void botaoCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCadastrarActionPerformed
         // VERIFICAR SE O AMIGO TEM FERRAMENTAS ATRASADAS
@@ -646,23 +646,23 @@ public class Gerenciador extends javax.swing.JFrame {
       });
    }
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton botaoCadastrar;
-    private javax.swing.JButton botaoDeletar;
-    private javax.swing.JButton botaoDevolver;
-    private javax.swing.JButton botaoFinalizar;
-    private javax.swing.JButton botaoLimpar;
-    private javax.swing.JButton botaoSalvar;
-    private javax.swing.JButton botaoVoltar;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextField negocioAmigoNome;
-    private javax.swing.JTextField negocioFerramentaNome;
-    private javax.swing.JTextField negocioFim;
-    private javax.swing.JTable tabelaNegocios;
-    // End of variables declaration//GEN-END:variables
+   // Variables declaration - do not modify//GEN-BEGIN:variables
+   private javax.swing.JButton botaoCadastrar;
+   private javax.swing.JButton botaoDeletar;
+   private javax.swing.JButton botaoDevolver;
+   private javax.swing.JButton botaoFinalizar;
+   private javax.swing.JButton botaoLimpar;
+   private javax.swing.JButton botaoSalvar;
+   private javax.swing.JButton botaoVoltar;
+   private javax.swing.JLabel jLabel2;
+   private javax.swing.JLabel jLabel3;
+   private javax.swing.JLabel jLabel4;
+   private javax.swing.JLabel jLabel6;
+   private javax.swing.JScrollPane jScrollPane1;
+   private javax.swing.JSeparator jSeparator1;
+   private javax.swing.JTextField negocioAmigoNome;
+   private javax.swing.JTextField negocioFerramentaNome;
+   private javax.swing.JTextField negocioFim;
+   private javax.swing.JTable tabelaNegocios;
+   // End of variables declaration//GEN-END:variables
 }
