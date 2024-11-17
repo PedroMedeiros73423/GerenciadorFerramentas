@@ -59,8 +59,8 @@ public class ViewFerramenta extends javax.swing.JFrame {
 
         // MANIPULANDO OS BOTÕES
         JBRegistrar.setEnabled(true);
-        JBRegistrar.setEnabled(true);
-        JBExcluir.setEnabled(true);
+        JBAtualizar.setEnabled(false);
+        JBExcluir.setEnabled(false);
 
     }
 
@@ -391,11 +391,15 @@ public class ViewFerramenta extends javax.swing.JFrame {
     }//GEN-LAST:event_JBAtualizarActionPerformed
 
     private void JBLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBLimparActionPerformed
-        JTFNome.setText("");
-        JTFMarca.setText("");
-        JTFValor.setText("");
+       // LIMPANDO O FORMULÁRIO 
+       JTFNome.setText("");
+       JTFMarca.setText("");
+       JTFValor.setText("");
 
-
+       // MANIPULANDO BOTÕES
+       JBRegistrar.setEnabled(true);
+       JBAtualizar.setEnabled(false);
+       JBExcluir.setEnabled(false);
     }//GEN-LAST:event_JBLimparActionPerformed
 
     private void JTTabelaFerramentasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTTabelaFerramentasMouseClicked
