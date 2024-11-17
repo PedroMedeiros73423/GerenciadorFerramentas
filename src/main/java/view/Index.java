@@ -443,9 +443,9 @@ public class Index extends javax.swing.JFrame {
 
     private void negociosMenuGerenciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_negociosMenuGerenciarActionPerformed
        // ABRINDO A TELA PARA GERENCIAR NEGÓCIOS
-       Gerenciador objeto = new Gerenciador();
-       objeto.setVisible(true);
-       objeto.setLocationRelativeTo(null);
+       view.negocios.Gerenciador gerente = new view.negocios.Gerenciador();
+       gerente.setVisible(true);
+       gerente.setLocationRelativeTo(null);
     }//GEN-LAST:event_negociosMenuGerenciarActionPerformed
 
     private void ferramentasMenuGerenciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ferramentasMenuGerenciarActionPerformed

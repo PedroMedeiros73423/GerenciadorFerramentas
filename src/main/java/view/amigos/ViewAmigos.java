@@ -22,7 +22,7 @@ public class ViewAmigos extends javax.swing.JFrame {
         modelo.setNumRows(0);
 
         // BUSCANDO OS DADOS NO BANCO
-        ArrayList<Amigos> todasAmigoses = manipulado.listarTodas();
+        ArrayList<Amigos> todasAmigoses = manipulado.listarTodos();
 
         if (todasAmigoses.size() == 0) {
             JOptionPane.showMessageDialog(null, "Não há nenhuma ferramenta cadastrada");

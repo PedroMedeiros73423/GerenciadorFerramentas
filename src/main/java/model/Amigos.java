@@ -77,7 +77,7 @@ public class Amigos {
    }
 
    // LISTAR AMIGOS ============================================================
-   public ArrayList<Amigos> listarTodas() {
+   public ArrayList<Amigos> listarTodos() {
       // CRIANDO O OBJETO DO BANCO DE DADOS
       AmigosDAO db = new AmigosDAO();
       return db.listarTodos();
