@@ -13,7 +13,7 @@ O programa também é capaz de gerar alguns tipos de relatórios, como por exemp
 * Listar quais amigos tem ferramentas emprestadas, tanto os que devolvem as ferramentas dentro do prazo legal do empréstimo ou devolvem com atraso.<br>
 * Listar os amigos que nunca devolveram as ferramentas que pediram emprestadas.<br>
 
-<h3>Bando de dados</h3>
+<h3>Banco de dados</h3>
 O banco de dados deve estar localizado na mesma máquina onde o programa será rodado.
 O banco é formado por apenas 3 tableas: ferramentas, amigos e negócios.
 Para não precisar modificar nada do código do programa em relação à conexão com o banco de dados, configure no SGBD as seguntes credenciais:<br>
