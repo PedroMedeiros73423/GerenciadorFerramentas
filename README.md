@@ -9,7 +9,7 @@ O programa funciona com interface gráfica.
 O banco de dados deve estar localizado na mesma máquina onde o programa será rodado.
 
 Script para criação do banco de dados:
-'''
+<pre>
 DROP DATABASE  IF EXISTS `ferramentas`;
 CREATE DATABASE  IF NOT EXISTS `ferramentas`;
 USE `ferramentas`;
@@ -50,4 +50,4 @@ CREATE TABLE `negocios` (
   CONSTRAINT `negocios_ibfk_1` FOREIGN KEY (`negocioFerramentaId`) REFERENCES `ferramentas` (`ferramentaId`),
   CONSTRAINT `negocios_ibfk_2` FOREIGN KEY (`negocioAmigoId`) REFERENCES `amigos` (`amigoId`)
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-'''
+</pre>
