@@ -8,41 +8,40 @@ import model.Amigos;
 import model.Ferramentas;
 import model.Negocios;
 import view.amigos.Gerenciadora;
-import view.ferramentas.Gerenciadorf;
 
 public class Index extends javax.swing.JFrame {
 
-    // FUNÇÃO PARA CARREGAR O DASHBOARD
-    private void carregarDashboard() {
-        // RESUMO DAS FERRAMENTAS
-        Ferramentas ferramenta = new Ferramentas();
-        Double[] resumoFerramentas = ferramenta.fazerResumo();
-        ferramentasQuantidade.setText(String.format("%.0f", resumoFerramentas[0]));
-        ferramentasValor.setText("R$ " + String.format("%.2f", resumoFerramentas[1]));
+   // FUNÇÃO PARA CARREGAR O DASHBOARD
+   private void carregarDashboard() {
+      // RESUMO DAS FERRAMENTAS
+      Ferramentas ferramenta = new Ferramentas();
+      Double[] resumoFerramentas = ferramenta.fazerResumo();
+      ferramentasQuantidade.setText(String.format("%.0f", resumoFerramentas[0]));
+      ferramentasValor.setText("R$ " + String.format("%.2f", resumoFerramentas[1]));
 
-        // RESUMO DOS AMIGOS
-        Amigos amigo = new Amigos();
-        int resumoAmigos[] = amigo.fazerRezumo();
-        amigosQuantidade.setText(String.valueOf(resumoAmigos[0]));
-        amigosAtivos.setText(String.valueOf(resumoAmigos[1]));
-        amigosAtrasados.setText(String.valueOf(resumoAmigos[2]));
+      // RESUMO DOS AMIGOS
+      Amigos amigo = new Amigos();
+      int resumoAmigos[] = amigo.fazerRezumo();
+      amigosQuantidade.setText(String.valueOf(resumoAmigos[0]));
+      amigosAtivos.setText(String.valueOf(resumoAmigos[1]));
+      amigosAtrasados.setText(String.valueOf(resumoAmigos[2]));
 
-        // RESUMO DOS EMPRÉSTIMOS
-        Negocios negocio = new Negocios();
-        int resumoNegocios[] = negocio.fazerResumo();
-        negociosTotal.setText(String.valueOf(resumoNegocios[0]));
-        negociosAtivos.setText(String.valueOf(resumoNegocios[1]));
-        negociosAtrasados.setText(String.valueOf(resumoNegocios[2]));
-    }
+      // RESUMO DOS EMPRÉSTIMOS
+      Negocios negocio = new Negocios();
+      int resumoNegocios[] = negocio.fazerResumo();
+      negociosTotal.setText(String.valueOf(resumoNegocios[0]));
+      negociosAtivos.setText(String.valueOf(resumoNegocios[1]));
+      negociosAtrasados.setText(String.valueOf(resumoNegocios[2]));
+   }
 
-    public Index() {
-        initComponents();
+   public Index() {
+      initComponents();
 
-        // CARREGANDO O DASHBOARD
-        this.carregarDashboard();
-    }
+      // CARREGANDO O DASHBOARD
+      this.carregarDashboard();
+   }
 
-    @SuppressWarnings("unchecked")
+   @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -454,101 +453,102 @@ public class Index extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void negociosMenuGerenciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_negociosMenuGerenciarActionPerformed
-        // ABRINDO A TELA PARA GERENCIAR NEGÓCIOS
-        view.negocios.Gerenciador gerente = new view.negocios.Gerenciador();
-        gerente.setVisible(true);
-        gerente.setLocationRelativeTo(null);
+       // ABRINDO A TELA PARA GERENCIAR NEGÓCIOS
+       view.negocios.Gerenciador gerente = new view.negocios.Gerenciador();
+       gerente.setVisible(true);
+       gerente.setLocationRelativeTo(null);
     }//GEN-LAST:event_negociosMenuGerenciarActionPerformed
 
     private void ferramentasMenuGerenciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ferramentasMenuGerenciarActionPerformed
-        // ABRINDO A TELA PARA GERENCIAR FERRAMENTAS
-        Gerenciadorf objeto = new Gerenciadorf();
-        objeto.setVisible(true);
-        objeto.setLocationRelativeTo(null);
+       // ABRINDO A TELA PARA GERENCIAR FERRAMENTAS
+       view.ferramentas.Gerenciador objeto = new view.ferramentas.Gerenciador();
+//        Gerenciador objeto = new Gerenciador();
+       objeto.setVisible(true);
+       objeto.setLocationRelativeTo(null);
     }//GEN-LAST:event_ferramentasMenuGerenciarActionPerformed
 
    private void botaoAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAtualizarActionPerformed
-       // RECARREGAR O DASHBOARD
-       this.carregarDashboard();
+      // RECARREGAR O DASHBOARD
+      this.carregarDashboard();
    }//GEN-LAST:event_botaoAtualizarActionPerformed
 
    private void ferramentasMenuEmprestadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ferramentasMenuEmprestadasActionPerformed
-       // ABRINDO A TELA COM A LISTA DE FERRAMENTAS EMPRESTADAS
-       view.ferramentas.Emprestadas emprestadas = new view.ferramentas.Emprestadas();
-       emprestadas.setVisible(true);
-       emprestadas.setLocationRelativeTo(null);
+      // ABRINDO A TELA COM A LISTA DE FERRAMENTAS EMPRESTADAS
+      view.ferramentas.Emprestadas emprestadas = new view.ferramentas.Emprestadas();
+      emprestadas.setVisible(true);
+      emprestadas.setLocationRelativeTo(null);
    }//GEN-LAST:event_ferramentasMenuEmprestadasActionPerformed
 
    private void ferramentasMenuDisponiveisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ferramentasMenuDisponiveisActionPerformed
-       // ABRIRINDO A TELA COM A LISTA DE FERRAMENTAS DISPONÍVEIS PARA EMPRÉSTIMOS
-       view.ferramentas.Disponiveis disponivel = new view.ferramentas.Disponiveis();
-       disponivel.setVisible(true);
-       disponivel.setLocationRelativeTo(null);
+      // ABRIRINDO A TELA COM A LISTA DE FERRAMENTAS DISPONÍVEIS PARA EMPRÉSTIMOS
+      view.ferramentas.Disponiveis disponivel = new view.ferramentas.Disponiveis();
+      disponivel.setVisible(true);
+      disponivel.setLocationRelativeTo(null);
    }//GEN-LAST:event_ferramentasMenuDisponiveisActionPerformed
 
    private void amigosMenuGerenciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_amigosMenuGerenciarActionPerformed
-       Gerenciadora objeto = new Gerenciadora();
-       objeto.setVisible(true);
-       objeto.setLocationRelativeTo(null);
+      Gerenciadora objeto = new Gerenciadora();
+      objeto.setVisible(true);
+      objeto.setLocationRelativeTo(null);
 
    }//GEN-LAST:event_amigosMenuGerenciarActionPerformed
 
    private void amigosMenuEmprestadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_amigosMenuEmprestadosActionPerformed
-       // ABRIRINDO A TELA COM A LISTA DE AMIGOS QUE POSSUEM EMPRÉSTIMOS ATIVOS
-       view.amigos.Emprestados emprestados = new view.amigos.Emprestados();
-       emprestados.setVisible(true);
-       emprestados.setLocationRelativeTo(null);
+      // ABRIRINDO A TELA COM A LISTA DE AMIGOS QUE POSSUEM EMPRÉSTIMOS ATIVOS
+      view.amigos.Emprestados emprestados = new view.amigos.Emprestados();
+      emprestados.setVisible(true);
+      emprestados.setLocationRelativeTo(null);
    }//GEN-LAST:event_amigosMenuEmprestadosActionPerformed
 
    private void amigosMenuDevedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_amigosMenuDevedoresActionPerformed
-       // ABRIRINDO A TELA COM A LISTA DE AMIGOS COM EMPRESTIMOS PENDENTES
-       view.amigos.Devedores devedores = new view.amigos.Devedores();
-       devedores.setVisible(true);
-       devedores.setLocationRelativeTo(null);
+      // ABRIRINDO A TELA COM A LISTA DE AMIGOS COM EMPRESTIMOS PENDENTES
+      view.amigos.Devedores devedores = new view.amigos.Devedores();
+      devedores.setVisible(true);
+      devedores.setLocationRelativeTo(null);
    }//GEN-LAST:event_amigosMenuDevedoresActionPerformed
 
    private void amigosMenuRankingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_amigosMenuRankingActionPerformed
-       // ABRIRINDO A TELA COM A LISTA DE DOS AMIGOS COM MAIS EMPRÉSTIMOS
-       view.amigos.Ranking ranking = new view.amigos.Ranking();
-       ranking.setVisible(true);
-       ranking.setLocationRelativeTo(null);
+      // ABRIRINDO A TELA COM A LISTA DE DOS AMIGOS COM MAIS EMPRÉSTIMOS
+      view.amigos.Ranking ranking = new view.amigos.Ranking();
+      ranking.setVisible(true);
+      ranking.setLocationRelativeTo(null);
    }//GEN-LAST:event_amigosMenuRankingActionPerformed
 
    private void amigosMenuInadimplentesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_amigosMenuInadimplentesActionPerformed
-       // ABRIRINDO A TELA COM A LISTA DE AMIGOS QUE NUNCA DEVOLVERAM AS FERRAMENTAS
-       view.amigos.Inadimplantes inadimplentes = new view.amigos.Inadimplantes();
-       inadimplentes.setVisible(true);
-       inadimplentes.setLocationRelativeTo(null);
+      // ABRIRINDO A TELA COM A LISTA DE AMIGOS QUE NUNCA DEVOLVERAM AS FERRAMENTAS
+      view.amigos.Inadimplantes inadimplentes = new view.amigos.Inadimplantes();
+      inadimplentes.setVisible(true);
+      inadimplentes.setLocationRelativeTo(null);
    }//GEN-LAST:event_amigosMenuInadimplentesActionPerformed
 
    private void negociosMenuAtivosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_negociosMenuAtivosActionPerformed
-       // ABRIRINDO A TELA COM A LISTA DE EMPRÉSTIMOS ATIVOS NO MOMENTO
-       view.negocios.Ativos ativos = new view.negocios.Ativos();
-       ativos.setVisible(true);
-       ativos.setLocationRelativeTo(null);
+      // ABRIRINDO A TELA COM A LISTA DE EMPRÉSTIMOS ATIVOS NO MOMENTO
+      view.negocios.Ativos ativos = new view.negocios.Ativos();
+      ativos.setVisible(true);
+      ativos.setLocationRelativeTo(null);
    }//GEN-LAST:event_negociosMenuAtivosActionPerformed
 
    private void negociosMenuAtrasadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_negociosMenuAtrasadosActionPerformed
-       // ABRIRINDO A TELA COM A LISTA DE EMPRÉSTIMOS PENDENTES
-       view.negocios.Atrasados atrasados = new view.negocios.Atrasados();
-       atrasados.setVisible(true);
-       atrasados.setLocationRelativeTo(null);
+      // ABRIRINDO A TELA COM A LISTA DE EMPRÉSTIMOS PENDENTES
+      view.negocios.Atrasados atrasados = new view.negocios.Atrasados();
+      atrasados.setVisible(true);
+      atrasados.setLocationRelativeTo(null);
    }//GEN-LAST:event_negociosMenuAtrasadosActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // IDENTIFICAÇÃO DOS ALUNOS
-        JOptionPane.showMessageDialog(null, "====================================================== \n PROJETO A3 \n ====================================================== \n MEMBROS DO GRUPO \n Aluno 01: " + "João Vitor Iuncks \n Aluno 02: " + "Elias Bernabé Turchiéllo \n Aluno 03: " + "Pedro Henrique Medeiros ");
+       // IDENTIFICAÇÃO DOS ALUNOS
+       JOptionPane.showMessageDialog(null, "====================================================== \n PROJETO A3 \n ====================================================== \n MEMBROS DO GRUPO \n Aluno 01: " + "João Vitor Iuncks \n Aluno 02: " + "Elias Bernabé Turchiéllo \n Aluno 03: " + "Pedro Henrique Medeiros ");
 
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Index().setVisible(true);
-            }
-        });
-    }
+   public static void main(String args[]) {
+      java.awt.EventQueue.invokeLater(new Runnable() {
+         public void run() {
+            new Index().setVisible(true);
+         }
+      });
+   }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Emprestimos;
