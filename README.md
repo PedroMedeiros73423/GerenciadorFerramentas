@@ -52,4 +52,4 @@ Para não precisar modificar nada do código do programa em relação à conexã
 Usuário: root<br>
 Senha : unisul<br><br>
 Caso precise editar o código fonte para cadastrar usuário e senha de seu banco de dados, faça no seguinte arquivo:<br>
-<pre>main/java/dao/ServidorDAO.java</pre>
+<pre><a href="https://github.com/PedroMedeiros73423/GerenciadorFerramentas/blob/main/src/main/java/dao/ServidorDAO.java">src/main/java/dao/ServidorDAO.java</a></pre>
