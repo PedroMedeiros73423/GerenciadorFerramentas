@@ -535,8 +535,6 @@ public class Index extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
        // IDENTIFICAÇÃO DOS ALUNOS
        JOptionPane.showMessageDialog(null, "====================================================== \n PROJETO A3 \n ====================================================== \n MEMBROS DO GRUPO \n Aluno 01: " + "João Vitor Iuncks \n Aluno 02: " + "Elias Bernabé Turchiéllo \n Aluno 03: " + "Pedro Henrique Medeiros ");
-
-
     }//GEN-LAST:event_jButton1ActionPerformed
 
    public static void main(String args[]) {
