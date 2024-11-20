@@ -13,38 +13,37 @@ Este programa utiliza a linguagem Java com o banco de dados MYSQL.<br>
 O programa funciona com interface gráfica. Foi desenvolvido e testado apenas em ambiente Windows rodando a versão 8 do Java JDK.<br>
 O programa permite cadastrar ferramentas e amigos, assim como, registrar com precisão todos os empréstimos e devolução de ferramentas.<br>
 O programa também é capaz de gerar alguns tipos de relatórios, como por exemplo:<br>
-* Listar as ferramentas e o valor gasto para adquiri-las;<br>
-* Listar quais ferramentas estão emprestadas e quais estão disponíveis.<br>
-* Listar quais amigos têm ferramentas emprestadas, tanto os que devolvem as ferramentas dentro do prazo legal do empréstimo ou devolvem com atraso.<br>
-* Listar os amigos que nunca devolveram as ferramentas que pediram emprestadas.<br>
+<li>Listar as ferramentas e o valor gasto para adquiri-las;</li>
+<li>Listar quais ferramentas estão emprestadas e quais estão disponíveis;</li>
+<li>Listar quais amigos têm ferramentas emprestadas, tanto os que devolvem as ferramentas dentro do prazo legal do empréstimo ou devolvem com atraso;</li>
+<li>Listar os amigos que nunca devolveram as ferramentas que pediram emprestadas.</li>
 
 <h3>Alunos desenvolvedores</h3>
 Elias Bernabé Turchiéllo - RA 162211618 (Turchiellows)<br>
 João Vitor Iuncks - RA 162212085 (Iuncks)<br>
 Pedro Henrique Medeiros - RA 162410853 (PedroMedeiros73423)<br> 
 
-
 <h3>Requisitos funcionais</h3>
-Cadastro e edição de ferramentas.<br>
-Cadastro e edição de amigos.<br>
-Cadastro e edição de empréstimos.<br>
-Lista de ferramentas e valor gasto de aquisição.<br>
-Lista de ferramentas emprestadas.<br>
-Lista de ferramentas disponíveis para empréstimos.<br>
-Lista de amigos com empréstimos em dia.<br>
-Lista de amigos com empréstimos atrasados.<br>
-Lista de empréstimos em dia.<br>
-Lista de empréstimos atrasados.<br>
-Lista de amigos que nunca devolveram as ferramentas que pediram emprestadas.<br>
-Verificação de pendência de ferramentas não devolvidas pelo amigo antes de conceder novo empréstimo.<br>
+<li>Cadastro e edição de ferramentas;</li>
+<li>Cadastro e edição de amigos;</li>
+<li>Cadastro e edição de empréstimos;</li>
+<li>Listar as ferramentas e o valor gasto de aquisição;</li>
+<li>Listar as ferramentas emprestadas;</li>
+<li>Lista de ferramentas disponíveis para empréstimos;</li>
+<li>Lista de amigos com empréstimos em dia;</li>
+<li>Lista de amigos com empréstimos atrasados;</li>
+<li>Lista de empréstimos em dia;</li>
+<li>Lista de empréstimos atrasados;</li>
+<li>Lista de amigos que nunca devolveram as ferramentas que pediram emprestadas;</li>
+<li>Verificação de pendência de ferramentas não devolvidas pelo amigo antes de conceder novo empréstimo.</li>
 
 <h3>Requisitos não funcionais</h3>
-O banco de dados deve estar instalado no mesmo computador onde o programa está rodando.<br>
-É necessário um computador com ambiente gráfico para rodar o programa.<br>
-É necessário a versão 8 do java instalado.<br>
-O software é destinado para uso pessoal de forma que nenhuma informação por ele manipulada é compartilhada, logo, a LGPD não se aplica nesse caso.<br>
-Não há criptografia dos dados manipulados, as informações são armazenadas no banco de dados em texto puro.<br>
-Eventuais manutenções e ampliações do software não fazem parte do escopo inicial devendo serem solicitadas aos desenvolvedores em outros momentos.<br>
+<li>O banco de dados deve estar instalado no mesmo computador onde o programa está rodando;</li>
+<li>É necessário um computador com ambiente gráfico para rodar o programa;</li>
+<li>É necessário a versão 8 do java instalado;</li>
+<li>O software é destinado para uso pessoal de forma que nenhuma informação por ele manipulada é compartilhada, logo, a LGPD não se aplica nesse caso;</li>
+<li>Não há criptografia dos dados manipulados, as informações são armazenadas no banco de dados em texto puro;</li>
+<li>Eventuais manutenções e ampliações do software não fazem parte do escopo inicial devendo serem solicitadas aos desenvolvedores em outros momentos.</li>
 
 <h3>Banco de dados</h3>
 O banco de dados deve estar localizado na mesma máquina onde o programa será rodado.
