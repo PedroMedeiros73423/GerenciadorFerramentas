@@ -317,7 +317,7 @@ public class FerramentaDAO extends ServidorDAO {
 
    // SABER SE A FERRAMENTA JÁ FOI EMPRESTADA ==================================
    /**
-    * Método utilizado para se um amigo que está fazendo um empréstimo possui
+    * Método utilizado para saber se o amigo que está fazendo um empréstimo possui
     * ferramentas emprestadas que já expiraram o prazo e ele ainda não devolveu.
     * Retorna a quantidade de ferramentas não devolvidas pelo amigo. Caso ocorra
     * um erro na consulta retorna um número bem grande para indicar que algo
