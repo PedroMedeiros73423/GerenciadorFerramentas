@@ -29,13 +29,13 @@ Pedro Henrique Medeiros - RA 162410853 (PedroMedeiros73423)<br>
 <li>Cadastro e edição de empréstimos;</li>
 <li>Listar as ferramentas e o valor gasto de aquisição;</li>
 <li>Listar as ferramentas emprestadas;</li>
-<li>Lista de ferramentas disponíveis para empréstimos;</li>
-<li>Lista de amigos com empréstimos em dia;</li>
-<li>Lista de amigos com empréstimos atrasados;</li>
-<li>Lista de empréstimos em dia;</li>
-<li>Lista de empréstimos atrasados;</li>
-<li>Lista de amigos que nunca devolveram as ferramentas que pediram emprestadas;</li>
-<li>Verificação de pendência de ferramentas não devolvidas pelo amigo antes de conceder novo empréstimo.</li>
+<li>Listar as ferramentas disponíveis para empréstimos;</li>
+<li>Listar os amigos com empréstimos em dia;</li>
+<li>Listar os amigos com empréstimos atrasados;</li>
+<li>Listar os empréstimos em dia;</li>
+<li>Listar os empréstimos atrasados;</li>
+<li>Listar os amigos que nunca devolveram as ferramentas que pediram emprestadas;</li>
+<li>Verificar pendência de ferramentas não devolvidas pelo amigo antes de conceder novo empréstimo.</li>
 
 <h3>Requisitos não funcionais</h3>
 <li>O banco de dados deve estar instalado no mesmo computador onde o programa está rodando;</li>
