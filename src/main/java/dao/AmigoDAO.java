@@ -8,15 +8,22 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Vector;
-import jdk.nashorn.internal.runtime.regexp.joni.Regex;
 import model.Amigo;
 
 public class AmigoDAO extends ServidorDAO {
 
    // ATRIBUTOS ================================================================
+   /**
+    * Lista utilizada para retornar os dados de consultas feitas no banco de
+    * dados. Ela precisa ser limpa antes de usar
+    */
    private final ArrayList<Amigo> listaDeAmigos = new ArrayList<>();
 
    // LISTAR TODOS =============================================================
+   /**
+    * Método para retornar todos os elementos da tabela amigos. Ele retorna uma
+    * lista de objetos, onde cada objeto corresponde a uma linha da tabela
+    */
    public ArrayList<Amigo> listarTodos() {
       // LIMPAR A LISTA ANTES DE INSERIR ALGO NELA
       listaDeAmigos.clear();
@@ -49,6 +56,11 @@ public class AmigoDAO extends ServidorDAO {
    }
 
    // LISTAR TODOS =============================================================
+   /**
+    * Método para buscar amigos tanto pelo nome, email ou telefone. Ele recebe
+    * uma string como parâmetro e retorna uma lista de objetos com os amigos
+    * encontrados na busca
+    */
    public ArrayList<Amigo> buscarAmigos(String texto) {
       // LIMPAR A LISTA ANTES DE INSERIR ALGO NELA
       listaDeAmigos.clear();
@@ -82,6 +94,12 @@ public class AmigoDAO extends ServidorDAO {
    }
 
    // SABER SE O AMIGO JÁ FEZ ALGUM EMPRÉSTIMO =================================
+   /**
+    * Método para retornar a quantidade de empréstidos que um determinado amigo
+    * já fez. Ele recebe como parâmetro o ID do amigo. Caso o amigo não tenha
+    * empréstimos retorna zero. Caso ocorra algum erro na busca, retorna um
+    * número bem alto para indicar que alguma coisa está errada
+    */
    public int temEmprestimos(int id) {
       // DEFININDO UMA QUANTIDADE INICIAL
       int quantidade = 99;
@@ -105,6 +123,10 @@ public class AmigoDAO extends ServidorDAO {
    }
 
    // LISTAR UM ================================================================
+   /**
+    * Método para retornar um amigo da tabela. Recebe como parâmetro o ID do
+    * amigo e retorna um objeto.
+    */
    public Amigo listarUmObjeto(int id) {
       // CRIANDO UM OBJETO
       Amigo amigo = new Amigo();
@@ -129,6 +151,10 @@ public class AmigoDAO extends ServidorDAO {
       return amigo;
    }
 
+   /**
+    * Método para retornar um amigo da tabela. Recebe como parâmetro o ID do
+    * amigo e retorna uma lista.
+    */
    public ArrayList<Amigo> listarUmLista(int id) {
       // LIMPAR A LISTA ANTES DE INSERIR ALGO NELA
       listaDeAmigos.clear();
@@ -160,6 +186,11 @@ public class AmigoDAO extends ServidorDAO {
    }
 
    // CADASTRA NOVO AMIGO ======================================================
+   /**
+    * Método para cadastrar um amigo na tabela. Recebe como parâmetro um objeto
+    * e insere no banco de dados. Retorna true se houve sucesso ou false em caso
+    * de erro
+    */
    public boolean inserirAmigo(Amigo novoAmigo) {
       // CRIANDO A QUERY
       String sql = "INSERT INTO amigos(amigoId, amigoNome, amigoEmail, amigoEndereco, amigoTelefone) VALUES(?,?,?,?,?)";
@@ -186,6 +217,11 @@ public class AmigoDAO extends ServidorDAO {
    }
 
    // MODIFICAR UM AMIGO =======================================================
+   /**
+    * Método para modificar um amigo da tabela. Recebe como parâmetro um objeto
+    * de amigo, faz a modificação no banco e retorna true em caso de sucesso ou
+    * false em caso de erro.
+    */
    public boolean modificarAmigo(Amigo esteAmigo) {
       // CRIANDO A QUERY
       String sql = "UPDATE amigos SET amigoNome = ?, amigoEmail = ?, amigoEndereco = ?, amigoTelefone = ? WHERE amigoId = ?";
@@ -212,6 +248,11 @@ public class AmigoDAO extends ServidorDAO {
    }
 
    // DELETAR UM AMIGO =========================================================
+   /**
+    * Método para apagar um amigo da tabela. Recebe como parâmetro o ID do
+    * amigo, verifica se o amigo existe, caso exista, apaga do banco. OBS.: caso
+    * o amigo já possua relacionamentos ele não será apagado e será retornado false.
+    */
    public boolean deletarAmigo(int id) {
       // VERIFICANDO SE O AMIGO EXISTE
       Amigo desamigo = listarUmObjeto(id);
@@ -237,6 +278,11 @@ public class AmigoDAO extends ServidorDAO {
    }
 
    // RESUMO ===================================================================
+   /**
+    * Método utilizado para fazer um resumo a respeito da tabela amigos Quantos
+    * amigos tem? Quantos possuem empréstimos ativos Quantos possuem empréstimos
+    * atrasados. Retorna as informações em um array de inteiros
+    */
    public int[] fazerResumo() {
       // CRIANDO A VARIÁVEL DE RETORNO
       int resumoAmigos[] = new int[4];
@@ -272,6 +318,10 @@ public class AmigoDAO extends ServidorDAO {
    }
 
    // EMPRESTADOS ==============================================================
+   /**
+    * Método para retornar somente os amigos que possuem empréstimos em dia.
+    * Retorna uma lista de objetos de amigos.
+    */
    public ArrayList<Amigo> listarEmpmrestados() {
       // LIMPAR A LISTA ANTES DE INSERIR ALGO NELA
       listaDeAmigos.clear();
@@ -306,6 +356,10 @@ public class AmigoDAO extends ServidorDAO {
    }
 
    // DEVEDORES ================================================================
+   /**
+    * Método para retornar somente amigos que possuem empréstimos atrasados.
+    * Retorna uma lista de objetos amigos.
+    */
    public ArrayList<Amigo> listarDevedores() {
       // LIMPAR A LISTA ANTES DE INSERIR ALGO NELA
       listaDeAmigos.clear();
@@ -339,6 +393,12 @@ public class AmigoDAO extends ServidorDAO {
    }
 
    // OBTENDO O RANKING DOS AMIGOS COM MAIS EMPRÉSTIMOS ========================
+   /**
+    * Método para retornar um ranking de amigos em ordem descendente dos amigos
+    * que possuem mais empréstimos. Retorna uma lista de objetos de amigos,
+    * porém o ID de cada amigo é substituído pela quantidade de empréstimos que
+    * ele possui
+    */
    public ArrayList<Amigo> getRanking() {
       // LIMPAR A LISTA ANTES DE INSERIR ALGO NELA
       listaDeAmigos.clear();
@@ -372,6 +432,13 @@ public class AmigoDAO extends ServidorDAO {
    }
 
    // INADIMPLENTES ============================================================
+   /**
+    * Método para retornar os amigos que pegaram ferramentas emprestadas mas
+    * nunca devolveram nenhuma. Retorna uma lista de objetos de amigos. O
+    * processo precisou ser feito no código java. Não conseguimos encontrar um
+    * SQL que fizesse todo o trabalho em um único comando O RELATÓRIO MAIS
+    * DIFÍCIL DE TODOS PARA FAZER
+    */
    public ArrayList<Amigo> getInadimplentes() {
       // LIMPAR A LISTA ANTES DE INSERIR ALGO NELA
       listaDeAmigos.clear();
