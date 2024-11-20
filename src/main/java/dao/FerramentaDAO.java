@@ -12,9 +12,17 @@ import model.Ferramenta;
 public class FerramentaDAO extends ServidorDAO {
 
    // ATRIBUTOS ================================================================
+   /**
+    * Lista utilizada para retornar os dados de consultas feitas no banco de
+    * dados. Ela precisa ser limpa antes de usar.
+    */
    private final ArrayList<Ferramenta> listaDeFerramentas = new ArrayList<>();
 
    // LISTAR TODAS =============================================================
+   /**
+    * Método para retornar todos os elementos da tabela ferramentas. Ele retorna
+    * uma lista de objetos, onde cada objeto corresponde a uma linha da tabela.
+    */
    public ArrayList<Ferramenta> listarTodas() {
       // LIMPAR A LISTA ANTES DE INSERIR ALGO NELA
       listaDeFerramentas.clear();
@@ -48,6 +56,10 @@ public class FerramentaDAO extends ServidorDAO {
    }
 
    // LISTAR UMA ===============================================================
+   /**
+    * Método para retornar uma ferramenta da tabela. Recebe como parâmetro o ID
+    * da ferramenta e retorna um objeto.
+    */
    public Ferramenta listarUmaObjeto(int id) {
       // CRIANDO UM OBJETO
       Ferramenta ferramenta = new Ferramenta();
@@ -71,6 +83,10 @@ public class FerramentaDAO extends ServidorDAO {
       return ferramenta;
    }
 
+   /**
+    * Método para retornar uma ferramenta da tabela. Recebe como parâmetro o ID
+    * da ferramenta e retorna uma lista.
+    */
    public ArrayList<Ferramenta> listarUmaLista(int id) {
       // LIMPAR A LISTA ANTES DE INSERIR ALGO NELA
       listaDeFerramentas.clear();
@@ -101,6 +117,11 @@ public class FerramentaDAO extends ServidorDAO {
    }
 
    // CADASTRA NOVA FERRAMENTA =================================================
+   /**
+    * Método para cadastrar uma ferramenta na tabela. Recebe como parâmetro um
+    * objeto e insere no banco de dados. Retorna true se houve sucesso ou false
+    * em caso de erro.
+    */
    public boolean inserirFerramenta(Ferramenta novaFerramenta) {
       // CRIANDO A QUERY
       String sql = "INSERT INTO ferramentas(ferramentaId, ferramentaNome, ferramentaMarca, ferramentaValor) VALUES(?,?,?,?)";
@@ -127,6 +148,11 @@ public class FerramentaDAO extends ServidorDAO {
    }
 
    // MODIFICAR UMA FERRAMENTA =================================================
+   /**
+    * Método para modificar uma ferramenta da tabela. Recebe como parâmetro um
+    * objeto de ferramenta, faz a modificação no banco e retorna true em caso de
+    * sucesso ou false em caso de erro.
+    */
    public boolean modificarFerramenta(Ferramenta estaFerramenta) {
       // CRIANDO A QUERY
       String sql = "UPDATE ferramentas SET ferramentaNome = ?, ferramentaMarca = ?, ferramentaValor = ? WHERE ferramentaId = ?";
@@ -154,6 +180,12 @@ public class FerramentaDAO extends ServidorDAO {
    }
 
    // DELETAR UMA FERRAMENTA ===================================================
+   /**
+    * Método para apagar uma ferramenta da tabela. Recebe como parâmetro o ID da
+    * ferramenta, verifica se a ferramenta existe, caso exista, apaga do banco.
+    * OBS.: caso a ferramenta já possua relacionamentos ela não será apagada e
+    * será retornado false.
+    */
    public boolean deletarFerramenta(int id) {
       // VERIFICANDO SE A FERRAMENTA EXISTE
       Ferramenta estragada = listarUmaObjeto(id);
@@ -180,6 +212,10 @@ public class FerramentaDAO extends ServidorDAO {
    }
 
    // RESUMO ===================================================================
+   /**
+    * Método utilizado para fazer um resumo a respeito da tabela ferramentas.
+    * Quantas ferramentas tem? Quanto se gastou para comprar todas elas?
+    */
    public Double[] fazerResumo() {
       // CRIANDO O ARRAY DE RETORNO
       Double[] resumoFerramentas = new Double[2];
@@ -203,6 +239,10 @@ public class FerramentaDAO extends ServidorDAO {
    }
 
    // LISTAR TODAS DISPONÍVEIS =================================================
+   /**
+    * Método utilizado para retornar uma lista de ferramentas que estão
+    * disponíveis para empréstimos. Retorna uma lista de objetos.
+    */
    public ArrayList<Ferramenta> listarDisponiveis() {
       // LIMPAR A LISTA ANTES DE INSERIR ALGO NELA
       listaDeFerramentas.clear();
@@ -236,6 +276,12 @@ public class FerramentaDAO extends ServidorDAO {
    }
 
    // BUSCAR FERRAMENTAS DISPONÍVEIS ===========================================
+   /**
+    * Método utilizado para retornar uma lista de ferramentas que estão
+    * disponíveis para empréstimos. Porém este método também recebe um parâmetro
+    * que permite pesquisar pelo nome ou pela marca da ferramenta. Retorna uma
+    * lista de objetos.
+    */
    public ArrayList<Ferramenta> buscarDisponiveis(String texto) {
       // LIMPAR A LISTA ANTES DE INSERIR ALGO NELA
       listaDeFerramentas.clear();
@@ -269,6 +315,13 @@ public class FerramentaDAO extends ServidorDAO {
    }
 
    // SABER SE A FERRAMENTA JÁ FOI EMPRESTADA ==================================
+   /**
+    * Método utilizado para se um amigo que está fazendo um empréstimo possui
+    * ferramentas emprestadas que já expiraram o prazo e ele ainda não devolveu.
+    * Retorna a quantidade de ferramentas não devolvidas pelo amigo. Caso ocorra
+    * um erro na consulta retorna um número bem grande para indicar que algo
+    * está errado.
+    */
    public int temEmprestimos(int id) {
       // DEFININDO UMA QUANTIDADE INICIAL
       int quantidade = 99;
@@ -292,6 +345,11 @@ public class FerramentaDAO extends ServidorDAO {
    }
 
    // LISTAR TODAS EMPRESTADAS =================================================
+   /**
+    * Método utilizado para todas as ferramentas que estão emprestadas, não
+    * importa se dentro do prazo ou com o prazo ja expirado. Retorna uma lista
+    * de objetos.
+    */
    public ArrayList<Ferramenta> listarEmprestadas() {
       // LIMPAR A LISTA ANTES DE INSERIR ALGO NELA
       listaDeFerramentas.clear();

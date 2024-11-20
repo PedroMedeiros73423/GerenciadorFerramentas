@@ -15,14 +15,14 @@ public class AmigoDAO extends ServidorDAO {
    // ATRIBUTOS ================================================================
    /**
     * Lista utilizada para retornar os dados de consultas feitas no banco de
-    * dados. Ela precisa ser limpa antes de usar
+    * dados. Ela precisa ser limpa antes de usar.
     */
    private final ArrayList<Amigo> listaDeAmigos = new ArrayList<>();
 
    // LISTAR TODOS =============================================================
    /**
     * Método para retornar todos os elementos da tabela amigos. Ele retorna uma
-    * lista de objetos, onde cada objeto corresponde a uma linha da tabela
+    * lista de objetos, onde cada objeto corresponde a uma linha da tabela.
     */
    public ArrayList<Amigo> listarTodos() {
       // LIMPAR A LISTA ANTES DE INSERIR ALGO NELA
@@ -189,7 +189,7 @@ public class AmigoDAO extends ServidorDAO {
    /**
     * Método para cadastrar um amigo na tabela. Recebe como parâmetro um objeto
     * e insere no banco de dados. Retorna true se houve sucesso ou false em caso
-    * de erro
+    * de erro.
     */
    public boolean inserirAmigo(Amigo novoAmigo) {
       // CRIANDO A QUERY
@@ -279,9 +279,9 @@ public class AmigoDAO extends ServidorDAO {
 
    // RESUMO ===================================================================
    /**
-    * Método utilizado para fazer um resumo a respeito da tabela amigos Quantos
+    * Método utilizado para fazer um resumo a respeito da tabela amigos. Quantos
     * amigos tem? Quantos possuem empréstimos ativos Quantos possuem empréstimos
-    * atrasados. Retorna as informações em um array de inteiros
+    * atrasados. Retorna as informações em um array de inteiros.
     */
    public int[] fazerResumo() {
       // CRIANDO A VARIÁVEL DE RETORNO
