@@ -3,14 +3,14 @@ package view.negocios;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import model.Negocios;
+import model.Negocio;
 
-public class Ativos extends javax.swing.JFrame {
+public class Atrasado extends javax.swing.JFrame {
 
    // CRIANDO OBJETOS DE MANIPULAÇÃO
-   Negocios manipulado = new Negocios();
+   Negocio manipulado = new Negocio();
 
-   public Ativos() {
+   public Atrasado() {
       initComponents();
 
       // CARREGANDO A TABELA
@@ -20,18 +20,18 @@ public class Ativos extends javax.swing.JFrame {
    // METODO PARA CARREGAR OS DADOS NA TABELA
    private void carregaTabela() {
       // LENDO O MODELO DA TABELA
-      DefaultTableModel modelo = (DefaultTableModel) this.tabelaEmprestimosAtuais.getModel();
+      DefaultTableModel modelo = (DefaultTableModel) this.tablelaEmpresimosAtrasados.getModel();
       modelo.setNumRows(0);
 
       // BUSCANDO OS DADOS NO BANCO
-      ArrayList<Negocios> atuais = manipulado.listarNegociosAtivos();
+      ArrayList<Negocio> atrasados = manipulado.listarNegociosAtrasados();
 
-      if (atuais.size() == 0) {
-         JOptionPane.showMessageDialog(null, "Não empréstimos no momento");
+      if (atrasados.size() == 0) {
+         JOptionPane.showMessageDialog(null, "Boa notícia!!!\nNão há empréstimos atrasados");
       }
 
       // INSRINDO OS DADOS NA TABELA
-      for (Negocios esteNegocio : atuais) {
+      for (Negocio esteNegocio : atrasados) {
          modelo.addRow(new Object[]{
             esteNegocio.getNegocioId(),
             esteNegocio.getNegocioFerramentaNome(),
@@ -49,17 +49,17 @@ public class Ativos extends javax.swing.JFrame {
 
       jLabel1 = new javax.swing.JLabel();
       jScrollPane1 = new javax.swing.JScrollPane();
-      tabelaEmprestimosAtuais = new javax.swing.JTable();
+      tablelaEmpresimosAtrasados = new javax.swing.JTable();
       botaoAtualizar = new javax.swing.JButton();
       botaoVoltar = new javax.swing.JButton();
 
       setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-      setTitle("Lista de empréstios ativos");
+      setTitle("Lista de empréstimos não devolvidos");
 
       jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-      jLabel1.setText("Lista de empréstimos ativos");
+      jLabel1.setText("Lista de empréstimos não devolvidos");
 
-      tabelaEmprestimosAtuais.setModel(new javax.swing.table.DefaultTableModel(
+      tablelaEmpresimosAtrasados.setModel(new javax.swing.table.DefaultTableModel(
          new Object [][] {
 
          },
@@ -67,9 +67,9 @@ public class Ativos extends javax.swing.JFrame {
             "ID", "Ferramenta", "Amigo", "Início", "Fim", "Término"
          }
       ));
-      jScrollPane1.setViewportView(tabelaEmprestimosAtuais);
-      if (tabelaEmprestimosAtuais.getColumnModel().getColumnCount() > 0) {
-         tabelaEmprestimosAtuais.getColumnModel().getColumn(0).setMaxWidth(30);
+      jScrollPane1.setViewportView(tablelaEmpresimosAtrasados);
+      if (tablelaEmpresimosAtrasados.getColumnModel().getColumnCount() > 0) {
+         tablelaEmpresimosAtrasados.getColumnModel().getColumn(0).setMaxWidth(30);
       }
 
       botaoAtualizar.setText("Atualizar");
@@ -95,11 +95,11 @@ public class Ativos extends javax.swing.JFrame {
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                .addGroup(layout.createSequentialGroup()
                   .addComponent(jLabel1)
-                  .addGap(0, 0, Short.MAX_VALUE))
-               .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 814, Short.MAX_VALUE))
+                  .addGap(0, 213, Short.MAX_VALUE))
+               .addComponent(jScrollPane1))
             .addContainerGap())
          .addGroup(layout.createSequentialGroup()
-            .addGap(304, 304, 304)
+            .addGap(267, 267, 267)
             .addComponent(botaoAtualizar)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(botaoVoltar)
@@ -108,11 +108,10 @@ public class Ativos extends javax.swing.JFrame {
       layout.setVerticalGroup(
          layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
          .addGroup(layout.createSequentialGroup()
-            .addContainerGap()
             .addComponent(jLabel1)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 406, Short.MAX_VALUE)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 454, Short.MAX_VALUE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                .addComponent(botaoAtualizar)
                .addComponent(botaoVoltar))
@@ -134,7 +133,7 @@ public class Ativos extends javax.swing.JFrame {
    public static void main(String args[]) {
       java.awt.EventQueue.invokeLater(new Runnable() {
          public void run() {
-            new Ativos().setVisible(true);
+            new Atrasado().setVisible(true);
          }
       });
    }
@@ -144,6 +143,6 @@ public class Ativos extends javax.swing.JFrame {
    private javax.swing.JButton botaoVoltar;
    private javax.swing.JLabel jLabel1;
    private javax.swing.JScrollPane jScrollPane1;
-   private javax.swing.JTable tabelaEmprestimosAtuais;
+   private javax.swing.JTable tablelaEmpresimosAtrasados;
    // End of variables declaration//GEN-END:variables
 }

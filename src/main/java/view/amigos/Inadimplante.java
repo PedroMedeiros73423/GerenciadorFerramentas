@@ -3,14 +3,14 @@ package view.amigos;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import model.Amigos;
+import model.Amigo;
 
-public class Inadimplantes extends javax.swing.JFrame {
+public class Inadimplante extends javax.swing.JFrame {
 // CRIANDO UM OBJETO DE MANIPULAÇÃO
 
-   Amigos manipulado = new Amigos();
+   Amigo manipulado = new Amigo();
 
-   public Inadimplantes() {
+   public Inadimplante() {
       initComponents();
 
       // CARREGANDO A TABELA
@@ -24,14 +24,14 @@ public class Inadimplantes extends javax.swing.JFrame {
       modelo.setNumRows(0);
 
       // BUSCANDO OS DADOS NO BANCO
-      ArrayList<Amigos> inadimplentes = manipulado.getInadimplentes();
+      ArrayList<Amigo> inadimplentes = manipulado.getInadimplentes();
 
       if (inadimplentes.size() == 0) {
          JOptionPane.showMessageDialog(null, "Boa notícia!!\n\nNão há amigos inadimplentes");
       }
 
       // INSRINDO OS DADOS NA TABELA
-      for (Amigos esteAmigo : inadimplentes) {
+      for (Amigo esteAmigo : inadimplentes) {
          modelo.addRow(new Object[]{
             esteAmigo.getAmigoNome(),
             esteAmigo.getAmigoEmail(),
@@ -141,7 +141,7 @@ public class Inadimplantes extends javax.swing.JFrame {
    public static void main(String args[]) {
       java.awt.EventQueue.invokeLater(new Runnable() {
          public void run() {
-            new Inadimplantes().setVisible(true);
+            new Inadimplante().setVisible(true);
          }
       });
    }

@@ -5,16 +5,16 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import model.Amigos;
-import model.Ferramentas;
-import model.Negocios;
+import model.Amigo;
+import model.Ferramenta;
+import model.Negocio;
 
 public class Gerenciador extends javax.swing.JFrame {
 
    // CRIANDO OBJETOS DE MANIPULAÇÃO ===========================================
-   Negocios manipulado = new Negocios();
-   Ferramentas disponiveis = new Ferramentas();
-   Amigos meusAmigos = new Amigos();
+   Negocio manipulado = new Negocio();
+   Ferramenta disponiveis = new Ferramenta();
+   Amigo meusAmigos = new Amigo();
 
    // FORMATO DE DATA PARA O MYSQL =============================================
    SimpleDateFormat dataSql = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -37,14 +37,14 @@ public class Gerenciador extends javax.swing.JFrame {
       modelo.setNumRows(0);
 
       // BUSCANDO OS DADOS NO BANCO
-      ArrayList<Negocios> todosNegocios = manipulado.listarTodos();
+      ArrayList<Negocio> todosNegocios = manipulado.listarTodos();
 
       if (todosNegocios.size() == 0) {
          JOptionPane.showMessageDialog(null, "Não há empréstimos registrados");
       }
 
       // INSRINDO OS DADOS NA TABELA
-      for (Negocios esteNegocio : todosNegocios) {
+      for (Negocio esteNegocio : todosNegocios) {
          modelo.addRow(new Object[]{
             esteNegocio.getNegocioId(),
             esteNegocio.getNegocioFerramentaId(),
@@ -76,7 +76,7 @@ public class Gerenciador extends javax.swing.JFrame {
       modelo.setNumRows(0);
 
       // BUSCANDO OS DADOS NO BANCO
-      ArrayList<Ferramentas> fDisponivies;
+      ArrayList<Ferramenta> fDisponivies;
 
       if (texto.length() == 0) {
          fDisponivies = disponiveis.listarDisponiveis();
@@ -89,7 +89,7 @@ public class Gerenciador extends javax.swing.JFrame {
       }
 
       // INSRINDO OS DADOS NA TABELA
-      for (Ferramentas estaFerramenta : fDisponivies) {
+      for (Ferramenta estaFerramenta : fDisponivies) {
          modelo.addRow(new Object[]{
             estaFerramenta.getFerramentaId(),
             estaFerramenta.getFerramentaNome(),
@@ -106,7 +106,7 @@ public class Gerenciador extends javax.swing.JFrame {
       modelo.setNumRows(0);
 
       // BUSCANDO OS DADOS NO BANCO
-      ArrayList<Amigos> listaAmigos;
+      ArrayList<Amigo> listaAmigos;
 
       if (texto.length() == 0) {
          listaAmigos = this.meusAmigos.listarTodos();
@@ -119,7 +119,7 @@ public class Gerenciador extends javax.swing.JFrame {
       }
 
       // INSRINDO OS DADOS NA TABELA
-      for (Amigos esteAmigo : listaAmigos) {
+      for (Amigo esteAmigo : listaAmigos) {
          modelo.addRow(new Object[]{
             esteAmigo.getAmigoId(),
             esteAmigo.getAmigoNome(),

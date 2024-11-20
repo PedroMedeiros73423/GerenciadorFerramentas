@@ -1,16 +1,16 @@
-package view.ferramentas;
+package view.negocios;
 
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import model.Ferramentas;
+import model.Negocio;
 
-public class Disponiveis extends javax.swing.JFrame {
+public class Ativo extends javax.swing.JFrame {
 
-   // CRIANDO UM OBJETO DE MANIPULAÇÃO
-   Ferramentas manipulado = new Ferramentas("", "", 0.0);
+   // CRIANDO OBJETOS DE MANIPULAÇÃO
+   Negocio manipulado = new Negocio();
 
-   public Disponiveis() {
+   public Ativo() {
       initComponents();
 
       // CARREGANDO A TABELA
@@ -18,25 +18,27 @@ public class Disponiveis extends javax.swing.JFrame {
    }
 
    // METODO PARA CARREGAR OS DADOS NA TABELA
-   public void carregaTabela() {
+   private void carregaTabela() {
       // LENDO O MODELO DA TABELA
-      DefaultTableModel modelo = (DefaultTableModel) this.tabelaDisponiveis.getModel();
+      DefaultTableModel modelo = (DefaultTableModel) this.tabelaEmprestimosAtuais.getModel();
       modelo.setNumRows(0);
 
       // BUSCANDO OS DADOS NO BANCO
-      ArrayList<Ferramentas> todasDisponiveis = manipulado.listarDisponiveis();
+      ArrayList<Negocio> atuais = manipulado.listarNegociosAtivos();
 
-      if (todasDisponiveis.size() == 0) {
-         JOptionPane.showMessageDialog(null, "Não há ferramentas disponível para emprestar");
+      if (atuais.size() == 0) {
+         JOptionPane.showMessageDialog(null, "Não empréstimos no momento");
       }
 
       // INSRINDO OS DADOS NA TABELA
-      for (Ferramentas estaFerramenta : todasDisponiveis) {
+      for (Negocio esteNegocio : atuais) {
          modelo.addRow(new Object[]{
-            estaFerramenta.getFerramentaId(),
-            estaFerramenta.getFerramentaNome(),
-            estaFerramenta.getFerramentaMarca(),
-            estaFerramenta.getFerramentaValor()
+            esteNegocio.getNegocioId(),
+            esteNegocio.getNegocioFerramentaNome(),
+            esteNegocio.getNegocioAmigoNome(),
+            esteNegocio.getNegocioInicio(),
+            esteNegocio.getNegocioFim(),
+            esteNegocio.getNegocioFinal()
          });
       }
    }
@@ -47,33 +49,28 @@ public class Disponiveis extends javax.swing.JFrame {
 
       jLabel1 = new javax.swing.JLabel();
       jScrollPane1 = new javax.swing.JScrollPane();
-      tabelaDisponiveis = new javax.swing.JTable();
+      tabelaEmprestimosAtuais = new javax.swing.JTable();
       botaoAtualizar = new javax.swing.JButton();
       botaoVoltar = new javax.swing.JButton();
 
       setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-      setTitle("FERRAMENTAS DISPONÍVEIS");
+      setTitle("Lista de empréstios ativos");
 
-      jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
-      jLabel1.setText("Lista de Ferramentas Disponíveis");
+      jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+      jLabel1.setText("Lista de empréstimos ativos");
 
-      tabelaDisponiveis.setModel(new javax.swing.table.DefaultTableModel(
+      tabelaEmprestimosAtuais.setModel(new javax.swing.table.DefaultTableModel(
          new Object [][] {
 
          },
          new String [] {
-            "ID", "Nome", "Marca", "Valor"
+            "ID", "Ferramenta", "Amigo", "Início", "Fim", "Término"
          }
-      ) {
-         Class[] types = new Class [] {
-            java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
-         };
-
-         public Class getColumnClass(int columnIndex) {
-            return types [columnIndex];
-         }
-      });
-      jScrollPane1.setViewportView(tabelaDisponiveis);
+      ));
+      jScrollPane1.setViewportView(tabelaEmprestimosAtuais);
+      if (tabelaEmprestimosAtuais.getColumnModel().getColumnCount() > 0) {
+         tabelaEmprestimosAtuais.getColumnModel().getColumn(0).setMaxWidth(30);
+      }
 
       botaoAtualizar.setText("Atualizar");
       botaoAtualizar.addActionListener(new java.awt.event.ActionListener() {
@@ -94,19 +91,19 @@ public class Disponiveis extends javax.swing.JFrame {
       layout.setHorizontalGroup(
          layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
          .addGroup(layout.createSequentialGroup()
+            .addContainerGap()
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                .addGroup(layout.createSequentialGroup()
-                  .addGap(31, 31, 31)
-                  .addComponent(jLabel1))
-               .addGroup(layout.createSequentialGroup()
-                  .addGap(17, 17, 17)
-                  .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 766, javax.swing.GroupLayout.PREFERRED_SIZE))
-               .addGroup(layout.createSequentialGroup()
-                  .addGap(263, 263, 263)
-                  .addComponent(botaoAtualizar)
-                  .addGap(26, 26, 26)
-                  .addComponent(botaoVoltar)))
-            .addContainerGap(17, Short.MAX_VALUE))
+                  .addComponent(jLabel1)
+                  .addGap(0, 0, Short.MAX_VALUE))
+               .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 814, Short.MAX_VALUE))
+            .addContainerGap())
+         .addGroup(layout.createSequentialGroup()
+            .addGap(304, 304, 304)
+            .addComponent(botaoAtualizar)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(botaoVoltar)
+            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
       );
       layout.setVerticalGroup(
          layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -114,8 +111,8 @@ public class Disponiveis extends javax.swing.JFrame {
             .addContainerGap()
             .addComponent(jLabel1)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 383, Short.MAX_VALUE)
-            .addGap(12, 12, 12)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 406, Short.MAX_VALUE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                .addComponent(botaoAtualizar)
                .addComponent(botaoVoltar))
@@ -125,19 +122,19 @@ public class Disponiveis extends javax.swing.JFrame {
       pack();
    }// </editor-fold>//GEN-END:initComponents
 
-    private void botaoAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAtualizarActionPerformed
-       // RECARREGANDO A TABELA
-       this.carregaTabela();
-    }//GEN-LAST:event_botaoAtualizarActionPerformed
+   private void botaoVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoVoltarActionPerformed
+      this.dispose();
+   }//GEN-LAST:event_botaoVoltarActionPerformed
 
-    private void botaoVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoVoltarActionPerformed
-       this.dispose();
-    }//GEN-LAST:event_botaoVoltarActionPerformed
+   private void botaoAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAtualizarActionPerformed
+      // RECARREGANDO A TABELA
+      this.carregaTabela();
+   }//GEN-LAST:event_botaoAtualizarActionPerformed
 
    public static void main(String args[]) {
       java.awt.EventQueue.invokeLater(new Runnable() {
          public void run() {
-            new Disponiveis().setVisible(true);
+            new Ativo().setVisible(true);
          }
       });
    }
@@ -147,6 +144,6 @@ public class Disponiveis extends javax.swing.JFrame {
    private javax.swing.JButton botaoVoltar;
    private javax.swing.JLabel jLabel1;
    private javax.swing.JScrollPane jScrollPane1;
-   private javax.swing.JTable tabelaDisponiveis;
+   private javax.swing.JTable tabelaEmprestimosAtuais;
    // End of variables declaration//GEN-END:variables
 }

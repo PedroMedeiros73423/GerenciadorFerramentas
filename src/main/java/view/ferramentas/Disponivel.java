@@ -1,16 +1,16 @@
-package view.negocios;
+package view.ferramentas;
 
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import model.Negocios;
+import model.Ferramenta;
 
-public class Atrasados extends javax.swing.JFrame {
+public class Disponivel extends javax.swing.JFrame {
 
-   // CRIANDO OBJETOS DE MANIPULAÇÃO
-   Negocios manipulado = new Negocios();
+   // CRIANDO UM OBJETO DE MANIPULAÇÃO
+   Ferramenta manipulado = new Ferramenta("", "", 0.0);
 
-   public Atrasados() {
+   public Disponivel() {
       initComponents();
 
       // CARREGANDO A TABELA
@@ -18,27 +18,25 @@ public class Atrasados extends javax.swing.JFrame {
    }
 
    // METODO PARA CARREGAR OS DADOS NA TABELA
-   private void carregaTabela() {
+   public void carregaTabela() {
       // LENDO O MODELO DA TABELA
-      DefaultTableModel modelo = (DefaultTableModel) this.tablelaEmpresimosAtrasados.getModel();
+      DefaultTableModel modelo = (DefaultTableModel) this.tabelaDisponiveis.getModel();
       modelo.setNumRows(0);
 
       // BUSCANDO OS DADOS NO BANCO
-      ArrayList<Negocios> atrasados = manipulado.listarNegociosAtrasados();
+      ArrayList<Ferramenta> todasDisponiveis = manipulado.listarDisponiveis();
 
-      if (atrasados.size() == 0) {
-         JOptionPane.showMessageDialog(null, "Boa notícia!!!\nNão há empréstimos atrasados");
+      if (todasDisponiveis.size() == 0) {
+         JOptionPane.showMessageDialog(null, "Não há ferramentas disponível para emprestar");
       }
 
       // INSRINDO OS DADOS NA TABELA
-      for (Negocios esteNegocio : atrasados) {
+      for (Ferramenta estaFerramenta : todasDisponiveis) {
          modelo.addRow(new Object[]{
-            esteNegocio.getNegocioId(),
-            esteNegocio.getNegocioFerramentaNome(),
-            esteNegocio.getNegocioAmigoNome(),
-            esteNegocio.getNegocioInicio(),
-            esteNegocio.getNegocioFim(),
-            esteNegocio.getNegocioFinal()
+            estaFerramenta.getFerramentaId(),
+            estaFerramenta.getFerramentaNome(),
+            estaFerramenta.getFerramentaMarca(),
+            estaFerramenta.getFerramentaValor()
          });
       }
    }
@@ -49,28 +47,33 @@ public class Atrasados extends javax.swing.JFrame {
 
       jLabel1 = new javax.swing.JLabel();
       jScrollPane1 = new javax.swing.JScrollPane();
-      tablelaEmpresimosAtrasados = new javax.swing.JTable();
+      tabelaDisponiveis = new javax.swing.JTable();
       botaoAtualizar = new javax.swing.JButton();
       botaoVoltar = new javax.swing.JButton();
 
       setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-      setTitle("Lista de empréstimos não devolvidos");
+      setTitle("FERRAMENTAS DISPONÍVEIS");
 
-      jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-      jLabel1.setText("Lista de empréstimos não devolvidos");
+      jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+      jLabel1.setText("Lista de Ferramentas Disponíveis");
 
-      tablelaEmpresimosAtrasados.setModel(new javax.swing.table.DefaultTableModel(
+      tabelaDisponiveis.setModel(new javax.swing.table.DefaultTableModel(
          new Object [][] {
 
          },
          new String [] {
-            "ID", "Ferramenta", "Amigo", "Início", "Fim", "Término"
+            "ID", "Nome", "Marca", "Valor"
          }
-      ));
-      jScrollPane1.setViewportView(tablelaEmpresimosAtrasados);
-      if (tablelaEmpresimosAtrasados.getColumnModel().getColumnCount() > 0) {
-         tablelaEmpresimosAtrasados.getColumnModel().getColumn(0).setMaxWidth(30);
-      }
+      ) {
+         Class[] types = new Class [] {
+            java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+         };
+
+         public Class getColumnClass(int columnIndex) {
+            return types [columnIndex];
+         }
+      });
+      jScrollPane1.setViewportView(tabelaDisponiveis);
 
       botaoAtualizar.setText("Atualizar");
       botaoAtualizar.addActionListener(new java.awt.event.ActionListener() {
@@ -91,27 +94,28 @@ public class Atrasados extends javax.swing.JFrame {
       layout.setHorizontalGroup(
          layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
          .addGroup(layout.createSequentialGroup()
-            .addContainerGap()
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                .addGroup(layout.createSequentialGroup()
-                  .addComponent(jLabel1)
-                  .addGap(0, 213, Short.MAX_VALUE))
-               .addComponent(jScrollPane1))
-            .addContainerGap())
-         .addGroup(layout.createSequentialGroup()
-            .addGap(267, 267, 267)
-            .addComponent(botaoAtualizar)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addComponent(botaoVoltar)
-            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                  .addGap(31, 31, 31)
+                  .addComponent(jLabel1))
+               .addGroup(layout.createSequentialGroup()
+                  .addGap(17, 17, 17)
+                  .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 766, javax.swing.GroupLayout.PREFERRED_SIZE))
+               .addGroup(layout.createSequentialGroup()
+                  .addGap(263, 263, 263)
+                  .addComponent(botaoAtualizar)
+                  .addGap(26, 26, 26)
+                  .addComponent(botaoVoltar)))
+            .addContainerGap(17, Short.MAX_VALUE))
       );
       layout.setVerticalGroup(
          layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
          .addGroup(layout.createSequentialGroup()
+            .addContainerGap()
             .addComponent(jLabel1)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 454, Short.MAX_VALUE)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 383, Short.MAX_VALUE)
+            .addGap(12, 12, 12)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                .addComponent(botaoAtualizar)
                .addComponent(botaoVoltar))
@@ -121,19 +125,19 @@ public class Atrasados extends javax.swing.JFrame {
       pack();
    }// </editor-fold>//GEN-END:initComponents
 
-   private void botaoVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoVoltarActionPerformed
-      this.dispose();
-   }//GEN-LAST:event_botaoVoltarActionPerformed
+    private void botaoAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAtualizarActionPerformed
+       // RECARREGANDO A TABELA
+       this.carregaTabela();
+    }//GEN-LAST:event_botaoAtualizarActionPerformed
 
-   private void botaoAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAtualizarActionPerformed
-      // RECARREGANDO A TABELA
-      this.carregaTabela();
-   }//GEN-LAST:event_botaoAtualizarActionPerformed
+    private void botaoVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoVoltarActionPerformed
+       this.dispose();
+    }//GEN-LAST:event_botaoVoltarActionPerformed
 
    public static void main(String args[]) {
       java.awt.EventQueue.invokeLater(new Runnable() {
          public void run() {
-            new Atrasados().setVisible(true);
+            new Disponivel().setVisible(true);
          }
       });
    }
@@ -143,6 +147,6 @@ public class Atrasados extends javax.swing.JFrame {
    private javax.swing.JButton botaoVoltar;
    private javax.swing.JLabel jLabel1;
    private javax.swing.JScrollPane jScrollPane1;
-   private javax.swing.JTable tablelaEmpresimosAtrasados;
+   private javax.swing.JTable tabelaDisponiveis;
    // End of variables declaration//GEN-END:variables
 }

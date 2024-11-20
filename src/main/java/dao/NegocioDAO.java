@@ -7,15 +7,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import model.Negocios;
+import model.Negocio;
 
-public class NegociosDAO extends ServidorDAO {
+public class NegocioDAO extends ServidorDAO {
 
    // ATRIBUTOS ================================================================
-   private final ArrayList<Negocios> listaDeNegocios = new ArrayList<>();
+   private final ArrayList<Negocio> listaDeNegocios = new ArrayList<>();
 
    // LISTAR TODOS =============================================================
-   public ArrayList<Negocios> listarNegocios() {
+   public ArrayList<Negocio> listarNegocios() {
       // LIMPAR A LISTA ANTES DE INSERIR ALGO NELA
       listaDeNegocios.clear();
 
@@ -36,7 +36,7 @@ public class NegociosDAO extends ServidorDAO {
             String fim = res.getString("negocioFim");
             String terminou = res.getString("negocioFinal");
 
-            Negocios este = new Negocios(id, ferramentaId, ferramentaNome, amigoId, amigoNome, inicio, fim, terminou);
+            Negocio este = new Negocio(id, ferramentaId, ferramentaNome, amigoId, amigoNome, inicio, fim, terminou);
 
             // ADICIONAR O NEGÓCIO NA LISTA
             listaDeNegocios.add(este);
@@ -51,9 +51,9 @@ public class NegociosDAO extends ServidorDAO {
    }
 
    // LISTAR UM ================================================================
-   public Negocios listarUmObjeto(int id) {
+   public Negocio listarUmObjeto(int id) {
       // CRIANDO UM OBJETO
-      Negocios negocio = new Negocios();
+      Negocio negocio = new Negocio();
 
       try {
          // FAZENDO A BUSCA NO BANCO DE DADOS
@@ -76,12 +76,12 @@ public class NegociosDAO extends ServidorDAO {
       return negocio;
    }
 
-   public ArrayList<Negocios> listarUmLista(int id) {
+   public ArrayList<Negocio> listarUmLista(int id) {
       // LIMPAR A LISTA ANTES DE INSERIR ALGO NELA
       listaDeNegocios.clear();
 
       // CRIANDO UM OBJETO
-      Negocios negocio = new Negocios();
+      Negocio negocio = new Negocio();
 
       try {
          // FAZENDO A BUSCA NO BANCO DE DADOS
@@ -110,7 +110,7 @@ public class NegociosDAO extends ServidorDAO {
    }
 
    // CADASTRA NOVO NEGÓCIO ===================================================
-   public boolean inserirNegocio(Negocios novoNegocio) {
+   public boolean inserirNegocio(Negocio novoNegocio) {
       // CRIANDO A QUERY
       String sql = "INSERT INTO negocios(negocioId, negocioFerramentaId, negocioAmigoId, negocioInicio, negocioFim, negocioFinal) VALUES(?,?,?,?,?,?)";
 
@@ -139,7 +139,7 @@ public class NegociosDAO extends ServidorDAO {
    }
 
    // MODIFICAR UM NEGÓCIO =====================================================
-   public boolean modificarNegocio(Negocios esteNegocio) {
+   public boolean modificarNegocio(Negocio esteNegocio) {
       // CRIANDO A QUERY
       String sql = "UPDATE negocios SET negocioFerramentaId = ?, negocioAmigoId = ?, negocioInicio = ?, negocioFim = ?, negocioFinal = ?  WHERE negocioId = ?";
 
@@ -168,7 +168,7 @@ public class NegociosDAO extends ServidorDAO {
    // DELETAR UM NEGÓCIO =======================================================
    public boolean deletarNegocio(int id) {
       // VERIFICANDO SE O NEGÓCIO EXISTE
-      Negocios desfeito = listarUmObjeto(id);
+      Negocio desfeito = listarUmObjeto(id);
       if (desfeito.getNegocioId() != id) {
          return false;
       }
@@ -229,7 +229,7 @@ public class NegociosDAO extends ServidorDAO {
    }
 
    // LISTAR NEGÓCIOS ATIVOS ===================================================
-   public ArrayList<Negocios> listarNegociosAtivos() {
+   public ArrayList<Negocio> listarNegociosAtivos() {
       // LIMPAR A LISTA ANTES DE INSERIR ALGO NELA
       listaDeNegocios.clear();
 
@@ -250,7 +250,7 @@ public class NegociosDAO extends ServidorDAO {
             String fim = res.getString("negocioFim");
             String terminou = res.getString("negocioFinal");
 
-            Negocios este = new Negocios(id, ferramentaId, ferramentaNome, amigoId, amigoNome, inicio, fim, terminou);
+            Negocio este = new Negocio(id, ferramentaId, ferramentaNome, amigoId, amigoNome, inicio, fim, terminou);
 
             // ADICIONAR O NEGÓCIO NA LISTA
             listaDeNegocios.add(este);
@@ -266,7 +266,7 @@ public class NegociosDAO extends ServidorDAO {
    }
 
    // LISTAR NEGÓCIOS ATRASADOS ===================================================
-   public ArrayList<Negocios> listarNegociosAtrasados() {
+   public ArrayList<Negocio> listarNegociosAtrasados() {
       // LIMPAR A LISTA ANTES DE INSERIR ALGO NELA
       listaDeNegocios.clear();
 
@@ -287,7 +287,7 @@ public class NegociosDAO extends ServidorDAO {
             String fim = res.getString("negocioFim");
             String terminou = res.getString("negocioFinal");
 
-            Negocios este = new Negocios(id, ferramentaId, ferramentaNome, amigoId, amigoNome, inicio, fim, terminou);
+            Negocio este = new Negocio(id, ferramentaId, ferramentaNome, amigoId, amigoNome, inicio, fim, terminou);
 
             // ADICIONAR O NEGÓCIO NA LISTA
             listaDeNegocios.add(este);

@@ -3,14 +3,14 @@ package view.amigos;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import model.Amigos;
+import model.Amigo;
 
-public class Devedores extends javax.swing.JFrame {
+public class Devedor extends javax.swing.JFrame {
 
    // CRIANDO UM OBJETO DE MANIPULAÇÃO
-   Amigos manipulado = new Amigos("", "", "", "");
+   Amigo manipulado = new Amigo("", "", "", "");
 
-   public Devedores() {
+   public Devedor() {
       initComponents();
 
       // CARREGANDO A TABELA
@@ -24,14 +24,14 @@ public class Devedores extends javax.swing.JFrame {
       modelo.setNumRows(0);
 
       // BUSCANDO OS DADOS NO BANCO
-      ArrayList<Amigos> devedores = manipulado.listarDevedores();
+      ArrayList<Amigo> devedores = manipulado.listarDevedores();
 
       if (devedores.size() == 0) {
          JOptionPane.showMessageDialog(null, "BOA NOTÍCIA!\nNão há amigos devendo ferramentas emprestadas!");
       }
 
       // INSERINDO OS DADOS NA TABELA
-      for (Amigos esteAmigo : devedores) {
+      for (Amigo esteAmigo : devedores) {
          modelo.addRow(new Object[]{
             esteAmigo.getAmigoId(),
             esteAmigo.getAmigoNome(),
@@ -128,7 +128,7 @@ public class Devedores extends javax.swing.JFrame {
    public static void main(String args[]) {
       java.awt.EventQueue.invokeLater(new Runnable() {
          public void run() {
-            new Devedores().setVisible(true);
+            new Devedor().setVisible(true);
          }
       });
    }

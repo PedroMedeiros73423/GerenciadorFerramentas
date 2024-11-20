@@ -3,18 +3,18 @@ package view.ferramentas;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import model.Ferramentas;
+import model.Ferramenta;
 
 public class Gerenciador extends javax.swing.JFrame {
 
    private void carregarDashboard() {
       // RESUMO DAS FERRAMENTAS
-      Ferramentas ferramenta = new Ferramentas();
+      Ferramenta ferramenta = new Ferramenta();
       Double[] resumoFerramentas = ferramenta.fazerResumo();
       somaQuantidade.setText(String.format("%.0f", resumoFerramentas[0]));
       somaValor.setText("R$ " + String.format("%.2f", resumoFerramentas[1]));
    }
-   Ferramentas manipulado = new Ferramentas("", "", 0.0);
+   Ferramenta manipulado = new Ferramenta("", "", 0.0);
 
    public Gerenciador() {
       initComponents();
@@ -30,7 +30,7 @@ public class Gerenciador extends javax.swing.JFrame {
       modelo.setNumRows(0);
 
       // BUSCANDO OS DADOS NO BANCO
-      ArrayList<Ferramentas> todasFerramentas = manipulado.listarTodas();
+      ArrayList<Ferramenta> todasFerramentas = manipulado.listarTodas();
 
       if (todasFerramentas.size() == 0) {
          JOptionPane.showMessageDialog(null, "Não há nenhuma ferramenta cadastrada");
@@ -39,7 +39,7 @@ public class Gerenciador extends javax.swing.JFrame {
       // INSRINDO OS DADOS NA TABELA
       double soma = 0;
       int quantidade = 0;
-      for (Ferramentas estaFerramenta : todasFerramentas) {
+      for (Ferramenta estaFerramenta : todasFerramentas) {
          modelo.addRow(new Object[]{
             estaFerramenta.getFerramentaId(),
             estaFerramenta.getFerramentaNome(),

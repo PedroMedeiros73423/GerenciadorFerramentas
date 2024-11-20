@@ -9,15 +9,15 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Vector;
 import jdk.nashorn.internal.runtime.regexp.joni.Regex;
-import model.Amigos;
+import model.Amigo;
 
-public class AmigosDAO extends ServidorDAO {
+public class AmigoDAO extends ServidorDAO {
 
    // ATRIBUTOS ================================================================
-   private final ArrayList<Amigos> listaDeAmigos = new ArrayList<>();
+   private final ArrayList<Amigo> listaDeAmigos = new ArrayList<>();
 
    // LISTAR TODOS =============================================================
-   public ArrayList<Amigos> listarTodos() {
+   public ArrayList<Amigo> listarTodos() {
       // LIMPAR A LISTA ANTES DE INSERIR ALGO NELA
       listaDeAmigos.clear();
 
@@ -35,7 +35,7 @@ public class AmigosDAO extends ServidorDAO {
             String endereco = res.getString("amigoEndereco");
             String telefone = res.getString("amigoTelefone");
 
-            Amigos este = new Amigos(id, nome, email, endereco, telefone);
+            Amigo este = new Amigo(id, nome, email, endereco, telefone);
 
             // ADICIONAR O AMIGO NA LISTA
             listaDeAmigos.add(este);
@@ -49,7 +49,7 @@ public class AmigosDAO extends ServidorDAO {
    }
 
    // LISTAR TODOS =============================================================
-   public ArrayList<Amigos> buscarAmigos(String texto) {
+   public ArrayList<Amigo> buscarAmigos(String texto) {
       // LIMPAR A LISTA ANTES DE INSERIR ALGO NELA
       listaDeAmigos.clear();
 
@@ -67,7 +67,7 @@ public class AmigosDAO extends ServidorDAO {
             String endereco = res.getString("amigoEndereco");
             String telefone = res.getString("amigoTelefone");
 
-            Amigos este = new Amigos(id, nome, email, endereco, telefone);
+            Amigo este = new Amigo(id, nome, email, endereco, telefone);
 
             // ADICIONAR O AMIGO NA LISTA
             listaDeAmigos.add(este);
@@ -105,9 +105,9 @@ public class AmigosDAO extends ServidorDAO {
    }
 
    // LISTAR UM ================================================================
-   public Amigos listarUmObjeto(int id) {
+   public Amigo listarUmObjeto(int id) {
       // CRIANDO UM OBJETO
-      Amigos amigo = new Amigos();
+      Amigo amigo = new Amigo();
 
       try {
          // FAZENDO A BUSCA NO BANCO DE DADOS
@@ -129,12 +129,12 @@ public class AmigosDAO extends ServidorDAO {
       return amigo;
    }
 
-   public ArrayList<Amigos> listarUmLista(int id) {
+   public ArrayList<Amigo> listarUmLista(int id) {
       // LIMPAR A LISTA ANTES DE INSERIR ALGO NELA
       listaDeAmigos.clear();
 
       // CRIANDO UM OBJETO
-      Amigos amigo = new Amigos();
+      Amigo amigo = new Amigo();
 
       try {
          // FAZENDO A BUSCA NO BANCO DE DADOS
@@ -160,7 +160,7 @@ public class AmigosDAO extends ServidorDAO {
    }
 
    // CADASTRA NOVO AMIGO ======================================================
-   public boolean inserirAmigo(Amigos novoAmigo) {
+   public boolean inserirAmigo(Amigo novoAmigo) {
       // CRIANDO A QUERY
       String sql = "INSERT INTO amigos(amigoId, amigoNome, amigoEmail, amigoEndereco, amigoTelefone) VALUES(?,?,?,?,?)";
 
@@ -186,7 +186,7 @@ public class AmigosDAO extends ServidorDAO {
    }
 
    // MODIFICAR UM AMIGO =======================================================
-   public boolean modificarAmigo(Amigos esteAmigo) {
+   public boolean modificarAmigo(Amigo esteAmigo) {
       // CRIANDO A QUERY
       String sql = "UPDATE amigos SET amigoNome = ?, amigoEmail = ?, amigoEndereco = ?, amigoTelefone = ? WHERE amigoId = ?";
 
@@ -214,7 +214,7 @@ public class AmigosDAO extends ServidorDAO {
    // DELETAR UM AMIGO =========================================================
    public boolean deletarAmigo(int id) {
       // VERIFICANDO SE O AMIGO EXISTE
-      Amigos desamigo = listarUmObjeto(id);
+      Amigo desamigo = listarUmObjeto(id);
       if (desamigo.getAmigoId() != id) {
          return false;
       }
@@ -272,7 +272,7 @@ public class AmigosDAO extends ServidorDAO {
    }
 
    // EMPRESTADOS ==============================================================
-   public ArrayList<Amigos> listarEmpmrestados() {
+   public ArrayList<Amigo> listarEmpmrestados() {
       // LIMPAR A LISTA ANTES DE INSERIR ALGO NELA
       listaDeAmigos.clear();
 
@@ -291,7 +291,7 @@ public class AmigosDAO extends ServidorDAO {
             String endereco = res.getString("amigoEndereco");
             String telefone = res.getString("amigoTelefone");
 
-            Amigos este = new Amigos(id, nome, email, endereco, telefone);
+            Amigo este = new Amigo(id, nome, email, endereco, telefone);
 
             // ADICIONAR O AMIGO NA LISTA
             listaDeAmigos.add(este);
@@ -306,7 +306,7 @@ public class AmigosDAO extends ServidorDAO {
    }
 
    // DEVEDORES ================================================================
-   public ArrayList<Amigos> listarDevedores() {
+   public ArrayList<Amigo> listarDevedores() {
       // LIMPAR A LISTA ANTES DE INSERIR ALGO NELA
       listaDeAmigos.clear();
 
@@ -324,7 +324,7 @@ public class AmigosDAO extends ServidorDAO {
             String endereco = res.getString("amigoEndereco");
             String telefone = res.getString("amigoTelefone");
 
-            Amigos este = new Amigos(id, nome, email, endereco, telefone);
+            Amigo este = new Amigo(id, nome, email, endereco, telefone);
 
             // ADICIONAR O AMIGO NA LISTA
             listaDeAmigos.add(este);
@@ -339,7 +339,7 @@ public class AmigosDAO extends ServidorDAO {
    }
 
    // OBTENDO O RANKING DOS AMIGOS COM MAIS EMPRÉSTIMOS ========================
-   public ArrayList<Amigos> getRanking() {
+   public ArrayList<Amigo> getRanking() {
       // LIMPAR A LISTA ANTES DE INSERIR ALGO NELA
       listaDeAmigos.clear();
 
@@ -357,7 +357,7 @@ public class AmigosDAO extends ServidorDAO {
             String endereco = res.getString("amigoEndereco");
             String telefone = res.getString("amigoTelefone");
 
-            Amigos este = new Amigos(id, nome, email, endereco, telefone);
+            Amigo este = new Amigo(id, nome, email, endereco, telefone);
 
             // ADICIONAR O AMIGO NA LISTA
             listaDeAmigos.add(este);
@@ -372,7 +372,7 @@ public class AmigosDAO extends ServidorDAO {
    }
 
    // INADIMPLENTES ============================================================
-   public ArrayList<Amigos> getInadimplentes() {
+   public ArrayList<Amigo> getInadimplentes() {
       // LIMPAR A LISTA ANTES DE INSERIR ALGO NELA
       listaDeAmigos.clear();
 
@@ -423,7 +423,7 @@ public class AmigosDAO extends ServidorDAO {
             }
 
             // CRIANDO UM OBJETO DE AMIGO
-            Amigos este = new Amigos(cnt1, nome, email, endereco, telefone);
+            Amigo este = new Amigo(cnt1, nome, email, endereco, telefone);
 
             // ADICIONAR O AMIGO NA LISTA
             listaDeAmigos.add(este);

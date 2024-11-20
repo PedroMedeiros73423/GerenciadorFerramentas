@@ -7,15 +7,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import model.Ferramentas;
+import model.Ferramenta;
 
-public class FerramentasDAO extends ServidorDAO {
+public class FerramentaDAO extends ServidorDAO {
 
    // ATRIBUTOS ================================================================
-   private final ArrayList<Ferramentas> listaDeFerramentas = new ArrayList<>();
+   private final ArrayList<Ferramenta> listaDeFerramentas = new ArrayList<>();
 
    // LISTAR TODAS =============================================================
-   public ArrayList<Ferramentas> listarTodas() {
+   public ArrayList<Ferramenta> listarTodas() {
       // LIMPAR A LISTA ANTES DE INSERIR ALGO NELA
       listaDeFerramentas.clear();
 
@@ -32,7 +32,7 @@ public class FerramentasDAO extends ServidorDAO {
             String marca = res.getString("ferramentaMarca");
             double valor = res.getDouble("ferramentaValor");
 
-            Ferramentas esta = new Ferramentas(id, nome, marca, valor);
+            Ferramenta esta = new Ferramenta(id, nome, marca, valor);
 
             // ADICIONAR A FERRAMENTA NA LISTA
             listaDeFerramentas.add(esta);
@@ -48,9 +48,9 @@ public class FerramentasDAO extends ServidorDAO {
    }
 
    // LISTAR UMA ===============================================================
-   public Ferramentas listarUmaObjeto(int id) {
+   public Ferramenta listarUmaObjeto(int id) {
       // CRIANDO UM OBJETO
-      Ferramentas ferramenta = new Ferramentas();
+      Ferramenta ferramenta = new Ferramenta();
 
       try {
          // FAZENDO A BUSCA NO BANCO DE DADOS
@@ -71,12 +71,12 @@ public class FerramentasDAO extends ServidorDAO {
       return ferramenta;
    }
 
-   public ArrayList<Ferramentas> listarUmaLista(int id) {
+   public ArrayList<Ferramenta> listarUmaLista(int id) {
       // LIMPAR A LISTA ANTES DE INSERIR ALGO NELA
       listaDeFerramentas.clear();
 
       // CRIANDO UM OBJETO
-      Ferramentas ferramenta = new Ferramentas();
+      Ferramenta ferramenta = new Ferramenta();
 
       try {
          // FAZENDO A BUSCA NO BANCO DE DADOS
@@ -101,7 +101,7 @@ public class FerramentasDAO extends ServidorDAO {
    }
 
    // CADASTRA NOVA FERRAMENTA =================================================
-   public boolean inserirFerramenta(Ferramentas novaFerramenta) {
+   public boolean inserirFerramenta(Ferramenta novaFerramenta) {
       // CRIANDO A QUERY
       String sql = "INSERT INTO ferramentas(ferramentaId, ferramentaNome, ferramentaMarca, ferramentaValor) VALUES(?,?,?,?)";
 
@@ -127,7 +127,7 @@ public class FerramentasDAO extends ServidorDAO {
    }
 
    // MODIFICAR UMA FERRAMENTA =================================================
-   public boolean modificarFerramenta(Ferramentas estaFerramenta) {
+   public boolean modificarFerramenta(Ferramenta estaFerramenta) {
       // CRIANDO A QUERY
       String sql = "UPDATE ferramentas SET ferramentaNome = ?, ferramentaMarca = ?, ferramentaValor = ? WHERE ferramentaId = ?";
 
@@ -156,7 +156,7 @@ public class FerramentasDAO extends ServidorDAO {
    // DELETAR UMA FERRAMENTA ===================================================
    public boolean deletarFerramenta(int id) {
       // VERIFICANDO SE A FERRAMENTA EXISTE
-      Ferramentas estragada = listarUmaObjeto(id);
+      Ferramenta estragada = listarUmaObjeto(id);
       if (estragada.getFerramentaId() != id) {
          return false;
       }
@@ -203,7 +203,7 @@ public class FerramentasDAO extends ServidorDAO {
    }
 
    // LISTAR TODAS DISPONÍVEIS =================================================
-   public ArrayList<Ferramentas> listarDisponiveis() {
+   public ArrayList<Ferramenta> listarDisponiveis() {
       // LIMPAR A LISTA ANTES DE INSERIR ALGO NELA
       listaDeFerramentas.clear();
 
@@ -221,7 +221,7 @@ public class FerramentasDAO extends ServidorDAO {
             String marca = res.getString("ferramentaMarca");
             double valor = res.getDouble("ferramentaValor");
 
-            Ferramentas esta = new Ferramentas(id, nome, marca, valor);
+            Ferramenta esta = new Ferramenta(id, nome, marca, valor);
 
             // ADICIONAR A FERRAMENTA NA LISTA
             listaDeFerramentas.add(esta);
@@ -236,7 +236,7 @@ public class FerramentasDAO extends ServidorDAO {
    }
 
    // BUSCAR FERRAMENTAS DISPONÍVEIS ===========================================
-   public ArrayList<Ferramentas> buscarDisponiveis(String texto) {
+   public ArrayList<Ferramenta> buscarDisponiveis(String texto) {
       // LIMPAR A LISTA ANTES DE INSERIR ALGO NELA
       listaDeFerramentas.clear();
 
@@ -254,7 +254,7 @@ public class FerramentasDAO extends ServidorDAO {
             String marca = res.getString("ferramentaMarca");
             double valor = res.getDouble("ferramentaValor");
 
-            Ferramentas esta = new Ferramentas(id, nome, marca, valor);
+            Ferramenta esta = new Ferramenta(id, nome, marca, valor);
 
             // ADICIONAR A FERRAMENTA NA LISTA
             listaDeFerramentas.add(esta);
@@ -292,7 +292,7 @@ public class FerramentasDAO extends ServidorDAO {
    }
 
    // LISTAR TODAS EMPRESTADAS =================================================
-   public ArrayList<Ferramentas> listarEmprestadas() {
+   public ArrayList<Ferramenta> listarEmprestadas() {
       // LIMPAR A LISTA ANTES DE INSERIR ALGO NELA
       listaDeFerramentas.clear();
 
@@ -309,7 +309,7 @@ public class FerramentasDAO extends ServidorDAO {
             String marca = res.getString("ferramentaMarca");
             double valor = res.getDouble("ferramentaValor");
 
-            Ferramentas esta = new Ferramentas(id, nome, marca, valor);
+            Ferramenta esta = new Ferramenta(id, nome, marca, valor);
 
             // ADICIONAR A FERRAMENTA NA LISTA
             listaDeFerramentas.add(esta);

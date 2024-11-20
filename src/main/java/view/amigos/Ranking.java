@@ -3,12 +3,12 @@ package view.amigos;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import model.Amigos;
+import model.Amigo;
 
 public class Ranking extends javax.swing.JFrame {
 
    // CRIANDO UM OBJETO DE MANIPULAÇÃO
-   Amigos manipulado = new Amigos();
+   Amigo manipulado = new Amigo();
 
    public Ranking() {
       initComponents();
@@ -24,14 +24,14 @@ public class Ranking extends javax.swing.JFrame {
       modelo.setNumRows(0);
 
       // BUSCANDO OS DADOS NO BANCO
-      ArrayList<Amigos> ranking = manipulado.getRanking();
+      ArrayList<Amigo> ranking = manipulado.getRanking();
 
       if (ranking.size() == 0) {
          JOptionPane.showMessageDialog(null, "Não há dados suficientes para formar o ranking");
       }
 
       // INSRINDO OS DADOS NA TABELA
-      for (Amigos esteAmigo : ranking) {
+      for (Amigo esteAmigo : ranking) {
          modelo.addRow(new Object[]{
             esteAmigo.getAmigoId(),
             esteAmigo.getAmigoNome(),

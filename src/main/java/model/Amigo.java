@@ -2,10 +2,10 @@
 package model;
 
 // IMPORTAÇÕES
-import dao.AmigosDAO;
+import dao.AmigoDAO;
 import java.util.ArrayList;
 
-public class Amigos {
+public class Amigo {
 
    // ATRIBUTOS ================================================================
    private int amigoId;
@@ -15,18 +15,18 @@ public class Amigos {
    private String amigoTelefone;
 
    // CONSTRUTORES =============================================================
-   public Amigos() {
+   public Amigo() {
       this(0, "", "", "", "");
    }
 
-   public Amigos(String amigoNome, String amigoEmail, String amigoEndereco, String amigoTelefone) {
+   public Amigo(String amigoNome, String amigoEmail, String amigoEndereco, String amigoTelefone) {
       this.amigoNome = amigoNome;
       this.amigoEmail = amigoEmail;
       this.amigoEndereco = amigoEndereco;
       this.amigoTelefone = amigoTelefone;
    }
 
-   public Amigos(int amigoId, String amigoNome, String amigoEmail, String amigoEndereco, String amigoTelefone) {
+   public Amigo(int amigoId, String amigoNome, String amigoEmail, String amigoEndereco, String amigoTelefone) {
       this.amigoId = amigoId;
       this.amigoNome = amigoNome;
       this.amigoEmail = amigoEmail;
@@ -76,23 +76,23 @@ public class Amigos {
    }
 
    // LISTAR AMIGOS ============================================================
-   public ArrayList<Amigos> listarTodos() {
+   public ArrayList<Amigo> listarTodos() {
       // CRIANDO O OBJETO DO BANCO DE DADOS
-      AmigosDAO db = new AmigosDAO();
+      AmigoDAO db = new AmigoDAO();
       return db.listarTodos();
    }
 
    // LISTAR UM ================================================================
-   public Amigos listarUm(int id) {
+   public Amigo listarUm(int id) {
       // CRIANDO O OBJETO DO BANCO DE DADOS
-      AmigosDAO db = new AmigosDAO();
+      AmigoDAO db = new AmigoDAO();
       return db.listarUmObjeto(id);
    }
 
    // buscar AMIGO =============================================================
-   public ArrayList<Amigos> buscarAmigos(String texto) {
+   public ArrayList<Amigo> buscarAmigos(String texto) {
       // CRIANDO O OBJETO DO BANCO DE DADOS
-      AmigosDAO db = new AmigosDAO();
+      AmigoDAO db = new AmigoDAO();
       return db.buscarAmigos(texto);
    }
 
@@ -104,10 +104,10 @@ public class Amigos {
       }
 
       // CRIANDO UM OBJETO COM O  NOVO AMIGO
-      Amigos novoAmigo = new Amigos(nome, email, endereco, telefone);
+      Amigo novoAmigo = new Amigo(nome, email, endereco, telefone);
 
       // CRIANDO O OBJETO DO BANCO DE DADOS
-      AmigosDAO db = new AmigosDAO();
+      AmigoDAO db = new AmigoDAO();
       db.inserirAmigo(novoAmigo);
 
       return true;
@@ -121,10 +121,10 @@ public class Amigos {
       }
 
       // CRIANDO UM OBJETO COM O AMIGO
-      Amigos esteAmigo = new Amigos(id, nome, email, endereco, telefone);
+      Amigo esteAmigo = new Amigo(id, nome, email, endereco, telefone);
 
       // CRIANDO O OBJETO DO BANCO DE DADOS
-      AmigosDAO db = new AmigosDAO();
+      AmigoDAO db = new AmigoDAO();
       db.modificarAmigo(esteAmigo);
 
       return true;
@@ -133,51 +133,51 @@ public class Amigos {
    // APAGAR UM AMIGO ==========================================================
    public boolean deletarAmigo(int id) {
       // CRIANDO O OBJETO DO BANCO DE DADOS
-      AmigosDAO db = new AmigosDAO();
+      AmigoDAO db = new AmigoDAO();
       db.deletarAmigo(id);
 
       return true;
    }
 
    // LISTAR EMPRESTADOS =======================================================
-   public ArrayList<Amigos> listarEmprestados() {
+   public ArrayList<Amigo> listarEmprestados() {
       // CRIANDO O OBJETO DO BANCO DE DADOS
-      AmigosDAO db = new AmigosDAO();
+      AmigoDAO db = new AmigoDAO();
       return db.listarEmpmrestados();
    }
 
    // RANKING DE EMPRÉSTIMOS ===================================================
-   public ArrayList<Amigos> getRanking() {
+   public ArrayList<Amigo> getRanking() {
       // CRIANDO O OBJETO DO BANCO DE DADOS
-      AmigosDAO db = new AmigosDAO();
+      AmigoDAO db = new AmigoDAO();
       return db.getRanking();
    }
 
    // LISTAR OS AMIGOS QUE NUNCA DEVOLVERAM AS FERRAMENTAS =====================
-   public ArrayList<Amigos> getInadimplentes() {
+   public ArrayList<Amigo> getInadimplentes() {
       // CRIANDO O OBJETO DO BANCO DE DADOS
-      AmigosDAO db = new AmigosDAO();
+      AmigoDAO db = new AmigoDAO();
       return db.getInadimplentes();
    }
 
    // LISTAR DEVEDORES =========================================================
-   public ArrayList<Amigos> listarDevedores() {
+   public ArrayList<Amigo> listarDevedores() {
       // CRIANDO O OBJETO DO BANCO DE DADOS
-      AmigosDAO db = new AmigosDAO();
+      AmigoDAO db = new AmigoDAO();
       return db.listarDevedores();
    }
 
    // RESUMO ===================================================================
    public int[] fazerRezumo() {
       // CRIANDO O OBJETO DO BANCO DE DADOS
-      AmigosDAO db = new AmigosDAO();
+      AmigoDAO db = new AmigoDAO();
       return db.fazerResumo();
    }
 
    // VERIFICAR SE O AMIGO TEM EMPRÉSTIMOS =====================================
    public int temEmprestimos(int id) {
       // CRIANDO O OBJETO DO BANCO DE DADOS
-      AmigosDAO db = new AmigosDAO();
+      AmigoDAO db = new AmigoDAO();
       return db.temEmprestimos(id);
    }
 }

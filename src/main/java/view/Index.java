@@ -4,30 +4,29 @@ package view;
 // IMPORTAÇÕES
 import javax.swing.JOptionPane;
 import view.negocios.Gerenciador;
-import model.Amigos;
-import model.Ferramentas;
-import model.Negocios;
-import view.amigos.Gerenciadora;
-
+import model.Amigo;
+import model.Ferramenta;
+import model.Negocio;
+//import view.amigos.Gerenciador;
 public class Index extends javax.swing.JFrame {
 
    // FUNÇÃO PARA CARREGAR O DASHBOARD
    private void carregarDashboard() {
       // RESUMO DAS FERRAMENTAS
-      Ferramentas ferramenta = new Ferramentas();
+      Ferramenta ferramenta = new Ferramenta();
       Double[] resumoFerramentas = ferramenta.fazerResumo();
       ferramentasQuantidade.setText(String.format("%.0f", resumoFerramentas[0]));
       ferramentasValor.setText("R$ " + String.format("%.2f", resumoFerramentas[1]));
 
       // RESUMO DOS AMIGOS
-      Amigos amigo = new Amigos();
+      Amigo amigo = new Amigo();
       int resumoAmigos[] = amigo.fazerRezumo();
       amigosQuantidade.setText(String.valueOf(resumoAmigos[0]));
       amigosAtivos.setText(String.valueOf(resumoAmigos[1]));
       amigosAtrasados.setText(String.valueOf(resumoAmigos[2]));
 
       // RESUMO DOS EMPRÉSTIMOS
-      Negocios negocio = new Negocios();
+      Negocio negocio = new Negocio();
       int resumoNegocios[] = negocio.fazerResumo();
       negociosTotal.setText(String.valueOf(resumoNegocios[0]));
       negociosAtivos.setText(String.valueOf(resumoNegocios[1]));
@@ -462,7 +461,6 @@ public class Index extends javax.swing.JFrame {
     private void ferramentasMenuGerenciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ferramentasMenuGerenciarActionPerformed
        // ABRINDO A TELA PARA GERENCIAR FERRAMENTAS
        view.ferramentas.Gerenciador objeto = new view.ferramentas.Gerenciador();
-//        Gerenciador objeto = new Gerenciador();
        objeto.setVisible(true);
        objeto.setLocationRelativeTo(null);
     }//GEN-LAST:event_ferramentasMenuGerenciarActionPerformed
@@ -474,35 +472,34 @@ public class Index extends javax.swing.JFrame {
 
    private void ferramentasMenuEmprestadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ferramentasMenuEmprestadasActionPerformed
       // ABRINDO A TELA COM A LISTA DE FERRAMENTAS EMPRESTADAS
-      view.ferramentas.Emprestadas emprestadas = new view.ferramentas.Emprestadas();
+      view.ferramentas.Emprestada emprestadas = new view.ferramentas.Emprestada();
       emprestadas.setVisible(true);
       emprestadas.setLocationRelativeTo(null);
    }//GEN-LAST:event_ferramentasMenuEmprestadasActionPerformed
 
    private void ferramentasMenuDisponiveisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ferramentasMenuDisponiveisActionPerformed
       // ABRIRINDO A TELA COM A LISTA DE FERRAMENTAS DISPONÍVEIS PARA EMPRÉSTIMOS
-      view.ferramentas.Disponiveis disponivel = new view.ferramentas.Disponiveis();
+      view.ferramentas.Disponivel disponivel = new view.ferramentas.Disponivel();
       disponivel.setVisible(true);
       disponivel.setLocationRelativeTo(null);
    }//GEN-LAST:event_ferramentasMenuDisponiveisActionPerformed
 
    private void amigosMenuGerenciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_amigosMenuGerenciarActionPerformed
-      Gerenciadora objeto = new Gerenciadora();
+      view.amigos.Gerenciador objeto = new view.amigos.Gerenciador();
       objeto.setVisible(true);
       objeto.setLocationRelativeTo(null);
-
    }//GEN-LAST:event_amigosMenuGerenciarActionPerformed
 
    private void amigosMenuEmprestadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_amigosMenuEmprestadosActionPerformed
       // ABRIRINDO A TELA COM A LISTA DE AMIGOS QUE POSSUEM EMPRÉSTIMOS ATIVOS
-      view.amigos.Emprestados emprestados = new view.amigos.Emprestados();
+      view.amigos.Emprestado emprestados = new view.amigos.Emprestado();
       emprestados.setVisible(true);
       emprestados.setLocationRelativeTo(null);
    }//GEN-LAST:event_amigosMenuEmprestadosActionPerformed
 
    private void amigosMenuDevedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_amigosMenuDevedoresActionPerformed
       // ABRIRINDO A TELA COM A LISTA DE AMIGOS COM EMPRESTIMOS PENDENTES
-      view.amigos.Devedores devedores = new view.amigos.Devedores();
+      view.amigos.Devedor devedores = new view.amigos.Devedor();
       devedores.setVisible(true);
       devedores.setLocationRelativeTo(null);
    }//GEN-LAST:event_amigosMenuDevedoresActionPerformed
@@ -516,21 +513,21 @@ public class Index extends javax.swing.JFrame {
 
    private void amigosMenuInadimplentesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_amigosMenuInadimplentesActionPerformed
       // ABRIRINDO A TELA COM A LISTA DE AMIGOS QUE NUNCA DEVOLVERAM AS FERRAMENTAS
-      view.amigos.Inadimplantes inadimplentes = new view.amigos.Inadimplantes();
+      view.amigos.Inadimplante inadimplentes = new view.amigos.Inadimplante();
       inadimplentes.setVisible(true);
       inadimplentes.setLocationRelativeTo(null);
    }//GEN-LAST:event_amigosMenuInadimplentesActionPerformed
 
    private void negociosMenuAtivosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_negociosMenuAtivosActionPerformed
       // ABRIRINDO A TELA COM A LISTA DE EMPRÉSTIMOS ATIVOS NO MOMENTO
-      view.negocios.Ativos ativos = new view.negocios.Ativos();
+      view.negocios.Ativo ativos = new view.negocios.Ativo();
       ativos.setVisible(true);
       ativos.setLocationRelativeTo(null);
    }//GEN-LAST:event_negociosMenuAtivosActionPerformed
 
    private void negociosMenuAtrasadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_negociosMenuAtrasadosActionPerformed
       // ABRIRINDO A TELA COM A LISTA DE EMPRÉSTIMOS PENDENTES
-      view.negocios.Atrasados atrasados = new view.negocios.Atrasados();
+      view.negocios.Atrasado atrasados = new view.negocios.Atrasado();
       atrasados.setVisible(true);
       atrasados.setLocationRelativeTo(null);
    }//GEN-LAST:event_negociosMenuAtrasadosActionPerformed

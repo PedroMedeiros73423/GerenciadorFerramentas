@@ -3,10 +3,10 @@ package model;
 
 // IMPORTAÇÕES
 import javax.swing.JOptionPane;
-import dao.FerramentasDAO;
+import dao.FerramentaDAO;
 import java.util.ArrayList;
 
-public class Ferramentas {
+public class Ferramenta {
 
    // ATRIBUTOS ================================================================
    private int ferramentaId;
@@ -15,18 +15,18 @@ public class Ferramentas {
    private double ferramentaValor;
 
    // CONSTRUTORES =============================================================
-   public Ferramentas() {
+   public Ferramenta() {
       this(0, "", "", 0);
 
    }
 
-   public Ferramentas(String ferramentaNome, String ferramentaMarca, double ferramentaValor) {
+   public Ferramenta(String ferramentaNome, String ferramentaMarca, double ferramentaValor) {
       this.ferramentaNome = ferramentaNome;
       this.ferramentaMarca = ferramentaMarca;
       this.ferramentaValor = ferramentaValor;
    }
 
-   public Ferramentas(int ferramentaId, String ferramentaNome, String ferramentaMarca, double ferramentaValor) {
+   public Ferramenta(int ferramentaId, String ferramentaNome, String ferramentaMarca, double ferramentaValor) {
       this.ferramentaId = ferramentaId;
       this.ferramentaNome = ferramentaNome;
       this.ferramentaMarca = ferramentaMarca;
@@ -72,16 +72,16 @@ public class Ferramentas {
 
    // OUTROS METODOS 
    // LISTAR FERRAMENTAS =======================================================
-   public ArrayList<Ferramentas> listarTodas() {
+   public ArrayList<Ferramenta> listarTodas() {
       // CRIANDO O OBJETO DO BANCO DE DADOS
-      FerramentasDAO db = new FerramentasDAO();
+      FerramentaDAO db = new FerramentaDAO();
       return db.listarTodas();
    }
 
    // LISTAR UMA ===============================================================
-   public Ferramentas listarUma(int id) {
+   public Ferramenta listarUma(int id) {
       // CRIANDO O OBJETO DO BANCO DE DADOS
-      FerramentasDAO db = new FerramentasDAO();
+      FerramentaDAO db = new FerramentaDAO();
       return db.listarUmaObjeto(id);
    }
 
@@ -93,10 +93,10 @@ public class Ferramentas {
       }
 
       // CRIANDO UM OBJETO COM A NOVA FERRAMENTA
-      Ferramentas novaFerramenta = new Ferramentas(nome, marca, valor);
+      Ferramenta novaFerramenta = new Ferramenta(nome, marca, valor);
 
       // CRIANDO O OBJETO DO BANCO DE DADOS
-      FerramentasDAO db = new FerramentasDAO();
+      FerramentaDAO db = new FerramentaDAO();
       boolean result = db.inserirFerramenta(novaFerramenta);
 
       return result;
@@ -110,10 +110,10 @@ public class Ferramentas {
       }
 
       // CRIANDO UM OBJETO COM A FERRAMENTA
-      Ferramentas estaFerramenta = new Ferramentas(id, nome, marca, valor);
+      Ferramenta estaFerramenta = new Ferramenta(id, nome, marca, valor);
 
       // CRIANDO O OBJETO DO BANCO DE DADOS
-      FerramentasDAO db = new FerramentasDAO();
+      FerramentaDAO db = new FerramentaDAO();
       boolean result = db.modificarFerramenta(estaFerramenta);
 
       return result;
@@ -122,7 +122,7 @@ public class Ferramentas {
    // APAGAR UMA FERRAMENTA ====================================================
    public boolean deletarFerramenta(int id) {
       // CRIANDO O OBJETO DO BANCO DE DADOS
-      FerramentasDAO db = new FerramentasDAO();
+      FerramentaDAO db = new FerramentaDAO();
       boolean result = db.deletarFerramenta(id);
 
       if (result == false) {
@@ -133,37 +133,37 @@ public class Ferramentas {
    }
 
    // LISTAR SOMENTE DISPONÍVEIS ===============================================
-   public ArrayList<Ferramentas> listarDisponiveis() {
+   public ArrayList<Ferramenta> listarDisponiveis() {
       // CRIANDO O OBJETO DO BANCO DE DADOS
-      FerramentasDAO db = new FerramentasDAO();
+      FerramentaDAO db = new FerramentaDAO();
       return db.listarDisponiveis();
    }
 
    // BUSCARA FERRAMENTAS DISPONÍVEIS ==========================================
-   public ArrayList<Ferramentas> buscarDisponiveis(String texto) {
+   public ArrayList<Ferramenta> buscarDisponiveis(String texto) {
       // CRIANDO O OBJETO DO BANCO DE DADOS
-      FerramentasDAO db = new FerramentasDAO();
+      FerramentaDAO db = new FerramentaDAO();
       return db.buscarDisponiveis(texto);
    }
 
    // LISTAR SOMENTE EMPRESTADAS ===============================================
-   public ArrayList<Ferramentas> listarEmprestadas() {
+   public ArrayList<Ferramenta> listarEmprestadas() {
       // CRIANDO O OBJETO DO BANCO DE DADOS
-      FerramentasDAO db = new FerramentasDAO();
+      FerramentaDAO db = new FerramentaDAO();
       return db.listarEmprestadas();
    }
 
    // RESUMO ===================================================================
    public Double[] fazerResumo() {
       // CRIANDO O OBJETO DO BANCO DE DADOS
-      FerramentasDAO db = new FerramentasDAO();
+      FerramentaDAO db = new FerramentaDAO();
       return db.fazerResumo();
    }
 
    // VERIFICAR SE A FERRAMENTA TEM EMPRÉSTIMOS ================================
    public int temEmprestimos(int id) {
       // CRIANDO O OBJETO DO BANCO DE DADOS
-      FerramentasDAO db = new FerramentasDAO();
+      FerramentaDAO db = new FerramentaDAO();
       return db.temEmprestimos(id);
    }
 }
