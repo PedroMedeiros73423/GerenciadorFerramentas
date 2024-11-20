@@ -82,7 +82,6 @@ public class Ferramenta {
       this.ferramentaValor = ferramentaValor;
    }
 
-   // OUTROS METODOS 
    // LISTAR FERRAMENTAS =======================================================
    /**
     * Método para listar todas as ferramentas. Não faz nenhum tipo de
