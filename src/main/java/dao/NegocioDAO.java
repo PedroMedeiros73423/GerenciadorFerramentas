@@ -12,9 +12,17 @@ import model.Negocio;
 public class NegocioDAO extends ServidorDAO {
 
    // ATRIBUTOS ================================================================
+   /**
+    * Lista utilizada para retornar os dados de consultas feitas no banco de
+    * dados. Ela precisa ser limpa antes de usar.
+    */
    private final ArrayList<Negocio> listaDeNegocios = new ArrayList<>();
 
    // LISTAR TODOS =============================================================
+   /**
+    * Método para retornar todos os elementos da tabela negócios. Ele retorna
+    * uma lista de objetos, onde cada objeto corresponde a uma linha da tabela.
+    */
    public ArrayList<Negocio> listarNegocios() {
       // LIMPAR A LISTA ANTES DE INSERIR ALGO NELA
       listaDeNegocios.clear();
@@ -51,6 +59,10 @@ public class NegocioDAO extends ServidorDAO {
    }
 
    // LISTAR UM ================================================================
+   /**
+    * Método para retornar um empréstimo da tabela. Recebe como parâmetro o ID
+    * do empréstimo e retorna um objeto.
+    */
    public Negocio listarUmObjeto(int id) {
       // CRIANDO UM OBJETO
       Negocio negocio = new Negocio();
@@ -76,6 +88,10 @@ public class NegocioDAO extends ServidorDAO {
       return negocio;
    }
 
+   /**
+    * Método para retornar um empréstimo da tabela. Recebe como parâmetro o ID
+    * do empréstimo e retorna uma lista.
+    */
    public ArrayList<Negocio> listarUmLista(int id) {
       // LIMPAR A LISTA ANTES DE INSERIR ALGO NELA
       listaDeNegocios.clear();
@@ -110,6 +126,11 @@ public class NegocioDAO extends ServidorDAO {
    }
 
    // CADASTRA NOVO NEGÓCIO ===================================================
+   /**
+    * Método para cadastrar um empreésitmo na tabela. Recebe como parâmetro um
+    * objeto e insere no banco de dados. Retorna true se houve sucesso ou false
+    * em caso de erro.
+    */
    public boolean inserirNegocio(Negocio novoNegocio) {
       // CRIANDO A QUERY
       String sql = "INSERT INTO negocios(negocioId, negocioFerramentaId, negocioAmigoId, negocioInicio, negocioFim, negocioFinal) VALUES(?,?,?,?,?,?)";
@@ -139,6 +160,11 @@ public class NegocioDAO extends ServidorDAO {
    }
 
    // MODIFICAR UM NEGÓCIO =====================================================
+   /**
+    * Método para modificar um empréstimo da tabela. Recebe como parâmetro um
+    * objeto de empréstimo, faz a modificação no banco e retorna true em caso de
+    * sucesso ou false em caso de erro.
+    */
    public boolean modificarNegocio(Negocio esteNegocio) {
       // CRIANDO A QUERY
       String sql = "UPDATE negocios SET negocioFerramentaId = ?, negocioAmigoId = ?, negocioInicio = ?, negocioFim = ?, negocioFinal = ?  WHERE negocioId = ?";
@@ -166,6 +192,10 @@ public class NegocioDAO extends ServidorDAO {
    }
 
    // DELETAR UM NEGÓCIO =======================================================
+   /**
+    * Método para apagar um empréstimo da tabela. Recebe como parâmetro o ID do
+    * empréstimo, verifica se o empréstimo existe, caso exista, apaga do banco.
+    */
    public boolean deletarNegocio(int id) {
       // VERIFICANDO SE O NEGÓCIO EXISTE
       Negocio desfeito = listarUmObjeto(id);
@@ -191,6 +221,12 @@ public class NegocioDAO extends ServidorDAO {
    }
 
    // ENCERRAR UM NEGÓCIO ======================================================
+   /**
+    * Método para finalizar um empréstimo. Só é utilizado quando o amigo devolve
+    * a ferramenta dentro do prazo do empréstimo. Ele altera a coluna negocioFim
+    * e preenche a coluna negocioFinal com a data e hora em que o empréstimo foi
+    * encerrado.
+    */
    public boolean encerrarNegocio(int id) {
       // CRIANDO A QUERY
       String sql = "UPDATE negocios SET negocioFim = now(), negocioFinal = now() WHERE negocioId = " + id;
@@ -210,6 +246,12 @@ public class NegocioDAO extends ServidorDAO {
    }
 
    // FINALIZAR UM NEGÓCIO =====================================================
+   /**
+    * Método para terminar um empréstimo. Só é utilizado quando o amigo devolve
+    * a ferramenta com o prazo expirado. Ele preenche a coluna negocioFinal com
+    * a data e hora em que o empréstimo foi encerrado. Dessa forma é mantido o
+    * histórico de quais ferramentas foram devolvidas dora do prazo.
+    */
    public boolean finalizarNegocio(int id) {
       // CRIANDO A QUERY
       String sql = "UPDATE negocios SET negocioFinal = now() WHERE negocioId = " + id;
@@ -229,6 +271,10 @@ public class NegocioDAO extends ServidorDAO {
    }
 
    // LISTAR NEGÓCIOS ATIVOS ===================================================
+   /**
+    * Método para listar somente empréstimos que estão dentro do prazo legal.
+    * Retorna uma lista de objetos.
+    */
    public ArrayList<Negocio> listarNegociosAtivos() {
       // LIMPAR A LISTA ANTES DE INSERIR ALGO NELA
       listaDeNegocios.clear();
@@ -266,6 +312,10 @@ public class NegocioDAO extends ServidorDAO {
    }
 
    // LISTAR NEGÓCIOS ATRASADOS ===================================================
+   /**
+    * Método para listar somente empréstimos que estão fora do prazo legal.
+    * Retorna uma lista de objetos.
+    */
    public ArrayList<Negocio> listarNegociosAtrasados() {
       // LIMPAR A LISTA ANTES DE INSERIR ALGO NELA
       listaDeNegocios.clear();
@@ -303,6 +353,13 @@ public class NegocioDAO extends ServidorDAO {
    }
 
    // VERIFICAR SE UM AMIGO TEM PENDÊNCIAS =====================================
+   /**
+    * Método para verificar se o amigo que está pedindo uma ferramenta
+    * emprestada possui ferramentas emprestadas e não devolvidas no prazo.
+    * Retorna a quantidade de ferramentas que o amigo não devolveu. Caso ocorra
+    * algum erro na consulta retorna um número bem grande para indicar que
+    * alguma coisa está errada.
+    */
    public int verificaPendencias(int amigoId) {
       // DEFININDO UMA QUANTIDADE INICIAL
       int quantidade = 99;
@@ -327,6 +384,12 @@ public class NegocioDAO extends ServidorDAO {
    }
 
    // RESUMO ===================================================================
+   /**
+    * Método utilizado para fazer um resumo a respeito da tabela negócios.
+    * Quantos empréstimos existe? Quanto empréstimos estão em dia? Quantos
+    * empréstimos estão atrasados? Retorna um array de inteiros com as
+    * informações do resumo. Usada para construir o dashborad.
+    */
    public int[] fazerResumo() {
       // CRIANDO O ARRAY DE RETORNO
       int[] resumoNegocios = new int[3];

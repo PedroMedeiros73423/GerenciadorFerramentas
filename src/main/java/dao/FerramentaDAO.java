@@ -214,7 +214,8 @@ public class FerramentaDAO extends ServidorDAO {
    // RESUMO ===================================================================
    /**
     * Método utilizado para fazer um resumo a respeito da tabela ferramentas.
-    * Quantas ferramentas tem? Quanto se gastou para comprar todas elas?
+    * Quantas ferramentas tem? Quanto se gastou para comprar todas elas? Usada
+    * para construir o dashborad.
     */
    public Double[] fazerResumo() {
       // CRIANDO O ARRAY DE RETORNO

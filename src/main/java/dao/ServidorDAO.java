@@ -9,6 +9,10 @@ import java.sql.SQLException;
 public class ServidorDAO {
 
    // ATRIBUTOS ================================================================
+   /**
+    * Configurar nesses atributos o servidor, a porta, o banco de dados, usuário
+    * e senha.
+    */
    private final String server = "127.0.0.1";
    private final int port = 3306;
    private final String database = "ferramentas";
@@ -17,6 +21,11 @@ public class ServidorDAO {
    private final String url = "jdbc:mysql://" + server + ":" + port + "/" + database + "?useTimezone=true&serverTimezone=UTC";
 
    // CONEXÃO COM O BANCO ======================================================
+   /**
+    * Método utilizado para criar a conexão com o servidor de banco de dados.
+    * Retorna um objeto do tipo Connection ou imprime no terminal algumas
+    * mensagens de erro caso não seja possível fazer a conexão.
+    */
    public Connection getConexao() {
       // CRIAR A CONEXÃO
       Connection connection = null;

@@ -251,7 +251,8 @@ public class AmigoDAO extends ServidorDAO {
    /**
     * Método para apagar um amigo da tabela. Recebe como parâmetro o ID do
     * amigo, verifica se o amigo existe, caso exista, apaga do banco. OBS.: caso
-    * o amigo já possua relacionamentos ele não será apagado e será retornado false.
+    * o amigo já possua relacionamentos ele não será apagado e será retornado
+    * false.
     */
    public boolean deletarAmigo(int id) {
       // VERIFICANDO SE O AMIGO EXISTE
@@ -281,7 +282,8 @@ public class AmigoDAO extends ServidorDAO {
    /**
     * Método utilizado para fazer um resumo a respeito da tabela amigos. Quantos
     * amigos tem? Quantos possuem empréstimos ativos Quantos possuem empréstimos
-    * atrasados. Retorna as informações em um array de inteiros.
+    * atrasados. Retorna as informações em um array de inteiros. Usada para
+    * construir o dashborad.
     */
    public int[] fazerResumo() {
       // CRIANDO A VARIÁVEL DE RETORNO
