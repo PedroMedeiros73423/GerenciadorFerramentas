@@ -1,4 +1,5 @@
-CREATE DATABASE  IF NOT EXISTS `ferramentas` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+DROP DATABASE IF EXISTS `ferramentas`;
+CREATE DATABASE IF NOT EXISTS `ferramentas`;
 USE `ferramentas`;
 
 

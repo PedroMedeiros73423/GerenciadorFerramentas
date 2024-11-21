@@ -46,6 +46,8 @@ Pedro Henrique Medeiros - RA 162410853 (PedroMedeiros73423)<br>
 <li>Eventuais manutenções e ampliações do software não fazem parte do escopo inicial devendo serem solicitadas aos desenvolvedores em outros momentos.</li>
 
 <h3>Banco de dados</h3>
+Script para criar o banco de dados:<br>
+<pre><a href="https://github.com/PedroMedeiros73423/GerenciadorFerramentas/blob/main/banco.sql">banco.sql</a></pre>
 O banco de dados deve estar localizado na mesma máquina onde o programa será rodado.
 O banco é formado por apenas 3 tabelas: ferramentas, amigos e negócios.
 Para não precisar modificar nada do código do programa em relação à conexão com o banco de dados, configure no SGBD as seguintes credenciais:<br>
