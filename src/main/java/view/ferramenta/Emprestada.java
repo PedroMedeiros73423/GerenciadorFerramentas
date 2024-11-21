@@ -1,16 +1,16 @@
-package view.amigos;
+package view.ferramenta;
 
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import model.Amigo;
+import model.Ferramenta;
 
-public class Emprestado extends javax.swing.JFrame {
+public class Emprestada extends javax.swing.JFrame {
 
    // CRIANDO UM OBJETO DE MANIPULAÇÃO
-   Amigo manipulado = new Amigo("", "", "", "");
+   Ferramenta manipulado = new Ferramenta("", "", 0.0);
 
-   public Emprestado() {
+   public Emprestada() {
       initComponents();
 
       // CARREGANDO A TABELA
@@ -20,24 +20,23 @@ public class Emprestado extends javax.swing.JFrame {
    // METODO PARA CARREGAR OS DADOS NA TABELA
    public void carregaTabela() {
       // LENDO O MODELO DA TABELA
-      DefaultTableModel modelo = (DefaultTableModel) this.tabelaEmprestados.getModel();
+      DefaultTableModel modelo = (DefaultTableModel) this.tabelaEmprestadas.getModel();
       modelo.setNumRows(0);
 
       // BUSCANDO OS DADOS NO BANCO
-      ArrayList<Amigo> emprestados = manipulado.listarEmprestados();
+      ArrayList<Ferramenta> todasEmprestadas = manipulado.listarEmprestadas();
 
-      if (emprestados.size() == 0) {
-         JOptionPane.showMessageDialog(null, "Não há amigos com ferramentas emprestadas!");
+      if (todasEmprestadas.size() == 0) {
+         JOptionPane.showMessageDialog(null, "Não há ferramentas emprestadas");
       }
 
       // INSRINDO OS DADOS NA TABELA
-      for (Amigo esteAmigo : emprestados) {
+      for (Ferramenta estaFerramenta : todasEmprestadas) {
          modelo.addRow(new Object[]{
-            esteAmigo.getAmigoId(),
-            esteAmigo.getAmigoNome(),
-            esteAmigo.getAmigoEmail(),
-            esteAmigo.getAmigoEndereco(),
-            esteAmigo.getAmigoTelefone()
+            estaFerramenta.getFerramentaId(),
+            estaFerramenta.getFerramentaNome(),
+            estaFerramenta.getFerramentaMarca(),
+            estaFerramenta.getFerramentaValor()
          });
       }
    }
@@ -48,24 +47,33 @@ public class Emprestado extends javax.swing.JFrame {
 
       jLabel1 = new javax.swing.JLabel();
       jScrollPane1 = new javax.swing.JScrollPane();
-      tabelaEmprestados = new javax.swing.JTable();
+      tabelaEmprestadas = new javax.swing.JTable();
       botaoAtualizar = new javax.swing.JButton();
       botaoVoltar = new javax.swing.JButton();
 
       setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+      setTitle("FERRAMENTAS EMPRESTADAS");
 
       jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
-      jLabel1.setText("Lista de amigos com empréstimos");
+      jLabel1.setText("Lista de Ferramentas Emprestadas");
 
-      tabelaEmprestados.setModel(new javax.swing.table.DefaultTableModel(
+      tabelaEmprestadas.setModel(new javax.swing.table.DefaultTableModel(
          new Object [][] {
 
          },
          new String [] {
-            "ID", "Nome", "Email", "Endereço", "Telefone"
+            "ID", "Nome", "Marca", "Valor"
          }
-      ));
-      jScrollPane1.setViewportView(tabelaEmprestados);
+      ) {
+         Class[] types = new Class [] {
+            java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+         };
+
+         public Class getColumnClass(int columnIndex) {
+            return types [columnIndex];
+         }
+      });
+      jScrollPane1.setViewportView(tabelaEmprestadas);
 
       botaoAtualizar.setText("Atualizar");
       botaoAtualizar.addActionListener(new java.awt.event.ActionListener() {
@@ -88,14 +96,14 @@ public class Emprestado extends javax.swing.JFrame {
          .addGroup(layout.createSequentialGroup()
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                .addGroup(layout.createSequentialGroup()
-                  .addGap(16, 16, 16)
-                  .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                  .addGap(14, 14, 14)
+                  .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                      .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 766, javax.swing.GroupLayout.PREFERRED_SIZE)
                      .addComponent(jLabel1)))
                .addGroup(layout.createSequentialGroup()
-                  .addGap(283, 283, 283)
+                  .addGap(273, 273, 273)
                   .addComponent(botaoAtualizar)
-                  .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                  .addGap(18, 18, 18)
                   .addComponent(botaoVoltar)))
             .addContainerGap(18, Short.MAX_VALUE))
       );
@@ -105,12 +113,12 @@ public class Emprestado extends javax.swing.JFrame {
             .addContainerGap()
             .addComponent(jLabel1)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 376, Short.MAX_VALUE)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 384, Short.MAX_VALUE)
+            .addGap(12, 12, 12)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                .addComponent(botaoAtualizar)
                .addComponent(botaoVoltar))
-            .addGap(14, 14, 14))
+            .addContainerGap())
       );
 
       pack();
@@ -128,7 +136,7 @@ public class Emprestado extends javax.swing.JFrame {
    public static void main(String args[]) {
       java.awt.EventQueue.invokeLater(new Runnable() {
          public void run() {
-            new Emprestado().setVisible(true);
+            new Emprestada().setVisible(true);
          }
       });
    }
@@ -138,6 +146,6 @@ public class Emprestado extends javax.swing.JFrame {
    private javax.swing.JButton botaoVoltar;
    private javax.swing.JLabel jLabel1;
    private javax.swing.JScrollPane jScrollPane1;
-   private javax.swing.JTable tabelaEmprestados;
+   private javax.swing.JTable tabelaEmprestadas;
    // End of variables declaration//GEN-END:variables
 }

@@ -1,4 +1,4 @@
-package view.amigos;
+package view.amigo;
 
 import java.util.ArrayList;
 import javax.swing.JOptionPane;

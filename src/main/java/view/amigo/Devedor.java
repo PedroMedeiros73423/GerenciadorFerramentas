@@ -1,37 +1,37 @@
-package view.amigos;
+package view.amigo;
 
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.Amigo;
 
-public class Ranking extends javax.swing.JFrame {
+public class Devedor extends javax.swing.JFrame {
 
    // CRIANDO UM OBJETO DE MANIPULAÇÃO
-   Amigo manipulado = new Amigo();
+   Amigo manipulado = new Amigo("", "", "", "");
 
-   public Ranking() {
+   public Devedor() {
       initComponents();
 
       // CARREGANDO A TABELA
       this.carregaTabela();
    }
-
    // METODO PARA CARREGAR OS DADOS NA TABELA
+
    public void carregaTabela() {
       // LENDO O MODELO DA TABELA
-      DefaultTableModel modelo = (DefaultTableModel) this.tabelaAmigosRanking.getModel();
+      DefaultTableModel modelo = (DefaultTableModel) this.tabelaDevedores.getModel();
       modelo.setNumRows(0);
 
       // BUSCANDO OS DADOS NO BANCO
-      ArrayList<Amigo> ranking = manipulado.getRanking();
+      ArrayList<Amigo> devedores = manipulado.listarDevedores();
 
-      if (ranking.size() == 0) {
-         JOptionPane.showMessageDialog(null, "Não há dados suficientes para formar o ranking");
+      if (devedores.size() == 0) {
+         JOptionPane.showMessageDialog(null, "BOA NOTÍCIA!\nNão há amigos devendo ferramentas emprestadas!");
       }
 
-      // INSRINDO OS DADOS NA TABELA
-      for (Amigo esteAmigo : ranking) {
+      // INSERINDO OS DADOS NA TABELA
+      for (Amigo esteAmigo : devedores) {
          modelo.addRow(new Object[]{
             esteAmigo.getAmigoId(),
             esteAmigo.getAmigoNome(),
@@ -46,24 +46,26 @@ public class Ranking extends javax.swing.JFrame {
    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
    private void initComponents() {
 
-      jScrollPane1 = new javax.swing.JScrollPane();
-      tabelaAmigosRanking = new javax.swing.JTable();
-      botaoAtualizar = new javax.swing.JButton();
-      botaoVoltar = new javax.swing.JButton();
       jLabel1 = new javax.swing.JLabel();
+      jScrollPane1 = new javax.swing.JScrollPane();
+      tabelaDevedores = new javax.swing.JTable();
+      botaoAtualizar = new javax.swing.JButton();
+      botãoVoltar = new javax.swing.JButton();
 
       setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-      setTitle("RANKING");
 
-      tabelaAmigosRanking.setModel(new javax.swing.table.DefaultTableModel(
+      jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+      jLabel1.setText("Lista de amigos devedores");
+
+      tabelaDevedores.setModel(new javax.swing.table.DefaultTableModel(
          new Object [][] {
 
          },
          new String [] {
-            "Empréstimos", "Nome", "Email", "Endereço", "Telefone"
+            "ID", "Nome", "Email", "Endereço", "Telefone"
          }
       ));
-      jScrollPane1.setViewportView(tabelaAmigosRanking);
+      jScrollPane1.setViewportView(tabelaDevedores);
 
       botaoAtualizar.setText("Atualizar");
       botaoAtualizar.addActionListener(new java.awt.event.ActionListener() {
@@ -72,74 +74,70 @@ public class Ranking extends javax.swing.JFrame {
          }
       });
 
-      botaoVoltar.setText("Voltar");
-      botaoVoltar.addActionListener(new java.awt.event.ActionListener() {
+      botãoVoltar.setText("Voltar");
+      botãoVoltar.addActionListener(new java.awt.event.ActionListener() {
          public void actionPerformed(java.awt.event.ActionEvent evt) {
-            botaoVoltarActionPerformed(evt);
+            botãoVoltarActionPerformed(evt);
          }
       });
-
-      jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
-      jLabel1.setText("Ranking de empréstimos");
 
       javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
       getContentPane().setLayout(layout);
       layout.setHorizontalGroup(
          layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
          .addGroup(layout.createSequentialGroup()
-            .addContainerGap()
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                .addGroup(layout.createSequentialGroup()
-                  .addComponent(jLabel1)
-                  .addGap(0, 227, Short.MAX_VALUE))
-               .addComponent(jScrollPane1))
-            .addContainerGap())
-         .addGroup(layout.createSequentialGroup()
-            .addGap(301, 301, 301)
-            .addComponent(botaoAtualizar)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addComponent(botaoVoltar)
-            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                  .addContainerGap()
+                  .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                     .addComponent(jLabel1)
+                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 766, javax.swing.GroupLayout.PREFERRED_SIZE)))
+               .addGroup(layout.createSequentialGroup()
+                  .addGap(291, 291, 291)
+                  .addComponent(botaoAtualizar)
+                  .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                  .addComponent(botãoVoltar)))
+            .addContainerGap(28, Short.MAX_VALUE))
       );
       layout.setVerticalGroup(
          layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
          .addGroup(layout.createSequentialGroup()
-            .addContainerGap()
+            .addGap(14, 14, 14)
             .addComponent(jLabel1)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 384, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 364, Short.MAX_VALUE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                .addComponent(botaoAtualizar)
-               .addComponent(botaoVoltar))
-            .addContainerGap())
+               .addComponent(botãoVoltar))
+            .addGap(18, 18, 18))
       );
 
       pack();
    }// </editor-fold>//GEN-END:initComponents
 
     private void botaoAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAtualizarActionPerformed
-       // RECARREGAR A TABELA
+       // RECARREGANDO A TABELA
        this.carregaTabela();
     }//GEN-LAST:event_botaoAtualizarActionPerformed
 
-    private void botaoVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoVoltarActionPerformed
+    private void botãoVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botãoVoltarActionPerformed
        this.dispose();
-    }//GEN-LAST:event_botaoVoltarActionPerformed
+    }//GEN-LAST:event_botãoVoltarActionPerformed
 
    public static void main(String args[]) {
       java.awt.EventQueue.invokeLater(new Runnable() {
          public void run() {
-            new Ranking().setVisible(true);
+            new Devedor().setVisible(true);
          }
       });
    }
 
    // Variables declaration - do not modify//GEN-BEGIN:variables
    private javax.swing.JButton botaoAtualizar;
-   private javax.swing.JButton botaoVoltar;
+   private javax.swing.JButton botãoVoltar;
    private javax.swing.JLabel jLabel1;
    private javax.swing.JScrollPane jScrollPane1;
-   private javax.swing.JTable tabelaAmigosRanking;
+   private javax.swing.JTable tabelaDevedores;
    // End of variables declaration//GEN-END:variables
 }

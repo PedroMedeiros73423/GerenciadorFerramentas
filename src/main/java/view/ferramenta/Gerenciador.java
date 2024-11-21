@@ -1,4 +1,4 @@
-package view.ferramentas;
+package view.ferramenta;
 
 import java.util.ArrayList;
 import javax.swing.JOptionPane;

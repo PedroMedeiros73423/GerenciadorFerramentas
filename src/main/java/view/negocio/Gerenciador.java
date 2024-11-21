@@ -1,4 +1,4 @@
-package view.negocios;
+package view.negocio;
 
 import java.util.Date;
 import java.text.SimpleDateFormat;
