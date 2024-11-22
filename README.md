@@ -24,26 +24,29 @@ João Vitor Iuncks - RA 162212085 (Iuncks)<br>
 Pedro Henrique Medeiros - RA 162410853 (PedroMedeiros73423)<br> 
 
 <h3>Requisitos funcionais</h3>
-<li>Cadastro e edição de ferramentas;</li>
-<li>Cadastro e edição de amigos;</li>
-<li>Cadastro e edição de empréstimos;</li>
-<li>Listar as ferramentas e o valor gasto de aquisição;</li>
-<li>Listar as ferramentas emprestadas;</li>
-<li>Listar as ferramentas disponíveis para empréstimos;</li>
-<li>Listar os amigos com empréstimos em dia;</li>
-<li>Listar os amigos com empréstimos atrasados;</li>
-<li>Listar os empréstimos em dia;</li>
-<li>Listar os empréstimos atrasados;</li>
-<li>Listar os amigos que nunca devolveram as ferramentas que pediram emprestadas;</li>
-<li>Verificar pendência de ferramentas não devolvidas pelo amigo antes de conceder novo empréstimo.</li>
+<li>RF001 Cadastro e edição de ferramentas;</li>
+<li>RF002 Cadastro e edição de amigos;</li>
+<li>RF003 Cadastro e edição de empréstimos;</li>
+<li>RF004 Listar as ferramentas e o valor gasto de aquisição;</li>
+<li>RF005 Listar as ferramentas emprestadas;</li>
+<li>RF006 Listar as ferramentas disponíveis para empréstimos;</li>
+<li>RF007 Listar os amigos com empréstimos em dia;</li>
+<li>RF008 Listar os amigos com empréstimos atrasados;</li>
+<li>RF009 Listar os empréstimos em dia;</li>
+<li>RF010 Listar os empréstimos atrasados;</li>
+<li>RF011 Listar os amigos que nunca devolveram as ferramentas que pediram emprestadas;</li>
+<li>RF012 Verificar pendência de ferramentas não devolvidas pelo amigo antes de conceder novo empréstimo.</li>
 
 <h3>Requisitos não funcionais</h3>
-<li>O banco de dados deve estar instalado no mesmo computador onde o programa está rodando;</li>
-<li>É necessário um computador com ambiente gráfico para rodar o programa;</li>
-<li>É necessário a versão 8 do java instalado;</li>
-<li>O software é destinado para uso pessoal de forma que nenhuma informação por ele manipulada é compartilhada, logo, a LGPD não se aplica nesse caso;</li>
-<li>Não há criptografia dos dados manipulados, as informações são armazenadas no banco de dados em texto puro;</li>
-<li>Eventuais manutenções e ampliações do software não fazem parte do escopo inicial devendo serem solicitadas aos desenvolvedores em outros momentos.</li>
+<li>RNF001 Desenvolver em linguagem Java usando o JDK 8;</li>
+<li>RNF002 Usado como ambiente de desenvolvimento a IDE Nebeans 13;</li>
+<li>RNF003 O sofware deve rodar em um computador apenas;</li>
+<li>RNF004 O banco de dados deve estar instalado no mesmo computador onde o programa está rodando;</li>
+<li>RNF005 É necessário um computador com ambiente gráfico para rodar o programa;</li>
+<li>RNF006 O programa deve responder em tempo real todas as iterações do usuário;</li>
+<li>RNF007 O software é destinado para uso pessoal de forma que nenhuma informação é compartilhada por funções do programa, logo, a LGPD não se aplica nesse caso. Compartilhamento de informações por iniciativa do usuário isentam de responsabilidade os desenvolvedores;</li>
+<li>RNF008 Não há criptografia dos dados manipulados, as informações são armazenadas no banco de dados em texto puro;</li>
+<li>RNF009 Eventuais manutenções e ampliações do software não fazem parte do escopo inicial devendo serem solicitadas aos desenvolvedores em outros momentos.</li>
 
 <h3>Banco de dados</h3>
 Script para criar o banco de dados:<br>
