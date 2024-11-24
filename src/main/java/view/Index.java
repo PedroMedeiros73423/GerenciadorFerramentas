@@ -285,7 +285,7 @@ public class Index extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel2.setText("Dashboard");
 
-        botaoAtualizar.setText("Aualizar");
+        botaoAtualizar.setText("Atualizar");
         botaoAtualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoAtualizarActionPerformed(evt);
