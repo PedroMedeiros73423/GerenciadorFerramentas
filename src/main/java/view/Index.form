@@ -450,7 +450,7 @@
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
                           <Component id="Emprestimos" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -491,19 +491,19 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Neg&#xf3;cios"/>
+            <Property name="text" type="java.lang.String" value="Empr&#xe9;stimos"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JSeparator" name="jSeparator3">
         </Component>
+        <Component class="javax.swing.JLabel" name="jLabel10">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Em dia:"/>
+          </Properties>
+        </Component>
         <Component class="javax.swing.JLabel" name="jLabel9">
           <Properties>
             <Property name="text" type="java.lang.String" value="Quantidade:"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel10">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Ativos:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel11">
